@@ -1,0 +1,4642 @@
+[
+  {
+    "food": "Apple",
+    "calories": 52,
+    "protein": 0.3,
+    "carbs": 14.0,
+    "fat": 0.2,
+    "gi": 39,
+    "category": "General",
+    "notes": "Fiber: 2.4g, Potassium: 107mg"
+  },
+  {
+    "food": "Banana",
+    "calories": 96,
+    "protein": 1.1,
+    "carbs": 23.0,
+    "fat": 0.2,
+    "gi": 51,
+    "category": "General",
+    "notes": "Fiber: 2.6g, Potassium: 358mg"
+  },
+  {
+    "food": "Orange",
+    "calories": 43,
+    "protein": 0.9,
+    "carbs": 9.0,
+    "fat": 0.1,
+    "gi": 42,
+    "category": "General",
+    "notes": "Fiber: 2.3g, Potassium: 181mg"
+  },
+  {
+    "food": "Strawberries",
+    "calories": 29,
+    "protein": 0.7,
+    "carbs": 7.0,
+    "fat": 0.3,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 153mg"
+  },
+  {
+    "food": "Blueberries",
+    "calories": 57,
+    "protein": 0.7,
+    "carbs": 14.0,
+    "fat": 0.3,
+    "gi": 53,
+    "category": "General",
+    "notes": "Fiber: 2.4g, Potassium: 77mg"
+  },
+  {
+    "food": "Watermelon",
+    "calories": 30,
+    "protein": 0.6,
+    "carbs": 8.0,
+    "fat": 0.2,
+    "gi": 76,
+    "category": "General",
+    "notes": "Fiber: 0.6g, Potassium: 112mg"
+  },
+  {
+    "food": "Pineapple",
+    "calories": 50,
+    "protein": 0.5,
+    "carbs": 13.0,
+    "fat": 0.1,
+    "gi": 66,
+    "category": "General",
+    "notes": "Fiber: 1.4g, Potassium: 180mg"
+  },
+  {
+    "food": "Mango",
+    "calories": 60,
+    "protein": 0.8,
+    "carbs": 15.0,
+    "fat": 0.4,
+    "gi": 51,
+    "category": "General",
+    "notes": "Fiber: 1.6g, Potassium: 156mg"
+  },
+  {
+    "food": "Grapes",
+    "calories": 69,
+    "protein": 0.7,
+    "carbs": 18.0,
+    "fat": 0.2,
+    "gi": 46,
+    "category": "General",
+    "notes": "Fiber: 0.9g, Potassium: 191mg"
+  },
+  {
+    "food": "Avocado",
+    "calories": 160,
+    "protein": 2.0,
+    "carbs": 9.0,
+    "fat": 15.0,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 6.7g, Potassium: 485mg"
+  },
+  {
+    "food": "Tomato",
+    "calories": 18,
+    "protein": 0.9,
+    "carbs": 4.0,
+    "fat": 0.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.2g, Potassium: 237mg"
+  },
+  {
+    "food": "Carrot",
+    "calories": 41,
+    "protein": 0.9,
+    "carbs": 10.0,
+    "fat": 0.2,
+    "gi": 47,
+    "category": "General",
+    "notes": "Fiber: 2.8g, Potassium: 320mg"
+  },
+  {
+    "food": "Broccoli",
+    "calories": 55,
+    "protein": 4.2,
+    "carbs": 11.0,
+    "fat": 0.6,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.6g, Potassium: 316mg"
+  },
+  {
+    "food": "Spinach",
+    "calories": 23,
+    "protein": 2.9,
+    "carbs": 3.6,
+    "fat": 0.4,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.2g, Potassium: 558mg"
+  },
+  {
+    "food": "Lettuce",
+    "calories": 5,
+    "protein": 0.5,
+    "carbs": 1.0,
+    "fat": 0.1,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 0.5g, Potassium: 45mg"
+  },
+  {
+    "food": "Cucumber",
+    "calories": 16,
+    "protein": 0.7,
+    "carbs": 3.6,
+    "fat": 0.1,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 0.5g, Potassium: 147mg"
+  },
+  {
+    "food": "Zucchini",
+    "calories": 17,
+    "protein": 1.2,
+    "carbs": 3.1,
+    "fat": 0.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 295mg"
+  },
+  {
+    "food": "Bell Pepper",
+    "calories": 31,
+    "protein": 1.3,
+    "carbs": 6.0,
+    "fat": 0.3,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.1g, Potassium: 211mg"
+  },
+  {
+    "food": "Cauliflower",
+    "calories": 25,
+    "protein": 2.0,
+    "carbs": 5.0,
+    "fat": 0.3,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 299mg"
+  },
+  {
+    "food": "Celery",
+    "calories": 6,
+    "protein": 0.3,
+    "carbs": 1.2,
+    "fat": 0.1,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.6g, Potassium: 104mg"
+  },
+  {
+    "food": "Eggplant",
+    "calories": 25,
+    "protein": 1.0,
+    "carbs": 6.0,
+    "fat": 0.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 229mg"
+  },
+  {
+    "food": "Sweet Potato",
+    "calories": 86,
+    "protein": 1.6,
+    "carbs": 20.0,
+    "fat": 0.1,
+    "gi": 70,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 337mg"
+  },
+  {
+    "food": "Brown Rice",
+    "calories": 216,
+    "protein": 5.0,
+    "carbs": 45.8,
+    "fat": 1.8,
+    "gi": 68,
+    "category": "General",
+    "notes": "Fiber: 3.5g, Potassium: 154mg"
+  },
+  {
+    "food": "Quinoa",
+    "calories": 120,
+    "protein": 4.4,
+    "carbs": 21.3,
+    "fat": 1.9,
+    "gi": 53,
+    "category": "General",
+    "notes": "Fiber: 2.8g, Potassium: 172mg"
+  },
+  {
+    "food": "Oats",
+    "calories": 153,
+    "protein": 5.3,
+    "carbs": 26.3,
+    "fat": 2.7,
+    "gi": 55,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 164mg"
+  },
+  {
+    "food": "Whole Wheat Bread",
+    "calories": 79,
+    "protein": 2.9,
+    "carbs": 15.4,
+    "fat": 1.0,
+    "gi": 69,
+    "category": "General",
+    "notes": "Fiber: 2.7g, Potassium: 82mg"
+  },
+  {
+    "food": "Salmon",
+    "calories": 206,
+    "protein": 22.0,
+    "carbs": 0.0,
+    "fat": 13.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 628mg"
+  },
+  {
+    "food": "Chicken Breast",
+    "calories": 165,
+    "protein": 31.0,
+    "carbs": 0.0,
+    "fat": 3.6,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 354mg"
+  },
+  {
+    "food": "Lean Beef",
+    "calories": 250,
+    "protein": 26.0,
+    "carbs": 0.0,
+    "fat": 17.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 376mg"
+  },
+  {
+    "food": "Turkey Breast",
+    "calories": 98,
+    "protein": 22.0,
+    "carbs": 0.0,
+    "fat": 1.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 290mg"
+  },
+  {
+    "food": "Eggs",
+    "calories": 78,
+    "protein": 6.0,
+    "carbs": 0.6,
+    "fat": 5.3,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 63mg"
+  },
+  {
+    "food": "Almonds",
+    "calories": 579,
+    "protein": 21.2,
+    "carbs": 21.6,
+    "fat": 49.9,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 12.5g, Potassium: 733mg"
+  },
+  {
+    "food": "Walnuts",
+    "calories": 654,
+    "protein": 15.2,
+    "carbs": 13.7,
+    "fat": 65.2,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 6.7g, Potassium: 441mg"
+  },
+  {
+    "food": "Peanuts",
+    "calories": 567,
+    "protein": 25.8,
+    "carbs": 16.1,
+    "fat": 49.2,
+    "gi": 14,
+    "category": "General",
+    "notes": "Fiber: 8.5g, Potassium: 705mg"
+  },
+  {
+    "food": "Greek Yogurt",
+    "calories": 59,
+    "protein": 10.0,
+    "carbs": 3.6,
+    "fat": 0.4,
+    "gi": 11,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 141mg"
+  },
+  {
+    "food": "Cottage Cheese",
+    "calories": 98,
+    "protein": 11.1,
+    "carbs": 2.6,
+    "fat": 4.3,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 104mg"
+  },
+  {
+    "food": "Lentils",
+    "calories": 116,
+    "protein": 9.0,
+    "carbs": 20.0,
+    "fat": 0.4,
+    "gi": 32,
+    "category": "General",
+    "notes": "Fiber: 7.9g, Potassium: 369mg"
+  },
+  {
+    "food": "Chickpeas",
+    "calories": 269,
+    "protein": 15.0,
+    "carbs": 45.0,
+    "fat": 4.2,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 12.2g, Potassium: 875mg"
+  },
+  {
+    "food": "Black Beans",
+    "calories": 227,
+    "protein": 15.2,
+    "carbs": 41.4,
+    "fat": 0.9,
+    "gi": 30,
+    "category": "General",
+    "notes": "Fiber: 15.0g, Potassium: 611mg"
+  },
+  {
+    "food": "Brown Lentils",
+    "calories": 352,
+    "protein": 24.0,
+    "carbs": 60.0,
+    "fat": 1.1,
+    "gi": 32,
+    "category": "General",
+    "notes": "Fiber: 10.7g, Potassium: 731mg"
+  },
+  {
+    "food": "Quinoa",
+    "calories": 120,
+    "protein": 4.4,
+    "carbs": 21.3,
+    "fat": 1.9,
+    "gi": 53,
+    "category": "General",
+    "notes": "Fiber: 2.8g, Potassium: 172mg"
+  },
+  {
+    "food": "Spinach",
+    "calories": 23,
+    "protein": 2.9,
+    "carbs": 3.6,
+    "fat": 0.4,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.2g, Potassium: 558mg"
+  },
+  {
+    "food": "Kale",
+    "calories": 49,
+    "protein": 4.3,
+    "carbs": 8.8,
+    "fat": 0.9,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 330mg"
+  },
+  {
+    "food": "Salmon",
+    "calories": 206,
+    "protein": 22.0,
+    "carbs": 0.0,
+    "fat": 13.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 628mg"
+  },
+  {
+    "food": "Chicken Breast",
+    "calories": 165,
+    "protein": 31.0,
+    "carbs": 0.0,
+    "fat": 3.6,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 354mg"
+  },
+  {
+    "food": "Lean Beef",
+    "calories": 250,
+    "protein": 26.0,
+    "carbs": 0.0,
+    "fat": 17.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 376mg"
+  },
+  {
+    "food": "Turkey Breast",
+    "calories": 98,
+    "protein": 22.0,
+    "carbs": 0.0,
+    "fat": 1.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 290mg"
+  },
+  {
+    "food": "Eggs",
+    "calories": 78,
+    "protein": 6.0,
+    "carbs": 0.6,
+    "fat": 5.3,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 63mg"
+  },
+  {
+    "food": "Almonds",
+    "calories": 579,
+    "protein": 21.2,
+    "carbs": 21.6,
+    "fat": 49.9,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 12.5g, Potassium: 733mg"
+  },
+  {
+    "food": "Walnuts",
+    "calories": 654,
+    "protein": 15.2,
+    "carbs": 13.7,
+    "fat": 65.2,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 6.7g, Potassium: 441mg"
+  },
+  {
+    "food": "Peanuts",
+    "calories": 567,
+    "protein": 25.8,
+    "carbs": 16.1,
+    "fat": 49.2,
+    "gi": 14,
+    "category": "General",
+    "notes": "Fiber: 8.5g, Potassium: 705mg"
+  },
+  {
+    "food": "Greek Yogurt",
+    "calories": 59,
+    "protein": 10.0,
+    "carbs": 3.6,
+    "fat": 0.4,
+    "gi": 11,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 141mg"
+  },
+  {
+    "food": "Cottage Cheese",
+    "calories": 98,
+    "protein": 11.1,
+    "carbs": 2.6,
+    "fat": 4.3,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 104mg"
+  },
+  {
+    "food": "Lentils",
+    "calories": 116,
+    "protein": 9.0,
+    "carbs": 20.0,
+    "fat": 0.4,
+    "gi": 32,
+    "category": "General",
+    "notes": "Fiber: 7.9g, Potassium: 369mg"
+  },
+  {
+    "food": "Chickpeas",
+    "calories": 269,
+    "protein": 15.0,
+    "carbs": 45.0,
+    "fat": 4.2,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 12.2g, Potassium: 875mg"
+  },
+  {
+    "food": "Black Beans",
+    "calories": 227,
+    "protein": 15.2,
+    "carbs": 41.4,
+    "fat": 0.9,
+    "gi": 30,
+    "category": "General",
+    "notes": "Fiber: 15.0g, Potassium: 611mg"
+  },
+  {
+    "food": "Brown Lentils",
+    "calories": 352,
+    "protein": 24.0,
+    "carbs": 60.0,
+    "fat": 1.1,
+    "gi": 32,
+    "category": "General",
+    "notes": "Fiber: 10.7g, Potassium: 731mg"
+  },
+  {
+    "food": "Quinoa",
+    "calories": 120,
+    "protein": 4.4,
+    "carbs": 21.3,
+    "fat": 1.9,
+    "gi": 53,
+    "category": "General",
+    "notes": "Fiber: 2.8g, Potassium: 172mg"
+  },
+  {
+    "food": "Spinach",
+    "calories": 23,
+    "protein": 2.9,
+    "carbs": 3.6,
+    "fat": 0.4,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.2g, Potassium: 558mg"
+  },
+  {
+    "food": "Kale",
+    "calories": 49,
+    "protein": 4.3,
+    "carbs": 8.8,
+    "fat": 0.9,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 330mg"
+  },
+  {
+    "food": "Avocado",
+    "calories": 160,
+    "protein": 2.0,
+    "carbs": 9.0,
+    "fat": 15.0,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 7.0g, Potassium: 485mg"
+  },
+  {
+    "food": "Berries (Mixed)",
+    "calories": 43,
+    "protein": 0.7,
+    "carbs": 10.0,
+    "fat": 0.4,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 2.4g, Potassium: 77mg"
+  },
+  {
+    "food": "Oranges",
+    "calories": 62,
+    "protein": 1.2,
+    "carbs": 15.0,
+    "fat": 0.2,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 3.1g, Potassium: 237mg"
+  },
+  {
+    "food": "Apples",
+    "calories": 52,
+    "protein": 0.3,
+    "carbs": 14.0,
+    "fat": 0.2,
+    "gi": 39,
+    "category": "General",
+    "notes": "Fiber: 2.4g, Potassium: 107mg"
+  },
+  {
+    "food": "Grapes",
+    "calories": 69,
+    "protein": 0.72,
+    "carbs": 18.0,
+    "fat": 0.16,
+    "gi": 59,
+    "category": "General",
+    "notes": "Fiber: 0.9g, Potassium: 191mg"
+  },
+  {
+    "food": "Watermelon",
+    "calories": 30,
+    "protein": 0.6,
+    "carbs": 8.0,
+    "fat": 0.2,
+    "gi": 72,
+    "category": "General",
+    "notes": "Fiber: 0.6g, Potassium: 112mg"
+  },
+  {
+    "food": "Blueberries",
+    "calories": 57,
+    "protein": 0.7,
+    "carbs": 14.0,
+    "fat": 0.3,
+    "gi": 53,
+    "category": "General",
+    "notes": "Fiber: 2.4g, Potassium: 77mg"
+  },
+  {
+    "food": "Strawberries",
+    "calories": 32,
+    "protein": 0.7,
+    "carbs": 7.7,
+    "fat": 0.3,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 153mg"
+  },
+  {
+    "food": "Broccoli",
+    "calories": 55,
+    "protein": 3.7,
+    "carbs": 11.2,
+    "fat": 0.6,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 5.1g, Potassium: 316mg"
+  },
+  {
+    "food": "Cauliflower",
+    "calories": 25,
+    "protein": 1.9,
+    "carbs": 5.3,
+    "fat": 0.3,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 299mg"
+  },
+  {
+    "food": "Green Beans",
+    "calories": 31,
+    "protein": 1.8,
+    "carbs": 7.0,
+    "fat": 0.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 3.4g, Potassium: 209mg"
+  },
+  {
+    "food": "Zucchini",
+    "calories": 17,
+    "protein": 1.2,
+    "carbs": 3.1,
+    "fat": 0.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 247mg"
+  },
+  {
+    "food": "Carrots",
+    "calories": 41,
+    "protein": 0.9,
+    "carbs": 10.0,
+    "fat": 0.2,
+    "gi": 39,
+    "category": "General",
+    "notes": "Fiber: 2.8g, Potassium: 320mg"
+  },
+  {
+    "food": "Tomatoes",
+    "calories": 18,
+    "protein": 0.9,
+    "carbs": 3.9,
+    "fat": 0.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.2g, Potassium: 237mg"
+  },
+  {
+    "food": "Cucumber",
+    "calories": 16,
+    "protein": 0.7,
+    "carbs": 3.6,
+    "fat": 0.1,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 0.5g, Potassium: 76mg"
+  },
+  {
+    "food": "Asparagus",
+    "calories": 20,
+    "protein": 2.2,
+    "carbs": 3.7,
+    "fat": 0.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 202mg"
+  },
+  {
+    "food": "Mushrooms",
+    "calories": 22,
+    "protein": 3.1,
+    "carbs": 3.3,
+    "fat": 0.3,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 318mg"
+  },
+  {
+    "food": "Cabbage",
+    "calories": 25,
+    "protein": 1.3,
+    "carbs": 5.8,
+    "fat": 0.1,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 2.2g, Potassium: 170mg"
+  },
+  {
+    "food": "Onions",
+    "calories": 40,
+    "protein": 1.1,
+    "carbs": 9.3,
+    "fat": 0.1,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 1.7g, Potassium: 146mg"
+  },
+  {
+    "food": "Garlic",
+    "calories": 149,
+    "protein": 6.4,
+    "carbs": 33.1,
+    "fat": 0.5,
+    "gi": 30,
+    "category": "General",
+    "notes": "Fiber: 2.1g, Potassium: 401mg"
+  },
+  {
+    "food": "Lettuce",
+    "calories": 5,
+    "protein": 0.5,
+    "carbs": 1.0,
+    "fat": 0.0,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 0.5g, Potassium: 60mg"
+  },
+  {
+    "food": "Celery",
+    "calories": 16,
+    "protein": 0.7,
+    "carbs": 3.8,
+    "fat": 0.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.6g, Potassium: 260mg"
+  },
+  {
+    "food": "Bell Peppers",
+    "calories": 31,
+    "protein": 1.3,
+    "carbs": 6.3,
+    "fat": 0.3,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.7g, Potassium: 175mg"
+  },
+  {
+    "food": "Eggplant",
+    "calories": 25,
+    "protein": 1.0,
+    "carbs": 6.0,
+    "fat": 0.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 229mg"
+  },
+  {
+    "food": "Cauliflower Rice",
+    "calories": 25,
+    "protein": 1.9,
+    "carbs": 5.3,
+    "fat": 0.3,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 299mg"
+  },
+  {
+    "food": "Cabbage Soup",
+    "calories": 25,
+    "protein": 1.2,
+    "carbs": 6.0,
+    "fat": 0.1,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 170mg"
+  },
+  {
+    "food": "Mushroom Soup",
+    "calories": 41,
+    "protein": 3.9,
+    "carbs": 6.6,
+    "fat": 0.7,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 1.6g, Potassium: 352mg"
+  },
+  {
+    "food": "Tomato Soup",
+    "calories": 74,
+    "protein": 2.6,
+    "carbs": 16.0,
+    "fat": 0.6,
+    "gi": 38,
+    "category": "General",
+    "notes": "Fiber: 2.4g, Potassium: 800mg"
+  },
+  {
+    "food": "Chicken Soup",
+    "calories": 86,
+    "protein": 9.6,
+    "carbs": 7.2,
+    "fat": 1.9,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 0.6g, Potassium: 262mg"
+  },
+  {
+    "food": "Vegetable Soup",
+    "calories": 73,
+    "protein": 2.9,
+    "carbs": 16.0,
+    "fat": 0.6,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 3.1g, Potassium: 511mg"
+  },
+  {
+    "food": "Split Pea Soup",
+    "calories": 116,
+    "protein": 8.2,
+    "carbs": 21.7,
+    "fat": 0.6,
+    "gi": 38,
+    "category": "General",
+    "notes": "Fiber: 8.3g, Potassium: 478mg"
+  },
+  {
+    "food": "Fish Tacos",
+    "calories": 206,
+    "protein": 21.4,
+    "carbs": 17.9,
+    "fat": 6.4,
+    "gi": 35,
+    "category": "General",
+    "notes": "Fiber: 2.5g, Potassium: 511mg"
+  },
+  {
+    "food": "Turkey Chili",
+    "calories": 185,
+    "protein": 16.9,
+    "carbs": 23.6,
+    "fat": 2.7,
+    "gi": 55,
+    "category": "General",
+    "notes": "Fiber: 5.4g, Potassium: 732mg"
+  },
+  {
+    "food": "Veggie Burger",
+    "calories": 124,
+    "protein": 10.1,
+    "carbs": 10.9,
+    "fat": 4.5,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 5.6g, Potassium: 406mg"
+  },
+  {
+    "food": "Chicken Salad",
+    "calories": 196,
+    "protein": 29.7,
+    "carbs": 5.9,
+    "fat": 6.7,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 1.7g, Potassium: 282mg"
+  },
+  {
+    "food": "Tuna Salad",
+    "calories": 179,
+    "protein": 22.2,
+    "carbs": 0.7,
+    "fat": 9.9,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 0.1g, Potassium: 207mg"
+  },
+  {
+    "food": "Greek Salad",
+    "calories": 193,
+    "protein": 5.9,
+    "carbs": 5.2,
+    "fat": 18.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 152mg"
+  },
+  {
+    "food": "Caprese Salad",
+    "calories": 157,
+    "protein": 7.9,
+    "carbs": 4.6,
+    "fat": 12.4,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.1g, Potassium: 213mg"
+  },
+  {
+    "food": "Caesar Salad",
+    "calories": 184,
+    "protein": 7.8,
+    "carbs": 4.1,
+    "fat": 16.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.3g, Potassium: 207mg"
+  },
+  {
+    "food": "Grilled Chicken",
+    "calories": 165,
+    "protein": 31.0,
+    "carbs": 0.0,
+    "fat": 3.6,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 393mg"
+  },
+  {
+    "food": "Salmon",
+    "calories": 206,
+    "protein": 22.2,
+    "carbs": 0.0,
+    "fat": 13.4,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 380mg"
+  },
+  {
+    "food": "Shrimp Stir-Fry",
+    "calories": 140,
+    "protein": 25.0,
+    "carbs": 5.3,
+    "fat": 1.7,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 401mg"
+  },
+  {
+    "food": "Roasted Turkey",
+    "calories": 135,
+    "protein": 29.0,
+    "carbs": 0.0,
+    "fat": 1.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 334mg"
+  },
+  {
+    "food": "Grilled Salmon",
+    "calories": 206,
+    "protein": 22.2,
+    "carbs": 0.0,
+    "fat": 13.4,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 380mg"
+  },
+  {
+    "food": "Baked Chicken",
+    "calories": 165,
+    "protein": 31.0,
+    "carbs": 0.0,
+    "fat": 3.6,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 393mg"
+  },
+  {
+    "food": "Steamed Vegetables",
+    "calories": 62,
+    "protein": 2.5,
+    "carbs": 11.7,
+    "fat": 0.6,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 4.1g, Potassium: 452mg"
+  },
+  {
+    "food": "Quinoa Salad",
+    "calories": 118,
+    "protein": 4.2,
+    "carbs": 20.4,
+    "fat": 2.5,
+    "gi": 53,
+    "category": "General",
+    "notes": "Fiber: 2.6g, Potassium: 152mg"
+  },
+  {
+    "food": "Cottage Cheese",
+    "calories": 98,
+    "protein": 11.1,
+    "carbs": 3.4,
+    "fat": 4.3,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 92mg"
+  },
+  {
+    "food": "Greek Yogurt",
+    "calories": 59,
+    "protein": 10.0,
+    "carbs": 3.6,
+    "fat": 0.4,
+    "gi": 11,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 141mg"
+  },
+  {
+    "food": "Almonds",
+    "calories": 579,
+    "protein": 21.2,
+    "carbs": 21.6,
+    "fat": 49.9,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 12.5g, Potassium: 705mg"
+  },
+  {
+    "food": "Walnuts",
+    "calories": 654,
+    "protein": 15.2,
+    "carbs": 13.7,
+    "fat": 65.2,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 6.7g, Potassium: 441mg"
+  },
+  {
+    "food": "Peanuts",
+    "calories": 567,
+    "protein": 25.8,
+    "carbs": 16.1,
+    "fat": 49.2,
+    "gi": 13,
+    "category": "General",
+    "notes": "Fiber: 8.5g, Potassium: 705mg"
+  },
+  {
+    "food": "Chia Seeds",
+    "calories": 486,
+    "protein": 16.5,
+    "carbs": 42.1,
+    "fat": 30.7,
+    "gi": 1,
+    "category": "General",
+    "notes": "Fiber: 34.4g, Potassium: 407mg"
+  },
+  {
+    "food": "Flaxseeds",
+    "calories": 534,
+    "protein": 18.3,
+    "carbs": 28.9,
+    "fat": 42.2,
+    "gi": 1,
+    "category": "General",
+    "notes": "Fiber: 27.3g, Potassium: 813mg"
+  },
+  {
+    "food": "Oats",
+    "calories": 389,
+    "protein": 16.9,
+    "carbs": 66.3,
+    "fat": 6.9,
+    "gi": 55,
+    "category": "General",
+    "notes": "Fiber: 10.6g, Potassium: 429mg"
+  },
+  {
+    "food": "Brown Rice",
+    "calories": 370,
+    "protein": 7.9,
+    "carbs": 77.5,
+    "fat": 2.9,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 3.5g, Potassium: 143mg"
+  },
+  {
+    "food": "Quinoa",
+    "calories": 368,
+    "protein": 14.1,
+    "carbs": 64.2,
+    "fat": 6.0,
+    "gi": 53,
+    "category": "General",
+    "notes": "Fiber: 5.9g, Potassium: 563mg"
+  },
+  {
+    "food": "Lentils",
+    "calories": 116,
+    "protein": 9.0,
+    "carbs": 20.0,
+    "fat": 0.4,
+    "gi": 29,
+    "category": "General",
+    "notes": "Fiber: 7.9g, Potassium: 369mg"
+  },
+  {
+    "food": "Kidney Beans",
+    "calories": 127,
+    "protein": 8.7,
+    "carbs": 22.8,
+    "fat": 0.5,
+    "gi": 24,
+    "category": "General",
+    "notes": "Fiber: 6.4g, Potassium: 403mg"
+  },
+  {
+    "food": "Chickpeas",
+    "calories": 164,
+    "protein": 8.9,
+    "carbs": 27.0,
+    "fat": 2.6,
+    "gi": 28,
+    "category": "General",
+    "notes": "Fiber: 7.6g, Potassium: 291mg"
+  },
+  {
+    "food": "Green Peas",
+    "calories": 81,
+    "protein": 5.0,
+    "carbs": 14.5,
+    "fat": 0.4,
+    "gi": 48,
+    "category": "General",
+    "notes": "Fiber: 4.1g, Potassium: 160mg"
+  },
+  {
+    "food": "Broccoli",
+    "calories": 55,
+    "protein": 4.4,
+    "carbs": 11.2,
+    "fat": 0.6,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 3.3g, Potassium: 316mg"
+  },
+  {
+    "food": "Spinach",
+    "calories": 23,
+    "protein": 2.9,
+    "carbs": 3.6,
+    "fat": 0.4,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 2.2g, Potassium: 558mg"
+  },
+  {
+    "food": "Kale",
+    "calories": 49,
+    "protein": 4.3,
+    "carbs": 8.8,
+    "fat": 0.6,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 3.6g, Potassium: 491mg"
+  },
+  {
+    "food": "Asparagus",
+    "calories": 20,
+    "protein": 2.2,
+    "carbs": 3.7,
+    "fat": 0.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.1g, Potassium: 202mg"
+  },
+  {
+    "food": "Zucchini",
+    "calories": 17,
+    "protein": 1.2,
+    "carbs": 3.1,
+    "fat": 0.3,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.1g, Potassium: 295mg"
+  },
+  {
+    "food": "Cauliflower",
+    "calories": 25,
+    "protein": 1.9,
+    "carbs": 5.3,
+    "fat": 0.3,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 299mg"
+  },
+  {
+    "food": "Artichokes",
+    "calories": 47,
+    "protein": 3.3,
+    "carbs": 10.5,
+    "fat": 0.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 5.4g, Potassium: 343mg"
+  },
+  {
+    "food": "Berries (mixed)",
+    "calories": 43,
+    "protein": 0.9,
+    "carbs": 9.6,
+    "fat": 0.4,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 2.3g, Potassium: 77mg"
+  },
+  {
+    "food": "Apple",
+    "calories": 52,
+    "protein": 0.3,
+    "carbs": 14.0,
+    "fat": 0.2,
+    "gi": 39,
+    "category": "General",
+    "notes": "Fiber: 2.4g, Potassium: 107mg"
+  },
+  {
+    "food": "Orange",
+    "calories": 62,
+    "protein": 1.2,
+    "carbs": 15.4,
+    "fat": 0.2,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 3.1g, Potassium: 237mg"
+  },
+  {
+    "food": "Grapes",
+    "calories": 69,
+    "protein": 0.7,
+    "carbs": 18.0,
+    "fat": 0.2,
+    "gi": 53,
+    "category": "General",
+    "notes": "Fiber: 0.9g, Potassium: 191mg"
+  },
+  {
+    "food": "Watermelon",
+    "calories": 30,
+    "protein": 0.6,
+    "carbs": 7.6,
+    "fat": 0.2,
+    "gi": 76,
+    "category": "General",
+    "notes": "Fiber: 0.6g, Potassium: 112mg"
+  },
+  {
+    "food": "Pineapple",
+    "calories": 50,
+    "protein": 0.5,
+    "carbs": 13.1,
+    "fat": 0.1,
+    "gi": 66,
+    "category": "General",
+    "notes": "Fiber: 1.4g, Potassium: 109mg"
+  },
+  {
+    "food": "Strawberries",
+    "calories": 32,
+    "protein": 0.7,
+    "carbs": 7.7,
+    "fat": 0.3,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 153mg"
+  },
+  {
+    "food": "Blueberries",
+    "calories": 57,
+    "protein": 0.7,
+    "carbs": 14.5,
+    "fat": 0.3,
+    "gi": 53,
+    "category": "General",
+    "notes": "Fiber: 2.4g, Potassium: 77mg"
+  },
+  {
+    "food": "Avocado",
+    "calories": 160,
+    "protein": 2.0,
+    "carbs": 8.5,
+    "fat": 14.7,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 6.7g, Potassium: 485mg"
+  },
+  {
+    "food": "Cucumber",
+    "calories": 16,
+    "protein": 0.6,
+    "carbs": 3.6,
+    "fat": 0.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 0.5g, Potassium: 76mg"
+  },
+  {
+    "food": "Carrots",
+    "calories": 41,
+    "protein": 0.9,
+    "carbs": 9.6,
+    "fat": 0.2,
+    "gi": 71,
+    "category": "General",
+    "notes": "Fiber: 2.8g, Potassium: 320mg"
+  },
+  {
+    "food": "Sweet Potato",
+    "calories": 90,
+    "protein": 2.0,
+    "carbs": 21.0,
+    "fat": 0.2,
+    "gi": 70,
+    "category": "General",
+    "notes": "Fiber: 3.3g, Potassium: 337mg"
+  },
+  {
+    "food": "Quinoa Salad",
+    "calories": 118,
+    "protein": 4.2,
+    "carbs": 20.4,
+    "fat": 2.5,
+    "gi": 53,
+    "category": "General",
+    "notes": "Fiber: 2.6g, Potassium: 152mg"
+  },
+  {
+    "food": "Eggplant",
+    "calories": 25,
+    "protein": 1.0,
+    "carbs": 6.0,
+    "fat": 0.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.5g, Potassium: 229mg"
+  },
+  {
+    "food": "Cabbage",
+    "calories": 25,
+    "protein": 1.0,
+    "carbs": 6.0,
+    "fat": 0.1,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 2.2g, Potassium: 170mg"
+  },
+  {
+    "food": "Radish",
+    "calories": 16,
+    "protein": 0.7,
+    "carbs": 3.4,
+    "fat": 0.1,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.6g, Potassium: 202mg"
+  },
+  {
+    "food": "Mushrooms",
+    "calories": 22,
+    "protein": 3.1,
+    "carbs": 3.3,
+    "fat": 0.3,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 318mg"
+  },
+  {
+    "food": "Tomatoes",
+    "calories": 18,
+    "protein": 0.9,
+    "carbs": 3.9,
+    "fat": 0.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.2g, Potassium: 237mg"
+  },
+  {
+    "food": "Celery",
+    "calories": 6,
+    "protein": 0.3,
+    "carbs": 1.2,
+    "fat": 0.1,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 0.6g, Potassium: 104mg"
+  },
+  {
+    "food": "Lettuce",
+    "calories": 5,
+    "protein": 0.5,
+    "carbs": 0.9,
+    "fat": 0.1,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 0.5g, Potassium: 141mg"
+  },
+  {
+    "food": "Onions",
+    "calories": 40,
+    "protein": 1.1,
+    "carbs": 9.0,
+    "fat": 0.1,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 1.7g, Potassium: 146mg"
+  },
+  {
+    "food": "Garlic",
+    "calories": 149,
+    "protein": 6.4,
+    "carbs": 33.1,
+    "fat": 0.5,
+    "gi": 30,
+    "category": "General",
+    "notes": "Fiber: 2.1g, Potassium: 401mg"
+  },
+  {
+    "food": "Ginger",
+    "calories": 80,
+    "protein": 1.8,
+    "carbs": 17.8,
+    "fat": 0.8,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.1g, Potassium: 415mg"
+  },
+  {
+    "food": "Cauliflower Rice",
+    "calories": 25,
+    "protein": 1.9,
+    "carbs": 5.3,
+    "fat": 0.3,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 299mg"
+  },
+  {
+    "food": "Coconut Milk",
+    "calories": 552,
+    "protein": 5.5,
+    "carbs": 6.6,
+    "fat": 57.2,
+    "gi": 41,
+    "category": "General",
+    "notes": "Fiber: 0.5g, Potassium: 263mg"
+  },
+  {
+    "food": "Almond Milk",
+    "calories": 39,
+    "protein": 1.0,
+    "carbs": 1.5,
+    "fat": 3.0,
+    "gi": 25,
+    "category": "General",
+    "notes": "Fiber: 0.6g, Potassium: 170mg"
+  },
+  {
+    "food": "Soy Milk",
+    "calories": 54,
+    "protein": 3.3,
+    "carbs": 3.9,
+    "fat": 2.7,
+    "gi": 25,
+    "category": "General",
+    "notes": "Fiber: 0.4g, Potassium: 118mg"
+  },
+  {
+    "food": "Greek Yogurt",
+    "calories": 59,
+    "protein": 10.0,
+    "carbs": 3.6,
+    "fat": 0.4,
+    "gi": 11,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 141mg"
+  },
+  {
+    "food": "Chia Seeds",
+    "calories": 138,
+    "protein": 4.7,
+    "carbs": 12.3,
+    "fat": 8.8,
+    "gi": 1,
+    "category": "General",
+    "notes": "Fiber: 10.6g, Potassium: 160mg"
+  },
+  {
+    "food": "Flaxseeds",
+    "calories": 534,
+    "protein": 18.3,
+    "carbs": 28.9,
+    "fat": 42.2,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 27.3g, Potassium: 813mg"
+  },
+  {
+    "food": "Oats",
+    "calories": 389,
+    "protein": 17.0,
+    "carbs": 66.0,
+    "fat": 6.9,
+    "gi": 55,
+    "category": "General",
+    "notes": "Fiber: 10.6g, Potassium: 429mg"
+  },
+  {
+    "food": "Brown Rice",
+    "calories": 216,
+    "protein": 4.5,
+    "carbs": 45.8,
+    "fat": 1.6,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 3.5g, Potassium: 86mg"
+  },
+  {
+    "food": "Quinoa",
+    "calories": 120,
+    "protein": 4.4,
+    "carbs": 21.3,
+    "fat": 1.9,
+    "gi": 53,
+    "category": "General",
+    "notes": "Fiber: 2.8g, Potassium: 172mg"
+  },
+  {
+    "food": "Lentils",
+    "calories": 353,
+    "protein": 24.6,
+    "carbs": 63.4,
+    "fat": 1.1,
+    "gi": 32,
+    "category": "General",
+    "notes": "Fiber: 10.7g, Potassium: 955mg"
+  },
+  {
+    "food": "Black Beans",
+    "calories": 341,
+    "protein": 21.6,
+    "carbs": 62.4,
+    "fat": 1.2,
+    "gi": 30,
+    "category": "General",
+    "notes": "Fiber: 16.6g, Potassium: 1200mg"
+  },
+  {
+    "food": "Chickpeas",
+    "calories": 364,
+    "protein": 19.0,
+    "carbs": 61.6,
+    "fat": 6.04,
+    "gi": 28,
+    "category": "General",
+    "notes": "Fiber: 17.4g, Potassium: 875mg"
+  },
+  {
+    "food": "Salmon",
+    "calories": 206,
+    "protein": 22.0,
+    "carbs": 0.0,
+    "fat": 13.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 628mg"
+  },
+  {
+    "food": "Tuna",
+    "calories": 116,
+    "protein": 26.0,
+    "carbs": 0.0,
+    "fat": 1.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 333mg"
+  },
+  {
+    "food": "Chicken Breast",
+    "calories": 165,
+    "protein": 31.0,
+    "carbs": 0.0,
+    "fat": 3.6,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 334mg"
+  },
+  {
+    "food": "Turkey Breast",
+    "calories": 161,
+    "protein": 30.6,
+    "carbs": 0.0,
+    "fat": 3.2,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 318mg"
+  },
+  {
+    "food": "Lean Beef",
+    "calories": 250,
+    "protein": 26.0,
+    "carbs": 0.0,
+    "fat": 17.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 380mg"
+  },
+  {
+    "food": "Egg Whites",
+    "calories": 52,
+    "protein": 11.0,
+    "carbs": 0.7,
+    "fat": 0.2,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 147mg"
+  },
+  {
+    "food": "Almonds",
+    "calories": 579,
+    "protein": 21.2,
+    "carbs": 21.7,
+    "fat": 49.9,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 12.5g, Potassium: 705mg"
+  },
+  {
+    "food": "Walnuts",
+    "calories": 654,
+    "protein": 15.2,
+    "carbs": 13.7,
+    "fat": 65.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 6.7g, Potassium: 441mg"
+  },
+  {
+    "food": "Peanuts",
+    "calories": 567,
+    "protein": 25.8,
+    "carbs": 16.1,
+    "fat": 49.2,
+    "gi": 13,
+    "category": "General",
+    "notes": "Fiber: 8.5g, Potassium: 705mg"
+  },
+  {
+    "food": "Cashews",
+    "calories": 553,
+    "protein": 18.2,
+    "carbs": 30.2,
+    "fat": 43.9,
+    "gi": 27,
+    "category": "General",
+    "notes": "Fiber: 3.3g, Potassium: 660mg"
+  },
+  {
+    "food": "Olive Oil",
+    "calories": 884,
+    "protein": 0.0,
+    "carbs": 0.0,
+    "fat": 100.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 1mg"
+  },
+  {
+    "food": "Coconut Oil",
+    "calories": 862,
+    "protein": 0.0,
+    "carbs": 0.0,
+    "fat": 100.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 0mg"
+  },
+  {
+    "food": "Avocado",
+    "calories": 160,
+    "protein": 2.0,
+    "carbs": 8.5,
+    "fat": 14.7,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 6.7g, Potassium: 485mg"
+  },
+  {
+    "food": "Blueberries",
+    "calories": 57,
+    "protein": 0.7,
+    "carbs": 14.0,
+    "fat": 0.3,
+    "gi": 53,
+    "category": "General",
+    "notes": "Fiber: 2.4g, Potassium: 77mg"
+  },
+  {
+    "food": "Strawberries",
+    "calories": 29,
+    "protein": 0.7,
+    "carbs": 7.0,
+    "fat": 0.3,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 153mg"
+  },
+  {
+    "food": "Raspberries",
+    "calories": 52,
+    "protein": 1.2,
+    "carbs": 12.0,
+    "fat": 0.7,
+    "gi": 32,
+    "category": "General",
+    "notes": "Fiber: 6.5g, Potassium: 151mg"
+  },
+  {
+    "food": "Apples",
+    "calories": 52,
+    "protein": 0.3,
+    "carbs": 14.0,
+    "fat": 0.2,
+    "gi": 39,
+    "category": "General",
+    "notes": "Fiber: 2.4g, Potassium: 107mg"
+  },
+  {
+    "food": "Oranges",
+    "calories": 43,
+    "protein": 0.9,
+    "carbs": 9.0,
+    "fat": 0.1,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 2.3g, Potassium: 181mg"
+  },
+  {
+    "food": "Grapes",
+    "calories": 69,
+    "protein": 0.7,
+    "carbs": 18.0,
+    "fat": 0.2,
+    "gi": 59,
+    "category": "General",
+    "notes": "Fiber: 0.9g, Potassium: 191mg"
+  },
+  {
+    "food": "Watermelon",
+    "calories": 30,
+    "protein": 0.6,
+    "carbs": 8.0,
+    "fat": 0.2,
+    "gi": 72,
+    "category": "General",
+    "notes": "Fiber: 0.6g, Potassium: 112mg"
+  },
+  {
+    "food": "Pineapple",
+    "calories": 50,
+    "protein": 0.5,
+    "carbs": 13.0,
+    "fat": 0.1,
+    "gi": 66,
+    "category": "General",
+    "notes": "Fiber: 1.4g, Potassium: 109mg"
+  },
+  {
+    "food": "Kiwi",
+    "calories": 61,
+    "protein": 1.1,
+    "carbs": 15.0,
+    "fat": 0.5,
+    "gi": 53,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 312mg"
+  },
+  {
+    "food": "Cottage Cheese",
+    "calories": 98,
+    "protein": 11.1,
+    "carbs": 2.6,
+    "fat": 4.3,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 104mg"
+  },
+  {
+    "food": "Greek Salad",
+    "calories": 223,
+    "protein": 7.6,
+    "carbs": 10.2,
+    "fat": 17.2,
+    "gi": 14,
+    "category": "General",
+    "notes": "Fiber: 2.2g, Potassium: 346mg"
+  },
+  {
+    "food": "Quinoa Salad",
+    "calories": 218,
+    "protein": 7.7,
+    "carbs": 35.2,
+    "fat": 6.4,
+    "gi": 53,
+    "category": "General",
+    "notes": "Fiber: 4.1g, Potassium: 318mg"
+  },
+  {
+    "food": "Lentil Soup",
+    "calories": 116,
+    "protein": 7.9,
+    "carbs": 21.1,
+    "fat": 0.6,
+    "gi": 44,
+    "category": "General",
+    "notes": "Fiber: 7.8g, Potassium: 368mg"
+  },
+  {
+    "food": "Chicken Salad",
+    "calories": 196,
+    "protein": 22.4,
+    "carbs": 1.1,
+    "fat": 12.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.4g, Potassium: 250mg"
+  },
+  {
+    "food": "Fish Tacos",
+    "calories": 238,
+    "protein": 13.3,
+    "carbs": 19.7,
+    "fat": 11.4,
+    "gi": 70,
+    "category": "General",
+    "notes": "Fiber: 2.4g, Potassium: 311mg"
+  },
+  {
+    "food": "Zucchini Noodles",
+    "calories": 33,
+    "protein": 2.4,
+    "carbs": 6.6,
+    "fat": 0.3,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.2g, Potassium: 358mg"
+  },
+  {
+    "food": "Eggplant Parmesan",
+    "calories": 180,
+    "protein": 6.0,
+    "carbs": 10.0,
+    "fat": 14.0,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 5.0g, Potassium: 204mg"
+  },
+  {
+    "food": "Spinach Salad",
+    "calories": 23,
+    "protein": 2.9,
+    "carbs": 3.6,
+    "fat": 0.4,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 2.2g, Potassium: 167mg"
+  },
+  {
+    "food": "Stir-Fried Tofu",
+    "calories": 144,
+    "protein": 13.7,
+    "carbs": 6.1,
+    "fat": 8.6,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.5g, Potassium: 206mg"
+  },
+  {
+    "food": "Steamed Broccoli",
+    "calories": 55,
+    "protein": 3.7,
+    "carbs": 11.2,
+    "fat": 0.6,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 3.3g, Potassium: 457mg"
+  },
+  {
+    "food": "Cottage Cheese",
+    "calories": 98,
+    "protein": 11.1,
+    "carbs": 2.6,
+    "fat": 4.3,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 104mg"
+  },
+  {
+    "food": "Mozzarella Cheese",
+    "calories": 280,
+    "protein": 24.0,
+    "carbs": 2.2,
+    "fat": 20.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 58mg"
+  },
+  {
+    "food": "Eggplant",
+    "calories": 25,
+    "protein": 1.0,
+    "carbs": 6.0,
+    "fat": 0.0,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 229mg"
+  },
+  {
+    "food": "Zucchini",
+    "calories": 17,
+    "protein": 1.2,
+    "carbs": 3.1,
+    "fat": 0.3,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 280mg"
+  },
+  {
+    "food": "Bell Peppers",
+    "calories": 31,
+    "protein": 0.9,
+    "carbs": 6.3,
+    "fat": 0.3,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.5g, Potassium: 175mg"
+  },
+  {
+    "food": "Broccoli",
+    "calories": 55,
+    "protein": 4.4,
+    "carbs": 11.2,
+    "fat": 0.6,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 3.3g, Potassium: 316mg"
+  },
+  {
+    "food": "Spinach",
+    "calories": 23,
+    "protein": 2.9,
+    "carbs": 3.6,
+    "fat": 0.4,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.2g, Potassium: 167mg"
+  },
+  {
+    "food": "Kale",
+    "calories": 49,
+    "protein": 4.3,
+    "carbs": 9.0,
+    "fat": 0.9,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 3.6g, Potassium: 330mg"
+  },
+  {
+    "food": "Cauliflower",
+    "calories": 25,
+    "protein": 2.0,
+    "carbs": 5.3,
+    "fat": 0.3,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 320mg"
+  },
+  {
+    "food": "Asparagus",
+    "calories": 20,
+    "protein": 2.2,
+    "carbs": 3.7,
+    "fat": 0.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.2g, Potassium: 202mg"
+  },
+  {
+    "food": "Brussels Sprouts",
+    "calories": 43,
+    "protein": 3.4,
+    "carbs": 9.0,
+    "fat": 0.3,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 3.8g, Potassium: 342mg"
+  },
+  {
+    "food": "Cabbage",
+    "calories": 25,
+    "protein": 1.3,
+    "carbs": 6.0,
+    "fat": 0.1,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.5g, Potassium: 170mg"
+  },
+  {
+    "food": "Celery",
+    "calories": 6,
+    "protein": 0.3,
+    "carbs": 1.2,
+    "fat": 0.1,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.6g, Potassium: 260mg"
+  },
+  {
+    "food": "Lettuce",
+    "calories": 5,
+    "protein": 0.5,
+    "carbs": 1.2,
+    "fat": 0.1,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 0.5g, Potassium: 194mg"
+  },
+  {
+    "food": "Quinoa",
+    "calories": 120,
+    "protein": 4.4,
+    "carbs": 21.3,
+    "fat": 1.9,
+    "gi": 53,
+    "category": "General",
+    "notes": "Fiber: 2.8g, Potassium: 172mg"
+  },
+  {
+    "food": "Brown Rice",
+    "calories": 216,
+    "protein": 4.5,
+    "carbs": 44.8,
+    "fat": 1.8,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 3.5g, Potassium: 43mg"
+  },
+  {
+    "food": "Oats",
+    "calories": 389,
+    "protein": 16.9,
+    "carbs": 66.3,
+    "fat": 6.9,
+    "gi": 55,
+    "category": "General",
+    "notes": "Fiber: 10.6g, Potassium: 429mg"
+  },
+  {
+    "food": "Whole Wheat Bread",
+    "calories": 247,
+    "protein": 10.0,
+    "carbs": 49.0,
+    "fat": 2.5,
+    "gi": 69,
+    "category": "General",
+    "notes": "Fiber: 6.3g, Potassium: 154mg"
+  },
+  {
+    "food": "Barley",
+    "calories": 354,
+    "protein": 12.5,
+    "carbs": 73.5,
+    "fat": 2.3,
+    "gi": 28,
+    "category": "General",
+    "notes": "Fiber: 17.3g, Potassium: 452mg"
+  },
+  {
+    "food": "Lentils",
+    "calories": 230,
+    "protein": 17.9,
+    "carbs": 39.9,
+    "fat": 0.8,
+    "gi": 32,
+    "category": "General",
+    "notes": "Fiber: 15.6g, Potassium: 731mg"
+  },
+  {
+    "food": "Chickpeas",
+    "calories": 364,
+    "protein": 19.0,
+    "carbs": 61.5,
+    "fat": 6.0,
+    "gi": 42,
+    "category": "General",
+    "notes": "Fiber: 17.4g, Potassium: 875mg"
+  },
+  {
+    "food": "Kidney Beans",
+    "calories": 333,
+    "protein": 23.7,
+    "carbs": 60.1,
+    "fat": 0.8,
+    "gi": 24,
+    "category": "General",
+    "notes": "Fiber: 24.9g, Potassium: 1405mg"
+  },
+  {
+    "food": "Black Beans",
+    "calories": 339,
+    "protein": 21.0,
+    "carbs": 62.4,
+    "fat": 1.4,
+    "gi": 30,
+    "category": "General",
+    "notes": "Fiber: 15.0g, Potassium: 1250mg"
+  },
+  {
+    "food": "Walnuts",
+    "calories": 654,
+    "protein": 15.2,
+    "carbs": 13.7,
+    "fat": 65.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 6.7g, Potassium: 441mg"
+  },
+  {
+    "food": "Almonds",
+    "calories": 575,
+    "protein": 21.0,
+    "carbs": 20.0,
+    "fat": 49.9,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 12.2g, Potassium: 773mg"
+  },
+  {
+    "food": "Cashews",
+    "calories": 553,
+    "protein": 18.2,
+    "carbs": 30.2,
+    "fat": 43.9,
+    "gi": 25,
+    "category": "General",
+    "notes": "Fiber: 3.3g, Potassium: 565mg"
+  },
+  {
+    "food": "Peanuts",
+    "calories": 567,
+    "protein": 25.8,
+    "carbs": 16.1,
+    "fat": 49.2,
+    "gi": 13,
+    "category": "General",
+    "notes": "Fiber: 8.5g, Potassium: 705mg"
+  },
+  {
+    "food": "Flaxseeds",
+    "calories": 534,
+    "protein": 18.3,
+    "carbs": 28.9,
+    "fat": 42.2,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 27.3g, Potassium: 813mg"
+  },
+  {
+    "food": "Chia Seeds",
+    "calories": 486,
+    "protein": 16.5,
+    "carbs": 42.1,
+    "fat": 30.7,
+    "gi": 1,
+    "category": "General",
+    "notes": "Fiber: 34.4g, Potassium: 407mg"
+  },
+  {
+    "food": "Greek Yogurt",
+    "calories": 59,
+    "protein": 10.0,
+    "carbs": 3.6,
+    "fat": 0.0,
+    "gi": 11,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 141mg"
+  },
+  {
+    "food": "Salmon",
+    "calories": 206,
+    "protein": 22.0,
+    "carbs": 0.0,
+    "fat": 13.4,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 628mg"
+  },
+  {
+    "food": "Tuna",
+    "calories": 116,
+    "protein": 26.0,
+    "carbs": 0.0,
+    "fat": 0.8,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 346mg"
+  },
+  {
+    "food": "Chicken Breast",
+    "calories": 165,
+    "protein": 31.0,
+    "carbs": 0.0,
+    "fat": 3.6,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 248mg"
+  },
+  {
+    "food": "Lean Beef",
+    "calories": 250,
+    "protein": 26.0,
+    "carbs": 0.0,
+    "fat": 17.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 393mg"
+  },
+  {
+    "food": "Turkey Breast",
+    "calories": 147,
+    "protein": 28.0,
+    "carbs": 0.0,
+    "fat": 1.7,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 377mg"
+  },
+  {
+    "food": "Cod",
+    "calories": 105,
+    "protein": 23.0,
+    "carbs": 0.0,
+    "fat": 0.9,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 429mg"
+  },
+  {
+    "food": "Shrimp",
+    "calories": 85,
+    "protein": 20.0,
+    "carbs": 0.0,
+    "fat": 0.9,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 239mg"
+  },
+  {
+    "food": "Soy Milk",
+    "calories": 54,
+    "protein": 3.3,
+    "carbs": 3.2,
+    "fat": 3.0,
+    "gi": 34,
+    "category": "General",
+    "notes": "Fiber: 1.2g, Potassium: 118mg"
+  },
+  {
+    "food": "Almond Milk",
+    "calories": 39,
+    "protein": 1.0,
+    "carbs": 1.5,
+    "fat": 3.0,
+    "gi": 25,
+    "category": "General",
+    "notes": "Fiber: 0.5g, Potassium: 64mg"
+  },
+  {
+    "food": "Coconut Milk",
+    "calories": 230,
+    "protein": 2.3,
+    "carbs": 5.5,
+    "fat": 23.8,
+    "gi": 41,
+    "category": "General",
+    "notes": "Fiber: 2.2g, Potassium: 263mg"
+  },
+  {
+    "food": "Avocado",
+    "calories": 160,
+    "protein": 2.0,
+    "carbs": 9.0,
+    "fat": 14.7,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 7.0g, Potassium: 485mg"
+  },
+  {
+    "food": "Olive Oil",
+    "calories": 119,
+    "protein": 0.0,
+    "carbs": 0.0,
+    "fat": 13.5,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 0mg"
+  },
+  {
+    "food": "Flaxseed Oil",
+    "calories": 120,
+    "protein": 0.0,
+    "carbs": 0.0,
+    "fat": 13.6,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 0mg"
+  },
+  {
+    "food": "Avocado Oil",
+    "calories": 120,
+    "protein": 0.0,
+    "carbs": 0.0,
+    "fat": 13.6,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 0mg"
+  },
+  {
+    "food": "Chia Seed Oil",
+    "calories": 120,
+    "protein": 0.0,
+    "carbs": 0.0,
+    "fat": 13.6,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 0mg"
+  },
+  {
+    "food": "Salmon Oil",
+    "calories": 902,
+    "protein": 0.0,
+    "carbs": 0.0,
+    "fat": 100.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 0mg"
+  },
+  {
+    "food": "Apple",
+    "calories": 52,
+    "protein": 0.3,
+    "carbs": 14.0,
+    "fat": 0.2,
+    "gi": 39,
+    "category": "General",
+    "notes": "Fiber: 2.4g, Potassium: 107mg"
+  },
+  {
+    "food": "Pear",
+    "calories": 57,
+    "protein": 0.4,
+    "carbs": 15.3,
+    "fat": 0.1,
+    "gi": 38,
+    "category": "General",
+    "notes": "Fiber: 3.1g, Potassium: 116mg"
+  },
+  {
+    "food": "Orange",
+    "calories": 62,
+    "protein": 1.2,
+    "carbs": 15.4,
+    "fat": 0.2,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 3.1g, Potassium: 181mg"
+  },
+  {
+    "food": "Blueberries",
+    "calories": 57,
+    "protein": 0.7,
+    "carbs": 14.0,
+    "fat": 0.3,
+    "gi": 53,
+    "category": "General",
+    "notes": "Fiber: 2.4g, Potassium: 77mg"
+  },
+  {
+    "food": "Strawberries",
+    "calories": 29,
+    "protein": 0.7,
+    "carbs": 7.0,
+    "fat": 0.3,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 153mg"
+  },
+  {
+    "food": "Raspberries",
+    "calories": 53,
+    "protein": 1.2,
+    "carbs": 12.0,
+    "fat": 0.7,
+    "gi": 32,
+    "category": "General",
+    "notes": "Fiber: 6.5g, Potassium: 151mg"
+  },
+  {
+    "food": "Watermelon",
+    "calories": 30,
+    "protein": 0.6,
+    "carbs": 7.6,
+    "fat": 0.2,
+    "gi": 72,
+    "category": "General",
+    "notes": "Fiber: 0.4g, Potassium: 112mg"
+  },
+  {
+    "food": "Pineapple",
+    "calories": 50,
+    "protein": 0.5,
+    "carbs": 13.0,
+    "fat": 0.1,
+    "gi": 59,
+    "category": "General",
+    "notes": "Fiber: 1.4g, Potassium: 109mg"
+  },
+  {
+    "food": "Kiwi",
+    "calories": 61,
+    "protein": 1.1,
+    "carbs": 14.7,
+    "fat": 0.5,
+    "gi": 53,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 237mg"
+  },
+  {
+    "food": "Cucumber",
+    "calories": 16,
+    "protein": 0.7,
+    "carbs": 3.6,
+    "fat": 0.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 0.5g, Potassium: 147mg"
+  },
+  {
+    "food": "Celery",
+    "calories": 16,
+    "protein": 0.7,
+    "carbs": 3.5,
+    "fat": 0.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.6g, Potassium: 260mg"
+  },
+  {
+    "food": "Lettuce",
+    "calories": 5,
+    "protein": 0.5,
+    "carbs": 1.0,
+    "fat": 0.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.5g, Potassium: 194mg"
+  },
+  {
+    "food": "Spinach",
+    "calories": 23,
+    "protein": 2.9,
+    "carbs": 3.6,
+    "fat": 0.4,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 2.2g, Potassium: 558mg"
+  },
+  {
+    "food": "Kale",
+    "calories": 49,
+    "protein": 4.3,
+    "carbs": 9.0,
+    "fat": 0.9,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 3.6g, Potassium: 330mg"
+  },
+  {
+    "food": "Broccoli",
+    "calories": 55,
+    "protein": 3.7,
+    "carbs": 11.2,
+    "fat": 0.6,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 3.3g, Potassium: 316mg"
+  },
+  {
+    "food": "Cauliflower",
+    "calories": 25,
+    "protein": 2.0,
+    "carbs": 5.3,
+    "fat": 0.3,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 320mg"
+  },
+  {
+    "food": "Carrots",
+    "calories": 41,
+    "protein": 0.9,
+    "carbs": 10.0,
+    "fat": 0.2,
+    "gi": 41,
+    "category": "General",
+    "notes": "Fiber: 2.8g, Potassium: 320mg"
+  },
+  {
+    "food": "Green Beans",
+    "calories": 31,
+    "protein": 1.8,
+    "carbs": 7.1,
+    "fat": 0.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 3.4g, Potassium: 209mg"
+  },
+  {
+    "food": "Tomato",
+    "calories": 18,
+    "protein": 0.9,
+    "carbs": 3.9,
+    "fat": 0.2,
+    "gi": 38,
+    "category": "General",
+    "notes": "Fiber: 1.2g, Potassium: 237mg"
+  },
+  {
+    "food": "Tofu",
+    "calories": 144,
+    "protein": 15.7,
+    "carbs": 2.4,
+    "fat": 8.0,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.1g, Potassium: 150mg"
+  },
+  {
+    "food": "Quorn",
+    "calories": 106,
+    "protein": 14.0,
+    "carbs": 4.5,
+    "fat": 2.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 2.8g, Potassium: 433mg"
+  },
+  {
+    "food": "Turkey Breast",
+    "calories": 189,
+    "protein": 27.0,
+    "carbs": 0.0,
+    "fat": 8.2,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 339mg"
+  },
+  {
+    "food": "Lean Beef",
+    "calories": 250,
+    "protein": 26.0,
+    "carbs": 0.0,
+    "fat": 17.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 392mg"
+  },
+  {
+    "food": "Lamb",
+    "calories": 258,
+    "protein": 25.0,
+    "carbs": 0.0,
+    "fat": 17.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 299mg"
+  },
+  {
+    "food": "Pork Tenderloin",
+    "calories": 143,
+    "protein": 30.0,
+    "carbs": 0.0,
+    "fat": 3.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 437mg"
+  },
+  {
+    "food": "Oats",
+    "calories": 389,
+    "protein": 16.9,
+    "carbs": 66.0,
+    "fat": 6.9,
+    "gi": 55,
+    "category": "General",
+    "notes": "Fiber: 10.6g, Potassium: 429mg"
+  },
+  {
+    "food": "Brown Bread",
+    "calories": 247,
+    "protein": 9.4,
+    "carbs": 48.0,
+    "fat": 1.8,
+    "gi": 85,
+    "category": "General",
+    "notes": "Fiber: 6.7g, Potassium: 125mg"
+  },
+  {
+    "food": "Whole Wheat Pasta",
+    "calories": 124,
+    "protein": 4.5,
+    "carbs": 25.7,
+    "fat": 0.8,
+    "gi": 37,
+    "category": "General",
+    "notes": "Fiber: 4.2g, Potassium: 118mg"
+  },
+  {
+    "food": "Quinoa Pasta",
+    "calories": 121,
+    "protein": 4.2,
+    "carbs": 21.3,
+    "fat": 2.2,
+    "gi": 53,
+    "category": "General",
+    "notes": "Fiber: 3.4g, Potassium: 119mg"
+  },
+  {
+    "food": "Cauliflower Rice",
+    "calories": 25,
+    "protein": 2.0,
+    "carbs": 5.3,
+    "fat": 0.3,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 320mg"
+  },
+  {
+    "food": "Zucchini Noodles",
+    "calories": 17,
+    "protein": 1.2,
+    "carbs": 3.1,
+    "fat": 0.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 261mg"
+  },
+  {
+    "food": "Cabbage",
+    "calories": 25,
+    "protein": 1.3,
+    "carbs": 5.8,
+    "fat": 0.1,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 2.2g, Potassium: 170mg"
+  },
+  {
+    "food": "Seaweed",
+    "calories": 43,
+    "protein": 2.3,
+    "carbs": 9.6,
+    "fat": 0.6,
+    "gi": 35,
+    "category": "General",
+    "notes": "Fiber: 0.5g, Potassium: 233mg"
+  },
+  {
+    "food": "Miso Soup",
+    "calories": 36,
+    "protein": 2.0,
+    "carbs": 5.8,
+    "fat": 0.6,
+    "gi": 35,
+    "category": "General",
+    "notes": "Fiber: 0.9g, Potassium: 192mg"
+  },
+  {
+    "food": "Green Tea",
+    "calories": 0,
+    "protein": 0.0,
+    "carbs": 0.0,
+    "fat": 0.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 8mg"
+  },
+  {
+    "food": "Watermelon",
+    "calories": 30,
+    "protein": 0.6,
+    "carbs": 7.6,
+    "fat": 0.2,
+    "gi": 72,
+    "category": "General",
+    "notes": "Fiber: 0.4g, Potassium: 112mg"
+  },
+  {
+    "food": "Berries (mixed)",
+    "calories": 43,
+    "protein": 0.7,
+    "carbs": 10.6,
+    "fat": 0.4,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 2.6g, Potassium: 77mg"
+  },
+  {
+    "food": "Quorn",
+    "calories": 106,
+    "protein": 14.0,
+    "carbs": 4.5,
+    "fat": 2.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 2.8g, Potassium: 433mg"
+  },
+  {
+    "food": "Turkey Breast",
+    "calories": 189,
+    "protein": 27.0,
+    "carbs": 0.0,
+    "fat": 8.2,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 339mg"
+  },
+  {
+    "food": "Lean Beef",
+    "calories": 250,
+    "protein": 26.0,
+    "carbs": 0.0,
+    "fat": 17.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 392mg"
+  },
+  {
+    "food": "Lamb",
+    "calories": 258,
+    "protein": 25.0,
+    "carbs": 0.0,
+    "fat": 17.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 299mg"
+  },
+  {
+    "food": "Pork Tenderloin",
+    "calories": 143,
+    "protein": 30.0,
+    "carbs": 0.0,
+    "fat": 3.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 437mg"
+  },
+  {
+    "food": "Oats",
+    "calories": 389,
+    "protein": 16.9,
+    "carbs": 66.0,
+    "fat": 6.9,
+    "gi": 55,
+    "category": "General",
+    "notes": "Fiber: 10.6g, Potassium: 429mg"
+  },
+  {
+    "food": "Brown Bread",
+    "calories": 247,
+    "protein": 9.4,
+    "carbs": 48.0,
+    "fat": 1.8,
+    "gi": 85,
+    "category": "General",
+    "notes": "Fiber: 6.7g, Potassium: 125mg"
+  },
+  {
+    "food": "Whole Wheat Pasta",
+    "calories": 124,
+    "protein": 4.5,
+    "carbs": 25.7,
+    "fat": 0.8,
+    "gi": 37,
+    "category": "General",
+    "notes": "Fiber: 4.2g, Potassium: 118mg"
+  },
+  {
+    "food": "Quinoa Pasta",
+    "calories": 121,
+    "protein": 4.2,
+    "carbs": 21.3,
+    "fat": 2.2,
+    "gi": 53,
+    "category": "General",
+    "notes": "Fiber: 3.4g, Potassium: 119mg"
+  },
+  {
+    "food": "Cauliflower Rice",
+    "calories": 25,
+    "protein": 2.0,
+    "carbs": 5.3,
+    "fat": 0.3,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 320mg"
+  },
+  {
+    "food": "Zucchini Noodles",
+    "calories": 17,
+    "protein": 1.2,
+    "carbs": 3.1,
+    "fat": 0.2,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 261mg"
+  },
+  {
+    "food": "Seaweed",
+    "calories": 43,
+    "protein": 2.3,
+    "carbs": 9.6,
+    "fat": 0.6,
+    "gi": 35,
+    "category": "General",
+    "notes": "Fiber: 0.5g, Potassium: 233mg"
+  },
+  {
+    "food": "Miso Soup",
+    "calories": 36,
+    "protein": 2.0,
+    "carbs": 5.8,
+    "fat": 0.6,
+    "gi": 35,
+    "category": "General",
+    "notes": "Fiber: 0.9g, Potassium: 192mg"
+  },
+  {
+    "food": "Green Tea",
+    "calories": 0,
+    "protein": 0.0,
+    "carbs": 0.0,
+    "fat": 0.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 8mg"
+  },
+  {
+    "food": "Watermelon",
+    "calories": 30,
+    "protein": 0.6,
+    "carbs": 7.6,
+    "fat": 0.2,
+    "gi": 72,
+    "category": "General",
+    "notes": "Fiber: 0.4g, Potassium: 112mg"
+  },
+  {
+    "food": "Berries (mixed)",
+    "calories": 43,
+    "protein": 0.7,
+    "carbs": 10.6,
+    "fat": 0.4,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 2.6g, Potassium: 77mg"
+  },
+  {
+    "food": "Grapes",
+    "calories": 69,
+    "protein": 0.7,
+    "carbs": 18.0,
+    "fat": 0.2,
+    "gi": 59,
+    "category": "General",
+    "notes": "Fiber: 0.9g, Potassium: 191mg"
+  },
+  {
+    "food": "Oranges",
+    "calories": 43,
+    "protein": 0.9,
+    "carbs": 11.0,
+    "fat": 0.1,
+    "gi": 45,
+    "category": "General",
+    "notes": "Fiber: 2.3g, Potassium: 181mg"
+  },
+  {
+    "food": "Apples",
+    "calories": 52,
+    "protein": 0.3,
+    "carbs": 14.0,
+    "fat": 0.2,
+    "gi": 39,
+    "category": "General",
+    "notes": "Fiber: 2.4g, Potassium: 107mg"
+  },
+  {
+    "food": "Pears",
+    "calories": 57,
+    "protein": 0.4,
+    "carbs": 15.0,
+    "fat": 0.1,
+    "gi": 38,
+    "category": "General",
+    "notes": "Fiber: 3.1g, Potassium: 116mg"
+  },
+  {
+    "food": "Avocado",
+    "calories": 160,
+    "protein": 2.0,
+    "carbs": 9.0,
+    "fat": 15.0,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 7.0g, Potassium: 485mg"
+  },
+  {
+    "food": "Coconut",
+    "calories": 354,
+    "protein": 3.3,
+    "carbs": 15.0,
+    "fat": 33.5,
+    "gi": 45,
+    "category": "General",
+    "notes": "Fiber: 9.0g, Potassium: 356mg"
+  },
+  {
+    "food": "Olive Oil",
+    "calories": 119,
+    "protein": 0.0,
+    "carbs": 0.0,
+    "fat": 13.5,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 0mg"
+  },
+  {
+    "food": "Almond Butter",
+    "calories": 614,
+    "protein": 20.0,
+    "carbs": 19.0,
+    "fat": 55.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 11.6g, Potassium: 749mg"
+  },
+  {
+    "food": "Greek Yogurt",
+    "calories": 59,
+    "protein": 10.0,
+    "carbs": 3.6,
+    "fat": 0.4,
+    "gi": 11,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 141mg"
+  },
+  {
+    "food": "Quorn",
+    "calories": 106,
+    "protein": 14.0,
+    "carbs": 4.5,
+    "fat": 2.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 2.8g, Potassium: 433mg"
+  },
+  {
+    "food": "Turkey Breast",
+    "calories": 189,
+    "protein": 27.0,
+    "carbs": 0.0,
+    "fat": 8.2,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 339mg"
+  },
+  {
+    "food": "Lean Beef",
+    "calories": 250,
+    "protein": 26.0,
+    "carbs": 0.0,
+    "fat": 17.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 392mg"
+  },
+  {
+    "food": "Lamb",
+    "calories": 258,
+    "protein": 25.0,
+    "carbs": 0.0,
+    "fat": 17.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 299mg"
+  },
+  {
+    "food": "Pork Tenderloin",
+    "calories": 143,
+    "protein": 30.0,
+    "carbs": 0.0,
+    "fat": 3.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 437mg"
+  },
+  {
+    "food": "Oats",
+    "calories": 389,
+    "protein": 16.9,
+    "carbs": 66.0,
+    "fat": 6.9,
+    "gi": 55,
+    "category": "General",
+    "notes": "Fiber: 10.6g, Potassium: 429mg"
+  },
+  {
+    "food": "Brown Bread",
+    "calories": 247,
+    "protein": 9.4,
+    "carbs": 48.0,
+    "fat": 1.8,
+    "gi": 85,
+    "category": "General",
+    "notes": "Fiber: 6.7g, Potassium: 125mg"
+  },
+  {
+    "food": "Whole Wheat Pasta",
+    "calories": 124,
+    "protein": 4.5,
+    "carbs": 25.7,
+    "fat": 0.8,
+    "gi": 37,
+    "category": "General",
+    "notes": "Fiber: 4.2g, Potassium: 118mg"
+  },
+  {
+    "food": "Quinoa Pasta",
+    "calories": 121,
+    "protein": 4.2,
+    "carbs": 21.3,
+    "fat": 2.2,
+    "gi": 53,
+    "category": "General",
+    "notes": "Fiber: 3.4g, Potassium: 119mg"
+  },
+  {
+    "food": "Chapati",
+    "calories": 68,
+    "protein": 2.0,
+    "carbs": 14.0,
+    "fat": 1.0,
+    "gi": 62,
+    "category": "General",
+    "notes": "Fiber: 2.2g, Potassium: 63mg"
+  },
+  {
+    "food": "Rice",
+    "calories": 130,
+    "protein": 2.7,
+    "carbs": 29.0,
+    "fat": 0.3,
+    "gi": 73,
+    "category": "General",
+    "notes": "Fiber: 0.4g, Potassium: 43mg"
+  },
+  {
+    "food": "Dal",
+    "calories": 117,
+    "protein": 7.0,
+    "carbs": 20.0,
+    "fat": 0.6,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 8.0g, Potassium: 470mg"
+  },
+  {
+    "food": "Paneer",
+    "calories": 265,
+    "protein": 18.0,
+    "carbs": 3.0,
+    "fat": 21.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 61mg"
+  },
+  {
+    "food": "Chicken Curry",
+    "calories": 185,
+    "protein": 20.0,
+    "carbs": 10.0,
+    "fat": 7.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 305mg"
+  },
+  {
+    "food": "Fish Curry",
+    "calories": 141,
+    "protein": 18.0,
+    "carbs": 2.0,
+    "fat": 7.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 436mg"
+  },
+  {
+    "food": "Vegetable Biryani",
+    "calories": 323,
+    "protein": 6.9,
+    "carbs": 58.0,
+    "fat": 7.4,
+    "gi": 46,
+    "category": "General",
+    "notes": "Fiber: 4.2g, Potassium: 174mg"
+  },
+  {
+    "food": "Dosa",
+    "calories": 133,
+    "protein": 2.6,
+    "carbs": 17.0,
+    "fat": 5.0,
+    "gi": 60,
+    "category": "General",
+    "notes": "Fiber: 1.4g, Potassium: 167mg"
+  },
+  {
+    "food": "Idli",
+    "calories": 39,
+    "protein": 2.0,
+    "carbs": 8.0,
+    "fat": 0.4,
+    "gi": 85,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 68mg"
+  },
+  {
+    "food": "Mutton Curry",
+    "calories": 250,
+    "protein": 26.0,
+    "carbs": 5.0,
+    "fat": 15.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 438mg"
+  },
+  {
+    "food": "Butter Chicken",
+    "calories": 360,
+    "protein": 24.0,
+    "carbs": 10.0,
+    "fat": 25.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 320mg"
+  },
+  {
+    "food": "Palak Paneer",
+    "calories": 220,
+    "protein": 12.0,
+    "carbs": 10.0,
+    "fat": 16.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 330mg"
+  },
+  {
+    "food": "Chicken Biryani",
+    "calories": 380,
+    "protein": 18.0,
+    "carbs": 45.0,
+    "fat": 12.0,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 220mg"
+  },
+  {
+    "food": "Aloo Gobi",
+    "calories": 160,
+    "protein": 4.0,
+    "carbs": 20.0,
+    "fat": 8.0,
+    "gi": 85,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 520mg"
+  },
+  {
+    "food": "Chana Masala",
+    "calories": 210,
+    "protein": 10.0,
+    "carbs": 35.0,
+    "fat": 4.0,
+    "gi": 42,
+    "category": "General",
+    "notes": "Fiber: 8.0g, Potassium: 540mg"
+  },
+  {
+    "food": "Baingan Bharta",
+    "calories": 160,
+    "protein": 2.0,
+    "carbs": 18.0,
+    "fat": 9.0,
+    "gi": 25,
+    "category": "General",
+    "notes": "Fiber: 7.0g, Potassium: 460mg"
+  },
+  {
+    "food": "Rajma Chawal",
+    "calories": 320,
+    "protein": 12.0,
+    "carbs": 55.0,
+    "fat": 5.0,
+    "gi": 55,
+    "category": "General",
+    "notes": "Fiber: 11.0g, Potassium: 560mg"
+  },
+  {
+    "food": "Mango Lassi",
+    "calories": 180,
+    "protein": 5.0,
+    "carbs": 30.0,
+    "fat": 5.0,
+    "gi": 41,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 280mg"
+  },
+  {
+    "food": "Masoor Dal",
+    "calories": 352,
+    "protein": 24.0,
+    "carbs": 63.0,
+    "fat": 1.0,
+    "gi": 25,
+    "category": "General",
+    "notes": "Fiber: 7.0g, Potassium: 1202mg"
+  },
+  {
+    "food": "Tandoori Roti",
+    "calories": 106,
+    "protein": 3.0,
+    "carbs": 20.0,
+    "fat": 1.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 83mg"
+  },
+  {
+    "food": "Chicken Korma",
+    "calories": 270,
+    "protein": 29.0,
+    "carbs": 5.0,
+    "fat": 15.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 328mg"
+  },
+  {
+    "food": "Pulao",
+    "calories": 318,
+    "protein": 7.0,
+    "carbs": 56.0,
+    "fat": 7.0,
+    "gi": 65,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 142mg"
+  },
+  {
+    "food": "Gajar Halwa",
+    "calories": 265,
+    "protein": 3.0,
+    "carbs": 38.0,
+    "fat": 12.0,
+    "gi": 85,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 320mg"
+  },
+  {
+    "food": "Chicken Biryani",
+    "calories": 380,
+    "protein": 18.0,
+    "carbs": 45.0,
+    "fat": 12.0,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 220mg"
+  },
+  {
+    "food": "Pav Bhaji",
+    "calories": 297,
+    "protein": 7.0,
+    "carbs": 46.0,
+    "fat": 11.0,
+    "gi": 65,
+    "category": "General",
+    "notes": "Fiber: 8.0g, Potassium: 260mg"
+  },
+  {
+    "food": "Coconut Chutney",
+    "calories": 90,
+    "protein": 1.0,
+    "carbs": 5.0,
+    "fat": 8.0,
+    "gi": 35,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 110mg"
+  },
+  {
+    "food": "Matar Paneer",
+    "calories": 285,
+    "protein": 9.0,
+    "carbs": 14.0,
+    "fat": 21.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 400mg"
+  },
+  {
+    "food": "Bhindi Masala",
+    "calories": 120,
+    "protein": 2.0,
+    "carbs": 9.0,
+    "fat": 9.0,
+    "gi": 20,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 420mg"
+  },
+  {
+    "food": "Mango Chutney",
+    "calories": 40,
+    "protein": 0.0,
+    "carbs": 10.0,
+    "fat": 0.0,
+    "gi": 55,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 30mg"
+  },
+  {
+    "food": "Mutton Biryani",
+    "calories": 480,
+    "protein": 28.0,
+    "carbs": 50.0,
+    "fat": 18.0,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 420mg"
+  },
+  {
+    "food": "Puliyogare",
+    "calories": 315,
+    "protein": 7.0,
+    "carbs": 52.0,
+    "fat": 9.0,
+    "gi": 65,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 130mg"
+  },
+  {
+    "food": "Rajma Masala",
+    "calories": 215,
+    "protein": 11.0,
+    "carbs": 38.0,
+    "fat": 1.0,
+    "gi": 27,
+    "category": "General",
+    "notes": "Fiber: 6.0g, Potassium: 1140mg"
+  },
+  {
+    "food": "Pav",
+    "calories": 160,
+    "protein": 4.0,
+    "carbs": 30.0,
+    "fat": 2.0,
+    "gi": 65,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 105mg"
+  },
+  {
+    "food": "Veg Biryani",
+    "calories": 340,
+    "protein": 8.0,
+    "carbs": 55.0,
+    "fat": 10.0,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 240mg"
+  },
+  {
+    "food": "Tandoori Chicken",
+    "calories": 290,
+    "protein": 29.0,
+    "carbs": 4.0,
+    "fat": 18.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 420mg"
+  },
+  {
+    "food": "Methi Paratha",
+    "calories": 180,
+    "protein": 4.0,
+    "carbs": 30.0,
+    "fat": 5.0,
+    "gi": 35,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 140mg"
+  },
+  {
+    "food": "Chicken Curry",
+    "calories": 250,
+    "protein": 28.0,
+    "carbs": 10.0,
+    "fat": 13.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 370mg"
+  },
+  {
+    "food": "Baigan Masala",
+    "calories": 130,
+    "protein": 2.0,
+    "carbs": 15.0,
+    "fat": 8.0,
+    "gi": 20,
+    "category": "General",
+    "notes": "Fiber: 5.0g, Potassium: 410mg"
+  },
+  {
+    "food": "Malai Paneer",
+    "calories": 320,
+    "protein": 16.0,
+    "carbs": 5.0,
+    "fat": 27.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 310mg"
+  },
+  {
+    "food": "Prawn Curry",
+    "calories": 200,
+    "protein": 25.0,
+    "carbs": 10.0,
+    "fat": 8.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 380mg"
+  },
+  {
+    "food": "Chicken Kebab",
+    "calories": 180,
+    "protein": 24.0,
+    "carbs": 2.0,
+    "fat": 9.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 300mg"
+  },
+  {
+    "food": "Vegetable Curry",
+    "calories": 150,
+    "protein": 5.0,
+    "carbs": 12.0,
+    "fat": 10.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 380mg"
+  },
+  {
+    "food": "Raita",
+    "calories": 90,
+    "protein": 3.0,
+    "carbs": 8.0,
+    "fat": 5.0,
+    "gi": 30,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 180mg"
+  },
+  {
+    "food": "Kadai Paneer",
+    "calories": 290,
+    "protein": 12.0,
+    "carbs": 10.0,
+    "fat": 22.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 380mg"
+  },
+  {
+    "food": "Vegetable Pulao",
+    "calories": 320,
+    "protein": 7.0,
+    "carbs": 50.0,
+    "fat": 9.0,
+    "gi": 65,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 240mg"
+  },
+  {
+    "food": "Chicken Tikka",
+    "calories": 180,
+    "protein": 25.0,
+    "carbs": 2.0,
+    "fat": 8.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 410mg"
+  },
+  {
+    "food": "Palak Paneer",
+    "calories": 240,
+    "protein": 15.0,
+    "carbs": 8.0,
+    "fat": 17.0,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 560mg"
+  },
+  {
+    "food": "Fish Curry",
+    "calories": 220,
+    "protein": 24.0,
+    "carbs": 8.0,
+    "fat": 11.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 410mg"
+  },
+  {
+    "food": "Paneer Tikka",
+    "calories": 230,
+    "protein": 14.0,
+    "carbs": 5.0,
+    "fat": 18.0,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 310mg"
+  },
+  {
+    "food": "Veg Cutlet",
+    "calories": 180,
+    "protein": 3.0,
+    "carbs": 20.0,
+    "fat": 17.0,
+    "gi": 65,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 180mg"
+  },
+  {
+    "food": "Chicken Biryani",
+    "calories": 400,
+    "protein": 28.0,
+    "carbs": 45.0,
+    "fat": 15.0,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 320mg"
+  },
+  {
+    "food": "Rasam",
+    "calories": 60,
+    "protein": 2.0,
+    "carbs": 15.0,
+    "fat": 0.0,
+    "gi": 25,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 110mg"
+  },
+  {
+    "food": "Upma",
+    "calories": 220,
+    "protein": 5.0,
+    "carbs": 40.0,
+    "fat": 4.0,
+    "gi": 55,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 130mg"
+  },
+  {
+    "food": "Lemon Rice",
+    "calories": 250,
+    "protein": 5.0,
+    "carbs": 40.0,
+    "fat": 7.0,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 70mg"
+  },
+  {
+    "food": "Rajma Chawal",
+    "calories": 350,
+    "protein": 15.0,
+    "carbs": 55.0,
+    "fat": 6.0,
+    "gi": 27,
+    "category": "General",
+    "notes": "Fiber: 10.0g, Potassium: 730mg"
+  },
+  {
+    "food": "Kadhi Pakora",
+    "calories": 250,
+    "protein": 8.0,
+    "carbs": 25.0,
+    "fat": 14.0,
+    "gi": 60,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 300mg"
+  },
+  {
+    "food": "Aloo Gobi",
+    "calories": 180,
+    "protein": 5.0,
+    "carbs": 25.0,
+    "fat": 8.0,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 5.0g, Potassium: 500mg"
+  },
+  {
+    "food": "Rajasthani Dal",
+    "calories": 180,
+    "protein": 10.0,
+    "carbs": 30.0,
+    "fat": 4.0,
+    "gi": 25,
+    "category": "General",
+    "notes": "Fiber: 6.0g, Potassium: 700mg"
+  },
+  {
+    "food": "Pongal",
+    "calories": 280,
+    "protein": 6.0,
+    "carbs": 50.0,
+    "fat": 6.0,
+    "gi": 70,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 190mg"
+  },
+  {
+    "food": "Butter Chicken",
+    "calories": 350,
+    "protein": 25.0,
+    "carbs": 12.0,
+    "fat": 24.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 400mg"
+  },
+  {
+    "food": "Dhokla",
+    "calories": 180,
+    "protein": 7.0,
+    "carbs": 32.0,
+    "fat": 2.0,
+    "gi": 85,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 220mg"
+  },
+  {
+    "food": "Aloo Paratha",
+    "calories": 320,
+    "protein": 8.0,
+    "carbs": 45.0,
+    "fat": 12.0,
+    "gi": 35,
+    "category": "General",
+    "notes": "Fiber: 5.0g, Potassium: 410mg"
+  },
+  {
+    "food": "Matar Paneer",
+    "calories": 220,
+    "protein": 10.0,
+    "carbs": 15.0,
+    "fat": 14.0,
+    "gi": 20,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 420mg"
+  },
+  {
+    "food": "Bhindi Masala",
+    "calories": 150,
+    "protein": 4.0,
+    "carbs": 10.0,
+    "fat": 11.0,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 300mg"
+  },
+  {
+    "food": "Chicken Biryani",
+    "calories": 400,
+    "protein": 28.0,
+    "carbs": 45.0,
+    "fat": 15.0,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 320mg"
+  },
+  {
+    "food": "Dosa",
+    "calories": 120,
+    "protein": 3.0,
+    "carbs": 25.0,
+    "fat": 1.0,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 230mg"
+  },
+  {
+    "food": "Paneer Butter Masala",
+    "calories": 280,
+    "protein": 12.0,
+    "carbs": 12.0,
+    "fat": 20.0,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 480mg"
+  },
+  {
+    "food": "Fish Fry",
+    "calories": 220,
+    "protein": 25.0,
+    "carbs": 10.0,
+    "fat": 10.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 400mg"
+  },
+  {
+    "food": "Tandoori Chicken",
+    "calories": 220,
+    "protein": 30.0,
+    "carbs": 2.0,
+    "fat": 10.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 340mg"
+  },
+  {
+    "food": "Mutton Biryani",
+    "calories": 450,
+    "protein": 25.0,
+    "carbs": 40.0,
+    "fat": 20.0,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 380mg"
+  },
+  {
+    "food": "Kheer",
+    "calories": 180,
+    "protein": 5.0,
+    "carbs": 30.0,
+    "fat": 6.0,
+    "gi": 65,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 90mg"
+  },
+  {
+    "food": "Chicken Curry",
+    "calories": 250,
+    "protein": 28.0,
+    "carbs": 10.0,
+    "fat": 13.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 370mg"
+  },
+  {
+    "food": "Pulao",
+    "calories": 280,
+    "protein": 5.0,
+    "carbs": 50.0,
+    "fat": 8.0,
+    "gi": 65,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 180mg"
+  },
+  {
+    "food": "Gobi Manchurian",
+    "calories": 230,
+    "protein": 5.0,
+    "carbs": 30.0,
+    "fat": 10.0,
+    "gi": 55,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 320mg"
+  },
+  {
+    "food": "Masoor Dal",
+    "calories": 180,
+    "protein": 10.0,
+    "carbs": 30.0,
+    "fat": 2.0,
+    "gi": 30,
+    "category": "General",
+    "notes": "Fiber: 8.0g, Potassium: 730mg"
+  },
+  {
+    "food": "Mushroom Curry",
+    "calories": 200,
+    "protein": 8.0,
+    "carbs": 15.0,
+    "fat": 14.0,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 400mg"
+  },
+  {
+    "food": "Rava Upma",
+    "calories": 220,
+    "protein": 4.0,
+    "carbs": 40.0,
+    "fat": 6.0,
+    "gi": 55,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 180mg"
+  },
+  {
+    "food": "Chicken Korma",
+    "calories": 320,
+    "protein": 25.0,
+    "carbs": 10.0,
+    "fat": 20.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 380mg"
+  },
+  {
+    "food": "Rajma Masala",
+    "calories": 280,
+    "protein": 15.0,
+    "carbs": 45.0,
+    "fat": 4.0,
+    "gi": 27,
+    "category": "General",
+    "notes": "Fiber: 9.0g, Potassium: 750mg"
+  },
+  {
+    "food": "Shahi Paneer",
+    "calories": 260,
+    "protein": 10.0,
+    "carbs": 15.0,
+    "fat": 16.0,
+    "gi": 20,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 450mg"
+  },
+  {
+    "food": "Baingan Bharta",
+    "calories": 180,
+    "protein": 4.0,
+    "carbs": 20.0,
+    "fat": 10.0,
+    "gi": 15,
+    "category": "General",
+    "notes": "Fiber: 5.0g, Potassium: 380mg"
+  },
+  {
+    "food": "Malai Kofta",
+    "calories": 320,
+    "protein": 8.0,
+    "carbs": 25.0,
+    "fat": 18.0,
+    "gi": 25,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 480mg"
+  },
+  {
+    "food": "Pesarattu",
+    "calories": 180,
+    "protein": 5.0,
+    "carbs": 30.0,
+    "fat": 4.0,
+    "gi": 35,
+    "category": "General",
+    "notes": "Fiber: 6.0g, Potassium: 280mg"
+  },
+  {
+    "food": "Vegetable Biryani",
+    "calories": 350,
+    "protein": 8.0,
+    "carbs": 50.0,
+    "fat": 12.0,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 320mg"
+  },
+  {
+    "food": "Chicken Tikka Masala",
+    "calories": 340,
+    "protein": 25.0,
+    "carbs": 12.0,
+    "fat": 22.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 390mg"
+  },
+  {
+    "food": "Rava Idli",
+    "calories": 150,
+    "protein": 4.0,
+    "carbs": 30.0,
+    "fat": 2.0,
+    "gi": 65,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 180mg"
+  },
+  {
+    "food": "Vegetable Korma",
+    "calories": 250,
+    "protein": 8.0,
+    "carbs": 20.0,
+    "fat": 16.0,
+    "gi": 25,
+    "category": "General",
+    "notes": "Fiber: 5.0g, Potassium: 450mg"
+  },
+  {
+    "food": "Kadai Paneer",
+    "calories": 280,
+    "protein": 12.0,
+    "carbs": 15.0,
+    "fat": 18.0,
+    "gi": 20,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 480mg"
+  },
+  {
+    "food": "Uttapam",
+    "calories": 200,
+    "protein": 6.0,
+    "carbs": 35.0,
+    "fat": 4.0,
+    "gi": 55,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 280mg"
+  },
+  {
+    "food": "Vegetable Pulao",
+    "calories": 280,
+    "protein": 5.0,
+    "carbs": 45.0,
+    "fat": 8.0,
+    "gi": 60,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 320mg"
+  },
+  {
+    "food": "Chicken Curry",
+    "calories": 290,
+    "protein": 26.0,
+    "carbs": 10.0,
+    "fat": 16.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 380mg"
+  },
+  {
+    "food": "Methi Thepla",
+    "calories": 220,
+    "protein": 5.0,
+    "carbs": 25.0,
+    "fat": 12.0,
+    "gi": 45,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 300mg"
+  },
+  {
+    "food": "Palak Paneer",
+    "calories": 260,
+    "protein": 12.0,
+    "carbs": 15.0,
+    "fat": 18.0,
+    "gi": 20,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 480mg"
+  },
+  {
+    "food": "Chicken 65",
+    "calories": 290,
+    "protein": 25.0,
+    "carbs": 15.0,
+    "fat": 16.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 390mg"
+  },
+  {
+    "food": "Chana Masala",
+    "calories": 260,
+    "protein": 10.0,
+    "carbs": 45.0,
+    "fat": 4.0,
+    "gi": 42,
+    "category": "General",
+    "notes": "Fiber: 10.0g, Potassium: 750mg"
+  },
+  {
+    "food": "Mutton Rogan Josh",
+    "calories": 360,
+    "protein": 28.0,
+    "carbs": 12.0,
+    "fat": 24.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 410mg"
+  },
+  {
+    "food": "Fish Curry",
+    "calories": 280,
+    "protein": 25.0,
+    "carbs": 10.0,
+    "fat": 16.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 380mg"
+  },
+  {
+    "food": "Gajar Halwa",
+    "calories": 240,
+    "protein": 5.0,
+    "carbs": 35.0,
+    "fat": 10.0,
+    "gi": 70,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 180mg"
+  },
+  {
+    "food": "Kadhi Pakora",
+    "calories": 220,
+    "protein": 6.0,
+    "carbs": 20.0,
+    "fat": 14.0,
+    "gi": 45,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 300mg"
+  },
+  {
+    "food": "Rasgulla",
+    "calories": 150,
+    "protein": 2.0,
+    "carbs": 35.0,
+    "fat": 0.0,
+    "gi": 65,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 40mg"
+  },
+  {
+    "food": "Kheer",
+    "calories": 220,
+    "protein": 4.0,
+    "carbs": 30.0,
+    "fat": 10.0,
+    "gi": 65,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 150mg"
+  },
+  {
+    "food": "Paneer Tikka",
+    "calories": 280,
+    "protein": 15.0,
+    "carbs": 8.0,
+    "fat": 20.0,
+    "gi": 20,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 480mg"
+  },
+  {
+    "food": "Matar Paneer",
+    "calories": 240,
+    "protein": 10.0,
+    "carbs": 20.0,
+    "fat": 16.0,
+    "gi": 35,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 450mg"
+  },
+  {
+    "food": "Chicken Biryani",
+    "calories": 400,
+    "protein": 20.0,
+    "carbs": 45.0,
+    "fat": 16.0,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 480mg"
+  },
+  {
+    "food": "Dosa",
+    "calories": 180,
+    "protein": 4.0,
+    "carbs": 35.0,
+    "fat": 2.0,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 280mg"
+  },
+  {
+    "food": "Lassi",
+    "calories": 120,
+    "protein": 3.0,
+    "carbs": 20.0,
+    "fat": 3.0,
+    "gi": 25,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 180mg"
+  },
+  {
+    "food": "Rajma Chawal",
+    "calories": 320,
+    "protein": 10.0,
+    "carbs": 55.0,
+    "fat": 6.0,
+    "gi": 27,
+    "category": "General",
+    "notes": "Fiber: 7.0g, Potassium: 750mg"
+  },
+  {
+    "food": "Hummus",
+    "calories": 170,
+    "protein": 6.0,
+    "carbs": 20.0,
+    "fat": 9.0,
+    "gi": 6,
+    "category": "General",
+    "notes": "Fiber: 6.0g, Potassium: 240mg"
+  },
+  {
+    "food": "Falafel",
+    "calories": 320,
+    "protein": 10.0,
+    "carbs": 35.0,
+    "fat": 18.0,
+    "gi": 30,
+    "category": "General",
+    "notes": "Fiber: 7.0g, Potassium: 400mg"
+  },
+  {
+    "food": "Tabbouleh",
+    "calories": 180,
+    "protein": 4.0,
+    "carbs": 20.0,
+    "fat": 10.0,
+    "gi": 25,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 250mg"
+  },
+  {
+    "food": "Shawarma",
+    "calories": 400,
+    "protein": 30.0,
+    "carbs": 25.0,
+    "fat": 20.0,
+    "gi": 20,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 450mg"
+  },
+  {
+    "food": "Moutabal",
+    "calories": 160,
+    "protein": 3.0,
+    "carbs": 10.0,
+    "fat": 12.0,
+    "gi": 12,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 210mg"
+  },
+  {
+    "food": "Mandi",
+    "calories": 400,
+    "protein": 12.0,
+    "carbs": 60.0,
+    "fat": 10.0,
+    "gi": 45,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 300mg"
+  },
+  {
+    "food": "Kabsa",
+    "calories": 380,
+    "protein": 15.0,
+    "carbs": 45.0,
+    "fat": 16.0,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 350mg"
+  },
+  {
+    "food": "Fatayer",
+    "calories": 250,
+    "protein": 8.0,
+    "carbs": 30.0,
+    "fat": 12.0,
+    "gi": 30,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 200mg"
+  },
+  {
+    "food": "Manakish",
+    "calories": 280,
+    "protein": 12.0,
+    "carbs": 30.0,
+    "fat": 14.0,
+    "gi": 45,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 250mg"
+  },
+  {
+    "food": "Lamb Kofta",
+    "calories": 320,
+    "protein": 25.0,
+    "carbs": 8.0,
+    "fat": 20.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 380mg"
+  },
+  {
+    "food": "Labneh",
+    "calories": 150,
+    "protein": 10.0,
+    "carbs": 6.0,
+    "fat": 10.0,
+    "gi": 4,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 240mg"
+  },
+  {
+    "food": "Shish Taouk",
+    "calories": 280,
+    "protein": 25.0,
+    "carbs": 5.0,
+    "fat": 18.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 380mg"
+  },
+  {
+    "food": "Shawarma Wrap",
+    "calories": 400,
+    "protein": 15.0,
+    "carbs": 35.0,
+    "fat": 22.0,
+    "gi": 20,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 420mg"
+  },
+  {
+    "food": "Mansaf",
+    "calories": 500,
+    "protein": 25.0,
+    "carbs": 45.0,
+    "fat": 28.0,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 550mg"
+  },
+  {
+    "food": "Foul Medames",
+    "calories": 240,
+    "protein": 12.0,
+    "carbs": 40.0,
+    "fat": 2.0,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 10.0g, Potassium: 600mg"
+  },
+  {
+    "food": "Lamb Shawarma",
+    "calories": 350,
+    "protein": 30.0,
+    "carbs": 15.0,
+    "fat": 22.0,
+    "gi": 20,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 410mg"
+  },
+  {
+    "food": "Laban",
+    "calories": 90,
+    "protein": 3.0,
+    "carbs": 12.0,
+    "fat": 3.0,
+    "gi": 4,
+    "category": "General",
+    "notes": "Fiber: 0.0g, Potassium: 220mg"
+  },
+  {
+    "food": "Muhallabia",
+    "calories": 180,
+    "protein": 5.0,
+    "carbs": 25.0,
+    "fat": 8.0,
+    "gi": 25,
+    "category": "General",
+    "notes": "Fiber: 1.0g, Potassium: 150mg"
+  },
+  {
+    "food": "Chicken Mandi",
+    "calories": 420,
+    "protein": 25.0,
+    "carbs": 45.0,
+    "fat": 18.0,
+    "gi": 45,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 390mg"
+  },
+  {
+    "food": "Kibbeh",
+    "calories": 260,
+    "protein": 15.0,
+    "carbs": 20.0,
+    "fat": 14.0,
+    "gi": 30,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 350mg"
+  },
+  {
+    "food": "Mutton Biryani",
+    "calories": 400,
+    "protein": 20.0,
+    "carbs": 45.0,
+    "fat": 16.0,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 480mg"
+  },
+  {
+    "food": "Mango Juice",
+    "calories": 150,
+    "protein": 1.0,
+    "carbs": 35.0,
+    "fat": 0.0,
+    "gi": 55,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 200mg"
+  },
+  {
+    "food": "Kofta",
+    "calories": 300,
+    "protein": 25.0,
+    "carbs": 10.0,
+    "fat": 18.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 420mg"
+  },
+  {
+    "food": "Makbous",
+    "calories": 380,
+    "protein": 15.0,
+    "carbs": 45.0,
+    "fat": 18.0,
+    "gi": 55,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 380mg"
+  },
+  {
+    "food": "Lamb Ouzi",
+    "calories": 450,
+    "protein": 20.0,
+    "carbs": 50.0,
+    "fat": 20.0,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 550mg"
+  },
+  {
+    "food": "Fattoush",
+    "calories": 180,
+    "protein": 5.0,
+    "carbs": 25.0,
+    "fat": 8.0,
+    "gi": 25,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 250mg"
+  },
+  {
+    "food": "Mansaf",
+    "calories": 500,
+    "protein": 25.0,
+    "carbs": 45.0,
+    "fat": 28.0,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 550mg"
+  },
+  {
+    "food": "Kibbeh Nayyeh",
+    "calories": 250,
+    "protein": 15.0,
+    "carbs": 15.0,
+    "fat": 18.0,
+    "gi": 0,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 300mg"
+  },
+  {
+    "food": "Falafel Wrap",
+    "calories": 320,
+    "protein": 10.0,
+    "carbs": 35.0,
+    "fat": 18.0,
+    "gi": 30,
+    "category": "General",
+    "notes": "Fiber: 5.0g, Potassium: 350mg"
+  },
+  {
+    "food": "Labneh Manakish",
+    "calories": 280,
+    "protein": 10.0,
+    "carbs": 30.0,
+    "fat": 15.0,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 250mg"
+  },
+  {
+    "food": "Arayes",
+    "calories": 380,
+    "protein": 20.0,
+    "carbs": 30.0,
+    "fat": 22.0,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 400mg"
+  },
+  {
+    "food": "Karak Tea",
+    "calories": 60,
+    "protein": 2.0,
+    "carbs": 10.0,
+    "fat": 1.0,
+    "gi": 30,
+    "category": "General",
+    "notes": "Fiber: nang, Potassium: 50mg"
+  },
+  {
+    "food": "Kabsa",
+    "calories": 420,
+    "protein": 20.0,
+    "carbs": 50.0,
+    "fat": 15.0,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 400mg"
+  },
+  {
+    "food": "Sambousek",
+    "calories": 240,
+    "protein": 10.0,
+    "carbs": 25.0,
+    "fat": 12.0,
+    "gi": 45,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 220mg"
+  },
+  {
+    "food": "Mujadara",
+    "calories": 320,
+    "protein": 10.0,
+    "carbs": 55.0,
+    "fat": 6.0,
+    "gi": 35,
+    "category": "General",
+    "notes": "Fiber: 8.0g, Potassium: 450mg"
+  },
+  {
+    "food": "Shakshuka",
+    "calories": 250,
+    "protein": 10.0,
+    "carbs": 15.0,
+    "fat": 18.0,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 300mg"
+  },
+  {
+    "food": "Lentil Soup",
+    "calories": 180,
+    "protein": 8.0,
+    "carbs": 30.0,
+    "fat": 4.0,
+    "gi": 35,
+    "category": "General",
+    "notes": "Fiber: 8.0g, Potassium: 400mg"
+  },
+  {
+    "food": "Foul Sandwich",
+    "calories": 300,
+    "protein": 15.0,
+    "carbs": 45.0,
+    "fat": 6.0,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 6.0g, Potassium: 450mg"
+  },
+  {
+    "food": "Chicken Shawarma",
+    "calories": 350,
+    "protein": 30.0,
+    "carbs": 20.0,
+    "fat": 18.0,
+    "gi": 20,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 420mg"
+  },
+  {
+    "food": "Harira Soup",
+    "calories": 220,
+    "protein": 10.0,
+    "carbs": 30.0,
+    "fat": 8.0,
+    "gi": 40,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 320mg"
+  },
+  {
+    "food": "Lamb Kabsa",
+    "calories": 480,
+    "protein": 25.0,
+    "carbs": 40.0,
+    "fat": 22.0,
+    "gi": 50,
+    "category": "General",
+    "notes": "Fiber: 3.0g, Potassium: 470mg"
+  },
+  {
+    "food": "Baba Ganoush",
+    "calories": 150,
+    "protein": 2.0,
+    "carbs": 10.0,
+    "fat": 12.0,
+    "gi": 10,
+    "category": "General",
+    "notes": "Fiber: 4.0g, Potassium: 210mg"
+  },
+  {
+    "food": "Za'atar Manakish",
+    "calories": 250,
+    "protein": 5.0,
+    "carbs": 30.0,
+    "fat": 12.0,
+    "gi": 55,
+    "category": "General",
+    "notes": "Fiber: 2.0g, Potassium: 220mg"
+  }
+]

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Metabolic Digital Twin</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="brand">Metabolic Twin</div>
+            <div class="status-dot"></div>
+        </header>
+
+        <!-- Risk Gauge -->
+        <div class="glass-card risk-gauge-card">
+            <h2>Diabetes Risk (SOTA)</h2>
+            <div class="risk-gauge">
+                <div class="gauge-ring" id="risk-val">--%</div>
+                <div class="risk-label" id="risk-status">Predicting...</div>
+            </div>
+        </div>
+
+        <!-- Continuous Glucose Trend -->
+        <div class="glass-card">
+            <h2>Continuous Forecast (CDE)</h2>
+            <canvas id="forecastChart" class="forecast-chart"></canvas>
+            <div id="forecast-summary" style="margin-top:10px; font-size: 0.9rem; color: #b0b3b8;">
+                Analyzing latent metabolic trajectory...
+            </div>
+        </div>
+
+        <!-- Proactive Action -->
+        <div class="glass-card">
+            <h2>AI Recommendation (RL)</h2>
+            <div class="action-card">
+                <div class="icon-box">🥗</div>
+                <div>
+                    <div id="rec-title" style="font-weight: 600;">Optimal Strategy</div>
+                    <div id="rec-desc" style="font-size: 0.85rem; color: #b0b3b8;">Feed data to optimize policy.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Section -->
+        <div class="glass-card">
+            <h2>Metabolic Input</h2>
+            <div class="input-group">
+                <input type="number" id="input-glucose" placeholder="Current Glucose (mg/dl)">
+                <input type="number" id="input-hba1c" placeholder="HbA1c Level (%)">
+                <button onclick="updateTwin()">Sync Digital Twin</button>
+            </div>
+        </div>
+    </div>
+
+    <nav class="nav-bar">
+        <div class="nav-item active">●</div>
+        <div class="nav-item">📊</div>
+        <div class="nav-item">🥗</div>
+        <div class="nav-item">⚙️</div>
+    </nav>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,8 +1,8 @@
-# 🩺 Metabolic Digital Twin (Project 110%)
+# 🩺 Metabolic Digital Twin
 
 A state-of-the-art (SOTA) metabolic management system that integrates predictive diagnostics, continuous forecasting, and proactive dietary control. This project transforms raw clinical data into a "Digital Twin" capable of forecasting glucose trends and optimizing dietary policies using Reinforcement Learning.
 
-**Status**: ✅ 120% Complete (Kaggle Grandmaster Edition)
+**Status**: ✅ Complete (Kaggle Grandmaster Edition)
 **Top Performance**: **97.90% AUC-ROC** (Stacking Ensemble)
 
 ## 🚀 Key Features

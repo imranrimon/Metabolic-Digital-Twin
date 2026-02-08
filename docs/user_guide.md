@@ -14,7 +14,8 @@ The **FastAPI Inference Server** is currently running on your system at:
 Simply open the following file in your web browser (Chrome or Edge recommended):
 **[index.html](file:///f:/Diabetics%20Project/mobile_app/frontend/index.html)**
 
----      
+---
+
 ## 🧪 How to Verify it's Working
 
 1.  **Open the App**: You will see a dark-mode glassmorphic dashboard.

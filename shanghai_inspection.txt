@@ -1,0 +1,46 @@
+Inspecting file: f:/Diabetics Project/data/shanghai_dataset/Shanghai_T1DM/1001_0_20210730.xlsx
+
+Columns:
+['Date', 'CGM (mg / dl)', 'CBG (mg / dl)', 'Blood Ketone (mmol / L)', 'Dietary intake', '饮食', 'Insulin dose - s.c.', 'Non-insulin hypoglycemic agents', 'CSII - bolus insulin (Novolin R, IU)', 'CSII - basal insulin (Novolin R, IU / H)', 'Insulin dose - i.v.']
+
+First 5 rows:
+                 Date  CGM (mg / dl)  CBG (mg / dl)  Blood Ketone (mmol / L)      Dietary intake   饮食  Insulin dose - s.c. Non-insulin hypoglycemic agents  CSII - bolus insulin (Novolin R, IU)  CSII - basal insulin (Novolin R, IU / H)  Insulin dose - i.v.
+0 2021-07-30 16:43:00          113.4            NaN                      NaN                 NaN  NaN                  NaN                             NaN                                   NaN                                       0.3                  NaN
+1 2021-07-30 16:58:00          124.2            NaN                      NaN                 NaN  NaN                  NaN                             NaN                                   4.0                                       NaN                  NaN
+2 2021-07-30 17:13:00          129.6            NaN                      NaN  data not available  未记录                  NaN                             NaN                                   NaN                                       NaN                  NaN
+3 2021-07-30 17:28:00          142.2            NaN                      NaN                 NaN  NaN                  NaN                             NaN                                   NaN                                       NaN                  NaN
+4 2021-07-30 17:43:00          156.6            NaN                      NaN                 NaN  NaN                  NaN                             NaN                                   NaN                                       NaN                  NaN
+
+Info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 658 entries, 0 to 657
+Data columns (total 11 columns):
+ #   Column                                    Non-Null Count  Dtype         
+---  ------                                    --------------  -----         
+ 0   Date                                      658 non-null    datetime64[ns]
+ 1   CGM (mg / dl)                             658 non-null    float64       
+ 2   CBG (mg / dl)                             53 non-null     float64       
+ 3   Blood Ketone (mmol / L)                   0 non-null      float64       
+ 4   Dietary intake                            22 non-null     object        
+ 5   饮食                                        22 non-null     object        
+ 6   Insulin dose - s.c.                       0 non-null      float64       
+ 7   Non-insulin hypoglycemic agents           6 non-null      object        
+ 8   CSII - bolus insulin (Novolin R, IU)      29 non-null     float64       
+ 9   CSII - basal insulin (Novolin R, IU / H)  44 non-null     float64       
+ 10  Insulin dose - i.v.                       0 non-null      float64       
+dtypes: datetime64[ns](1), float64(7), object(3)
+memory usage: 56.7+ KB
+
+Data Types:
+Date                                        datetime64[ns]
+CGM (mg / dl)                                      float64
+CBG (mg / dl)                                      float64
+Blood Ketone (mmol / L)                            float64
+Dietary intake                                      object
+饮食                                                  object
+Insulin dose - s.c.                                float64
+Non-insulin hypoglycemic agents                     object
+CSII - bolus insulin (Novolin R, IU)               float64
+CSII - basal insulin (Novolin R, IU / H)           float64
+Insulin dose - i.v.                                float64
+dtype: object

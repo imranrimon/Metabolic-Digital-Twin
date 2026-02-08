@@ -8,20 +8,40 @@ async function updateTwin() {
 
     if (isNaN(glucose)) return alert("Please enter current glucose");
 
-    // 1. Predict Risk
+    // 1. Predict Risk (Using SOTA Grandmaster Pipeline)
     try {
         const riskRes = await fetch(`${API_BASE}/predict/risk`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                num_features: [45, 28.5, hba1c || 6.5, glucose], // age, bmi, hba1c, g
-                cat_features: [1, 3, 0, 0] // gender, smok, hyp, heart
+                gender: "Female", // Default/Demo
+                age: 45.0,
+                hypertension: 0,
+                heart_disease: 0,
+                smoking_history: "never",
+                bmi: 28.5,
+                HbA1c_level: hba1c || 6.5,
+                blood_glucose_level: parseInt(glucose)
             })
         });
         const riskData = await riskRes.json();
-        document.getElementById('risk-val').innerText = (riskData.risk_probability * 100).toFixed(1) + "%";
-        document.getElementById('risk-status').innerText = riskData.status + " Risk Profile";
+
+        if (riskData.error) {
+            console.error(riskData.error);
+            return;
+        }
+
+        const prob = (riskData.risk_probability * 100).toFixed(1);
+        document.getElementById('risk-val').innerText = prob + "%";
+        document.getElementById('risk-status').innerText = riskData.status + " Risk";
         document.getElementById('risk-status').style.color = riskData.status === "High" ? "#ff4d4d" : "#00d2ff";
+
+        // Update subtitle to show model
+        if (riskData.model) {
+            document.getElementById('risk-status').innerText += ` (${riskData.model})`;
+            document.getElementById('risk-status').style.fontSize = "0.8rem";
+        }
+
     } catch (e) { console.error(e); }
 
     // 2. Get AI Recommendation

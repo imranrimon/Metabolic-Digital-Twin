@@ -121,18 +121,22 @@ class TabNetEncoder(nn.Module):
 
 class MambaBlock(nn.Module):
     """
-    Mamba: Linear-Time Sequence Modeling with Selective State Spaces
-    Efficient alternative to transformers for long sequences
-    Based on: "Mamba: Linear-Time Sequence Modeling" (Gu & Dao, 2023)
+    Mamba-like Block (Simplified Pure PyTorch Implementation)
+    Implements the core Selective Scan mechanism using standard PyTorch operations.
+    This avoids the complex CUDA build requirements of the official mamba-ssm package
+    while retaining the architectural benefits for benchmarking.
     """
     def __init__(self, d_model: int, d_state: int = 16, d_conv: int = 4, expand: int = 2):
         super().__init__()
         self.d_model = d_model
         self.d_state = d_state
         self.d_inner = int(expand * d_model)
+        self.dt_rank = Variable_rank = (d_model + 15) // 16
         
-        # Simplified version - actual mamba-ssm will be used
+        # Projects input to 2*d_inner (for x and z branches)
         self.in_proj = nn.Linear(d_model, self.d_inner * 2)
+        
+        # 1D Convolution
         self.conv1d = nn.Conv1d(
             in_channels=self.d_inner,
             out_channels=self.d_inner,
@@ -140,18 +144,170 @@ class MambaBlock(nn.Module):
             padding=d_conv - 1,
             groups=self.d_inner
         )
+        
+        # Activation
+        self.activation = nn.SiLU()
+        
+        # State Space Model projections
+        self.x_proj = nn.Linear(self.d_inner, self.dt_rank + self.d_state * 2, bias=False)
+        self.dt_proj = nn.Linear(self.dt_rank, self.d_inner, bias=True)
+        
+        # S4D real initialization
+        A = torch.arange(1, self.d_state + 1, dtype=torch.float32).repeat(self.d_inner, 1)
+        self.A_log = nn.Parameter(torch.log(A))
+        self.D = nn.Parameter(torch.ones(self.d_inner))
+        
+        # Output projection
         self.out_proj = nn.Linear(self.d_inner, d_model)
-        self.norm = nn.LayerNorm(d_model)
         
     def forward(self, x):
-        # Simplified placeholder
-        residual = x
-        x = self.in_proj(x)
-        x_silu, gate = x.chunk(2, dim=-1)
-        x_silu = F.silu(x_silu)
-        x_conv = self.conv1d(x_silu.transpose(1, 2)).transpose(1, 2)[:, :x.shape[1], :]
-        out = self.out_proj(x_conv * gate)
-        return self.norm(out + residual)
+        """
+        x: (batch, seq_len, d_model)
+        """
+        batch, seq_len, d_model = x.shape
+        
+        # 1. Project to higher dim
+        xz = self.in_proj(x) # (batch, seq_len, 2*d_inner)
+        x_branch, z_branch = xz.chunk(2, dim=-1) # (batch, seq_len, d_inner)
+        
+        # 2. Convolution
+        x_branch = x_branch.transpose(1, 2) # (batch, d_inner, seq_len)
+        x_branch = self.conv1d(x_branch)[:, :, :seq_len] # Causal padding
+        x_branch = x_branch.transpose(1, 2) # (batch, seq_len, d_inner)
+        
+        x_branch = self.activation(x_branch)
+        z_branch = self.activation(z_branch)
+        
+        # 3. SSM (Simplified Selective Scan)
+        # In a real efficient implementation, this would be a custom CUDA kernel
+        # Here we use a sequential loop for compatibility
+        
+        # Project params
+        x_dbl = self.x_proj(x_branch) # (batch, seq_len, dt_rank + 2*d_state)
+        dt, B, C = torch.split(x_dbl, [self.dt_rank, self.d_state, self.d_state], dim=-1)
+        
+        dt = F.softplus(self.dt_proj(dt)) # (batch, seq_len, d_inner)
+        
+        # Discretize A
+        A = -torch.exp(self.A_log) # (d_inner, d_state)
+        
+        # Scan loop
+        y = []
+        h = torch.zeros(batch, self.d_inner, self.d_state, device=x.device)
+        
+        for t in range(seq_len):
+            dt_t = dt[:, t, :].unsqueeze(-1) # (batch, d_inner, 1)
+            dA = torch.exp(dt_t * A) # (batch, d_inner, d_state)
+            dB = dt_t * B[:, t, :].unsqueeze(1) # (batch, d_inner, d_state)
+            
+            # h_t = A_bar * h_{t-1} + B_bar * x_t
+            xt = x_branch[:, t, :].unsqueeze(-1) # (batch, d_inner, 1)
+            h = dA * h + dB * xt
+            
+            # y_t = C_t * h_t
+            Ct = C[:, t, :].unsqueeze(1) # (batch, 1, d_state)
+            yt = (h * Ct).sum(dim=-1) # (batch, d_inner)
+            y.append(yt)
+            
+        y = torch.stack(y, dim=1) # (batch, seq_len, d_inner)
+        
+        # Add residual connection D * x
+        y = y + x_branch * self.D
+        
+        # 4. Multiply by gate and project out
+        y = y * z_branch
+        out = self.out_proj(y)
+        
+        return out
+
+
+class MambaModel(nn.Module):
+    """
+    Full Mamba Architecture for Sequence Modeling
+    """
+    def __init__(self, d_input: int, d_output: int, d_model: int = 64, n_layers: int = 2, dropout: float = 0.1):
+        super().__init__()
+        
+        self.embedding = nn.Linear(d_input, d_model)
+        
+        self.layers = nn.ModuleList([
+            MambaBlock(d_model=d_model, expand=2) # Using our custom pure-torch block
+            for _ in range(n_layers)
+        ])
+        
+        self.norm = nn.LayerNorm(d_model)
+        self.dropout = nn.Dropout(dropout)
+        self.output_head = nn.Linear(d_model, d_output)
+        
+    def forward(self, x):
+        # x: (batch, seq_len, d_input)
+        x = self.embedding(x)
+        
+        for layer in self.layers:
+            # Residual connection handled inside MambaBlock in official repo, 
+            # here we add it explicitly or assume block does it
+            # Our block implementation does not have residual around it, so we add it here
+            residual = x
+            x = layer(x)
+            x = x + residual
+            
+        x = self.norm(x)
+        x = self.dropout(x)
+        
+        # Predict based on last time step
+        out = self.output_head(x[:, -1, :])
+        return out
+
+
+class TemporalFusionTransformer(nn.Module):
+    """
+    Temporal Fusion Transformer (TFT) - Simplified PyTorch Implementation
+    For multi-horizon time series forecasting
+    """
+    def __init__(self, input_dim: int, output_dim: int, hidden_dim: int = 64, num_heads: int = 4, dropout: float = 0.1):
+        super().__init__()
+        
+        # Variable Selection Network (Simplified as Linear)
+        self.input_encoder = nn.Linear(input_dim, hidden_dim)
+        
+        # LSTM Encoder-Decoder (Seq2Seq component)
+        self.lstm = nn.LSTM(hidden_dim, hidden_dim, batch_first=True, bidirectional=False)
+        
+        # Gate -> Add -> Norm (GLU-like)
+        self.gate = nn.Sequential(
+            nn.Linear(hidden_dim, hidden_dim * 2),
+            nn.GLU()
+        )
+        self.norm1 = nn.LayerNorm(hidden_dim)
+        
+        # Multi-Head Attention (Long-range dependencies)
+        self.attention = nn.MultiheadAttention(embed_dim=hidden_dim, num_heads=num_heads, batch_first=True)
+        self.norm2 = nn.LayerNorm(hidden_dim)
+        
+        # Output layers
+        self.output_layer = nn.Linear(hidden_dim, output_dim)
+        self.dropout = nn.Dropout(dropout)
+        
+    def forward(self, x):
+        # x: (batch, seq_len, input_dim)
+        
+        # 1. Encoding
+        encoded = self.input_encoder(x) # (batch, seq_len, hidden)
+        
+        # 2. LSTM (Local temporal processing)
+        lstm_out, _ = self.lstm(encoded) # (batch, seq_len, hidden)
+        
+        # 3. Gating and Residual
+        gated = self.gate(lstm_out)
+        res1 = self.norm1(encoded + gated)
+        
+        # 4. Attention (Global temporal processing)
+        attn_out, _ = self.attention(res1, res1, res1)
+        res2 = self.norm2(res1 + self.dropout(attn_out))
+        
+        # 5. Output
+        out = self.output_layer(res2[:, -1, :]) # Predict next step based on sequence
+        return out
 
 
 class MultimodalFusion(nn.Module):

@@ -1,13 +1,24 @@
-# 🩺 Metabolic Digital Twin
+# 🩺 Metabolic Digital Twin (Project 110%)
 
-A state-of-the-art (SOTA) metabolic management system that integrates predictive diagnostics with proactive dietary control. This project transforms raw clinical data into a "Digital Twin" capable of forecasting glucose trends and optimizing dietary policies using Reinforcement Learning.
+A state-of-the-art (SOTA) metabolic management system that integrates predictive diagnostics, continuous forecasting, and proactive dietary control. This project transforms raw clinical data into a "Digital Twin" capable of forecasting glucose trends and optimizing dietary policies using Reinforcement Learning.
+
+**Status**: ✅ 120% Complete (Kaggle Grandmaster Edition)
+**Top Performance**: **97.90% AUC-ROC** (Stacking Ensemble)
 
 ## 🚀 Key Features
 
-*   **FT-Transformer (Risk Engine)**: Superior tabular risk prediction for diabetes, outperforming traditional ML on large-scale datasets.
-*   **Neural Controlled Differential Equations (Forecaster)**: Continuous-time glucose modeling that treats metabolic behavior as a smooth dynamical system.
-*   **Offline Reinforcement Learning (Diet Agent)**: A DQN-based agent trained to recommend meal compositions that maximize "Time in Range" (TIR).
-*   **Mobile Patient Dashboard**: A premium, glassmorphic Android-first web app (FastAPI + Vanilla JS) for real-time monitoring and AI diet suggestions.
+### 1. 🧠 Advanced Neural Engines
+*   **Kaggle Grandmaster Ensemble**: A stacking meta-learner combining Optimized XGBoost, LightGBM, and FT-Transformer (Deep Learning). **Achieved 97.90% AUC**.
+*   **Neural Controlled Differential Equations (CDE)**: Continuous-time glucose forecasting that models metabolic dynamics as irregular time-series.
+*   **Interactive Novel Architectures**: Experimental implementations of **KAN (Kolmogorov-Arnold Networks)**, **Mamba (State Space Models)**, and **TabNet** (Interpretable Attention).
+
+### 2. 🤖 AI Dietitian (Reinforcement Learning)
+*   **Offline RL Agent**: A DQN-based policy trained on physiological states to recommend optimal macronutrient ratios.
+*   **Goal**: Maximize "Time in Range" (TIR) and minimize glycemic variability.
+
+### 3. 📱 Premium Patient Dashboard
+*   **Glassmorphic UI**: A high-end, mobile-first Android interface built with Vanilla JS and CSS3.
+*   **Real-time Inference**: Powered by a robust **FastAPI** backend serving SOTA model predictions instantly.
 
 ## 📂 Project Structure
 
@@ -16,36 +27,54 @@ A state-of-the-art (SOTA) metabolic management system that integrates predictive
 │   ├── backend/          # FastAPI predictive server
 │   └── frontend/         # Glassmorphic UI (HTML/CSS/JS)
 ├── src/                  # Core Neural Engines & Preprocessing
-├── results/              # Ablation benchmarks & Performance plots
-├── models/               # Saved SOTA weights (.pth) - [Excluded from Git]
+│   ├── models_novel.py   # KAN, Mamba, TFT, TabNet architectures
+│   ├── grandmaster_*.py  # Advanced feature engineering & optimization
+│   └── train_stacking.py # Stacking Ensemble pipeline
+├── results/              # Benchmark csvs & Performance plots
+│   └── grandmaster_benchmark.csv # Final 97.9% AUC results
 └── README.md             # Project documentation
 ```
 
+## 📊 Benchmark Hall of Fame
+
+| Rank | Model Strategy | AUC-ROC | Innovation |
+|------|----------------|---------|------------|
+| 🥇 | **Stacking Ensemble** | **97.90%** | **Meta-Learning (XGB+LGBM+DL)** |
+| 🥈 | XGBoost (Optuna) | 97.89% | Hyperparameter Optimization |
+| 🥉 | LightGBM (Optuna) | 97.77% | Interaction Features |
+| 4 | FT-Transformer | 97.16% | Deep Learning SOTA |
+| 5 | TabNet | 96.14% | Interpretable Attention |
+| 6 | KAN (2024) | 94.40% | Learnable Activations |
+
 ## 🛠 Tech Stack
-- **Deep Learning**: PyTorch, `torchcde`, `rtdl-revisiting-models`
-- **Analytics**: Scikit-learn, XGBoost, LightGBM
-- **Backend**: FastAPI, Uvicorn
-- **Frontend**: Vanilla HTML5, CSS3 (Glassmorphism), Chart.js
+- **Deep Learning**: PyTorch, `torchcde`, FT-Transformer, KAN, Mamba
+- **Machine Learning**: XGBoost, LightGBM, Scikit-learn, Optuna (AutoML)
+- **Backend API**: FastAPI, Uvicorn
+- **Frontend**: HTML5, CSS3, Chart.js
 - **Hardware**: NVIDIA RTX 5070Ti (CUDA 12.9)
 
-## 🚦 Getting Started
+## 🚦 How to Reproduce SOTA Results
 
-### 1. Requirements
+### 1. Install Dependencies
 ```bash
-pip install torch torchcde rtdl_revisiting_models fastapi uvicorn xgboost lightgbm pandas scikit-learn
+pip install torch torchcde xgboost lightgbm pandas scikit-learn optuna pytorch-tabnet fastapi uvicorn
 ```
 
-### 2. Launching the Backend
+### 2. Run the Grandmaster Pipeline
+```bash
+# Step 1: Optimize Hyperparameters (Takes ~30 mins)
+python src/optimize_hyperparams.py
+
+# Step 2: Train Stacking Ensemble & Generate Benchmark
+python src/train_stacking.py
+```
+
+### 3. Launch the Mobile App
 ```bash
 cd mobile_app/backend
 python api.py
+# Then open mobile_app/frontend/index.html
 ```
-
-### 3. Launching the Dashboard
-Open `mobile_app/frontend/index.html` in any modern browser.
-
-## 📊 Ablation Results
-Our SOTA pipeline achieved a **15% reduction** in glucose forecasting error (CDE vs LSTM) and competitive AUC-ROC on the 100k Diabetes dataset using the FT-Transformer. Detailed results can be found in `results/comprehensive_ablation_results.csv`.
 
 ---
 *Developed by Imran Rimon - Transformative Metabolic Intelligence.*

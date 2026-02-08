@@ -9,6 +9,7 @@ A state-of-the-art (SOTA) metabolic management system that integrates predictive
 
 ### 1. 🧠 Advanced Neural Engines
 *   **Kaggle Grandmaster Ensemble**: A stacking meta-learner combining Optimized XGBoost, LightGBM, and FT-Transformer (Deep Learning). **Achieved 97.90% AUC**.
+*   **EchoCeptionNet (Novel Invention)**: A custom hybrid architecture combining **Echo State Networks (ESN)** and **Inception** blocks. Matches classic ML performance (~97.7% AUC) while being **2x faster** than transformers.
 *   **Neural Controlled Differential Equations (CDE)**: Continuous-time glucose forecasting that models metabolic dynamics as irregular time-series.
 *   **Interactive Novel Architectures**: Experimental implementations of **KAN (Kolmogorov-Arnold Networks)**, **Mamba (State Space Models)**, and **TabNet** (Interpretable Attention).
 
@@ -27,11 +28,12 @@ A state-of-the-art (SOTA) metabolic management system that integrates predictive
 │   ├── backend/          # FastAPI predictive server
 │   └── frontend/         # Glassmorphic UI (HTML/CSS/JS)
 ├── src/                  # Core Neural Engines & Preprocessing
-│   ├── models_novel.py   # KAN, Mamba, TFT, TabNet architectures
+│   ├── models_novel.py   # KAN, Mamba, TFT, TabNet, EchoCeption architectures
 │   ├── grandmaster_*.py  # Advanced feature engineering & optimization
 │   └── train_stacking.py # Stacking Ensemble pipeline
 ├── results/              # Benchmark csvs & Performance plots
-│   └── grandmaster_benchmark.csv # Final 97.9% AUC results
+│   ├── grandmaster_benchmark.csv # Final 97.9% AUC results
+│   └── echoception_benchmark.csv # Novel architecture results
 └── README.md             # Project documentation
 ```
 
@@ -42,9 +44,10 @@ A state-of-the-art (SOTA) metabolic management system that integrates predictive
 | 🥇 | **Stacking Ensemble** | **97.90%** | **Meta-Learning (XGB+LGBM+DL)** |
 | 🥈 | XGBoost (Optuna) | 97.89% | Hyperparameter Optimization |
 | 🥉 | LightGBM (Optuna) | 97.77% | Interaction Features |
-| 4 | FT-Transformer | 97.16% | Deep Learning SOTA |
-| 5 | TabNet | 96.14% | Interpretable Attention |
-| 6 | KAN (2024) | 94.40% | Learnable Activations |
+| 4 | **EchoCeptionNet** | **97.72%** | **Novel ESN+Inception Hybrid** |
+| 5 | FT-Transformer | 97.16% | Deep Learning SOTA |
+| 6 | TabNet | 96.14% | Interpretable Attention |
+| 7 | KAN (2024) | 94.40% | Learnable Activations |
 
 ## 🛠 Tech Stack
 - **Deep Learning**: PyTorch, `torchcde`, FT-Transformer, KAN, Mamba

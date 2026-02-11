@@ -33,7 +33,6 @@ A state-of-the-art (SOTA) metabolic management system that integrates predictive
 │   └── grandmaster_*.py  # Advanced feature engineering & optimization
 ├── results/              # Benchmark csvs & Performance plots
 │   └── hyperscale_benchmark.csv # Final 98.45% AUC results
-├── project_paper.tex     # IEEE Conference Paper (Ready to Submit)
 └── README.md             # Project documentation
 ```
 

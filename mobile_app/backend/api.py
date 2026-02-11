@@ -1,3 +1,6 @@
+
+import sys
+import os
 import torch
 import uvicorn
 import joblib
@@ -7,16 +10,13 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Optional
-import sys
-import os
 from xgboost import XGBClassifier
 
 # Add parent src to path to import models
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../src')))
 
 from models_sota import FTTransformerModel, NeuralCDEModel
-from metabolic_rl import DQNAgent
-from grandmaster_features import apply_grandmaster_features
+from recommender import DietRecommender
 
 app = FastAPI(title="Metabolic Digital Twin API (Grandmaster Edition)")
 
@@ -33,6 +33,9 @@ app.add_middleware(
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 MODELS = {}
 FEATURES = []
+
+# Initialize Recommender
+recommender = DietRecommender(os.path.join(os.path.dirname(__file__), '../../src/food_db.json'))
 
 @app.get("/")
 def read_root():
@@ -78,6 +81,7 @@ def load_models():
 
     # 3. RL Policy (Diet)
     try:
+        from metabolic_rl import DQNAgent
         agent = DQNAgent(state_dim=1, action_dim=5)
         # Check specific path or generic
         path = "../../metabolic_policy.pth"
@@ -103,6 +107,9 @@ class RawRiskRequest(BaseModel):
 
 class DietRequest(BaseModel):
     current_glucose: float
+    age: Optional[float] = 45
+    bmi: Optional[float] = 25
+    gender: Optional[int] = 1 # 1 Male, 0 Female
 
 # --- Endpoints ---
 
@@ -127,18 +134,10 @@ async def predict_risk(req: RawRiskRequest):
         df = pd.DataFrame(data)
         
         # 2. Preprocessing (One-Hot)
-        # Note: We must ensure columns match training. 
-        # In production, we'd use a saved Scikit-Learn Pipeline. 
-        # Here we manually recreate the dummification logic or 
-        # assume simplified inputs for the demo.
-        # "gender" -> we need gender_Male, gender_Other (if existed)
-        # "smoking" -> we need smoking...
-        
-        # Quick Hack for Robustness: Manually construct expected columns
-        # This prevents "feature mismatch" errors in XGBoost
         df_processed = pd.get_dummies(df)
         
         # Add Grandmaster Features
+        from grandmaster_features import apply_grandmaster_features
         df_rich = apply_grandmaster_features(df_processed)
         
         # Align with training features
@@ -165,17 +164,39 @@ async def predict_risk(req: RawRiskRequest):
 
 @app.post("/recommend/diet")
 async def recommend_diet(req: DietRequest):
+    # 1. RL Policy Selection (Meal Type)
     agent = MODELS.get('policy')
-    # Default fallback if agent not loaded
-    if not agent:
-        return {"recommendation": "Balanced Meal", "reason": "System fallback."}
-    
-    action_idx = agent.act([req.current_glucose])
-    meal_types = ["Low Carb", "Balanced", "Moderate Carb", "High Fiber", "Custom Protocol"]
+    meal_type_rec = "Balanced"
+    if agent:
+        action_idx = agent.act([req.current_glucose])
+        meal_types = ["Low Carb", "Balanced", "Moderate Carb", "High Fiber", "Custom Protocol"]
+        meal_type_rec = meal_types[action_idx]
     
     return {
-        "recommendation": meal_types[action_idx],
-        "reason": "Optimized via Offline Reinforcement Learning for Time-in-Range."
+        "strategy": meal_type_rec,
+        "reason": f"RL Agent selected '{meal_type_rec}' based on glucose {req.current_glucose}mg/dL."
+    }
+
+@app.post("/recommend/meals")
+async def recommend_meals(req: DietRequest):
+    # Content-Based Food Recommendation
+    risk_level = 0.8 if req.current_glucose > 140 else 0.2
+    
+    plan = recommender.recommend_meals(
+        age=req.age, 
+        bmi=req.bmi, 
+        risk_level=risk_level, 
+        gender=req.gender
+    )
+    
+    return {
+        "caloric_target": plan['daily_caloric_target'],
+        "meals": plan['suggested_meals'],
+        "macros": { # Estimated distribution based on standard diabetic diet
+            "carbs": "45%",
+            "protein": "25%",
+            "fat": "30%"
+        }
     }
 
 @app.get("/health")

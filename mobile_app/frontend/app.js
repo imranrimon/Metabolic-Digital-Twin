@@ -44,16 +44,77 @@ async function updateTwin() {
 
     } catch (e) { console.error(e); }
 
-    // 2. Get AI Recommendation
+    // 2. Get AI Recommendation (Strategy)
     try {
         const dietRes = await fetch(`${API_BASE}/recommend/diet`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ current_glucose: glucose })
+            body: JSON.stringify({
+                current_glucose: parseFloat(glucose),
+                age: 45, // Demo values
+                bmi: 28.5,
+                gender: 0
+            })
         });
         const dietData = await dietRes.json();
-        document.getElementById('rec-title').innerText = dietData.recommendation;
+
+        // Update Strategy Title
+        document.getElementById('rec-title').innerText = dietData.strategy + " Strategy";
         document.getElementById('rec-desc').innerText = dietData.reason;
+
+    } catch (e) { console.error(e); }
+
+    // 3. Get Detailed Meal Plan (New Endpoint)
+    try {
+        const mealRes = await fetch(`${API_BASE}/recommend/meals`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                current_glucose: parseFloat(glucose),
+                age: 45,
+                bmi: 28.5,
+                gender: 0
+            })
+        });
+        const mealData = await mealRes.json();
+
+        // Render Meal Plan
+        const planContainer = document.getElementById('meal-plan-container');
+        if (!planContainer) {
+            const div = document.createElement('div');
+            div.id = 'meal-plan-container';
+            div.style.marginTop = "1rem";
+            document.getElementById('rec-desc').parentNode.appendChild(div);
+        }
+
+        const meals = mealData.meals;
+        let html = `<div style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top:10px;">`;
+
+        // Helper to render a card
+        const renderCard = (title, items) => {
+            let list = items.map(i => `<li style="color:#b0b3b8; font-size:0.8rem;">
+                <b>${i.food}</b> <br>
+                <span style="font-size:0.75rem; color:#888;">${i.calories} kcal | GI: ${i.gi}</span>
+            </li>`).join('');
+            return `
+            <div style="background:rgba(255,255,255,0.05); padding:10px; border-radius:10px;">
+                <h4 style="color:#00d2ff; margin-bottom:5px;">${title}</h4>
+                <ul style="padding-left:15px; margin:0; line-height:1.4;">${list || '<li style="color:#666">No suggestions</li>'}</ul>
+            </div>`;
+        };
+
+        html += renderCard('Breakfast', meals.Breakfast);
+        html += renderCard('Lunch', meals.Lunch);
+        html += renderCard('Dinner', meals.Dinner);
+        html += renderCard('Snack', meals.Snack);
+        html += `</div> 
+        <div style="margin-top:10px; font-size:0.8rem; color:#888; display:flex; justify-content:space-between;">
+            <span>Target: ${mealData.caloric_target} kcal</span>
+            <span>Macros: C:${mealData.macros.carbs} P:${mealData.macros.protein} F:${mealData.macros.fat}</span>
+        </div>`;
+
+        document.getElementById('meal-plan-container').innerHTML = html;
+
     } catch (e) { console.error(e); }
 
     // 3. Update Chart (Static Mock for Demo logic)

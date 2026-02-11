@@ -3,14 +3,14 @@
 A state-of-the-art (SOTA) metabolic management system that integrates predictive diagnostics, continuous forecasting, and proactive dietary control. This project transforms raw clinical data into a "Digital Twin" capable of forecasting glucose trends and optimizing dietary policies using Reinforcement Learning.
 
 **Status**: ✅ Complete (Hyper-Scale Edition)
-**Top Performance**: **98.45% AUC-ROC** (EchoCeption-XL on RTX 5070Ti) 🥇
+**Top Performance**: **98.45% AUC-ROC** (EchoCeption-XL) 🥇
 
 ## 🚀 Key Features
 
 ### 1. 🧠 Hyper-Scale Neural Engines
-*   **EchoCeption-XL (New SOTA)**: A massive **88M parameter** hybrid model scaling the **Echo State Network** reservoir to **4096 neurons** with Pre-Reservoir **Self-Attention**. Shattered the 98% barrier on the 5070Ti.
+*   **EchoCeption-XL (New SOTA)**: A massive **88M parameter** hybrid model scaling the **Echo State Network** reservoir to **4096 neurons** with Pre-Reservoir **Self-Attention**.
 *   **Grandmaster Ensemble**: A stacking meta-learner combining Optimized XGBoost, LightGBM, and FT-Transformer. **97.90% AUC**.
-*   **Neural Controlled Differential Equations (CDE)**: Continuous-time glucose forecasting that models metabolic dynamics as irregular time-series.
+*   **Neural Controlled Differential Equations (CDE)**: Continuous-time glucose forecasting that models metabolic dynamics as an irregular time-series.
 *   **Interactive Novel Architectures**: Experimental implementations of **KAN**, **Mamba**, and **TabNet**.
 
 ### 2. 🤖 AI Dietitian (Reinforcement Learning)

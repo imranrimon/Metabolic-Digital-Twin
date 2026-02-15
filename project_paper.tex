@@ -138,11 +138,10 @@ We evaluated models on AUC-ROC, Accuracy, and F1-Score (Table I). The Grandmaste
 \toprule
 \textbf{Model} & \textbf{AUC-ROC} & \textbf{Accuracy} & \textbf{Params} \\
 \midrule
-\textbf{EchoCeption-XL (5070Ti)} & \textbf{0.9845} & \textbf{98.1\%} & \textbf{88M} \\
+\textbf{EchoCeption-XL (RTX 8000)} & \textbf{0.9908} & \textbf{98.5\%} & \textbf{88M} \\
+EchoCeption-XL (5070Ti) & 0.9845 & 98.1\% & 88M \\
 Grandmaster Ensemble & 0.9790 & 97.4\% & N/A \\
-EchoCeptionNet (Base) & 0.9772 & 96.9\% & 15k \\
-FT-Transformer (SOTA) & 0.9750 & 96.5\% & 250k \\
-Logistic Regression & 0.9540 & 94.1\% & $<100$ \\
+PopulationGraphNet & 0.8889 & 92.1\% & 1.2M \\
 \bottomrule
 \end{tabular}
 \label{tab1}
@@ -150,13 +149,14 @@ Logistic Regression & 0.9540 & 94.1\% & $<100$ \\
 \end{table}
 
 \subsection{Ablation Studies}
-\subsubsection{Hyper-Scale Optimization (RTX 5070Ti)}
-We leveraged the extensive VRAM of the NVIDIA RTX 5070Ti to scale the EchoCeptionNet reservoir from 128 to \textbf{4096 neurons} and introduced a Pre-Reservoir Self-Attention layer.
+\subsubsection{Hyper-Scale Optimization}
+We leveraged the extensive VRAM of the NVIDIA RTX 8000 to scale the EchoCeptionNet reservoir.
 \begin{itemize}
-    \item \textbf{Base}: 0.9772 AUC (15k params)
-    \item \textbf{XL (4096-dim)}: \textbf{0.9845 AUC} (88M params)
+    \item \textbf{Base}: 0.9772 AUC
+    \item \textbf{XL (5070Ti)}: 0.9845 AUC
+    \item \textbf{XL (RTX 8000)}: \textbf{0.9908 AUC}
 \end{itemize}
-This result confirms that "Deep Reservoir" computing follows a scaling law similar to LLMs, where capacity unlocks superior feature extraction.
+This result confirms that "Deep Reservoir" computing follows a scaling law similar to LLMs.
 \subsubsection{Loss Function}
 We compared standard Cross-Entropy (CE) against Focal Loss ($\gamma=2.0$) for EchoCeptionNet.
 \begin{itemize}

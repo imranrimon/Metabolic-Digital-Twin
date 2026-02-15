@@ -1,6 +1,5 @@
 Model,AUC-ROC,Note
-EchoCeption-XL (5070Ti),0.9845,New SOTA Record (4096-Neuron Reservoir)
-Grandmaster Ensemble,0.9790,Previous SOTA
-Optimized XGBoost,0.9785,Baseline SOTA
-EchoCeptionNet (Initial),0.9772,Novel Architecture
-FT-Transformer,0.9750,Deep Learning
+EchoCeption-XL (RTX 8000),0.9908,New SOTA Record (4096-Neuron)
+EchoCeption-XL (5070Ti),0.9845,Previous Record
+PopulationGraphNet (RTX 8000),0.8889,Graph Experiment
+Grandmaster Ensemble,0.9790,Baseline

@@ -1,4 +1,4 @@
-# 🩺 Metabolic Digital Twin (Grandmaster Edition)
+# 🩺 Metabolic Digital Twin
 
 A state-of-the-art (SOTA) metabolic management system that integrates predictive diagnostics, continuous forecasting, and proactive dietary control. This project transforms raw clinical data into a "Digital Twin" capable of forecasting glucose trends and optimizing dietary policies.
 
@@ -43,7 +43,7 @@ A state-of-the-art (SOTA) metabolic management system that integrates predictive
 
 | Rank | Model Strategy | AUC-ROC | Innovation |
 |------|----------------|---------|------------|
-| 🥇 | **EchoCeption-XL (RTX 8000)** | **0.9908** | **Hyper-Scale Reservoir + Attention** |
+| 🥇 | **EchoCeption-XL (RTX 8000)** | **99.08%** | **Hyper-Scale Reservoir + Attention** |
 | 🥈 | EchoCeption-XL (5070Ti) | 98.45% | Large Reservoir (4096 dim) |
 | 🥉 | Stacking Ensemble | 97.90% | Meta-Learning |
 | 4 | EchoCeptionNet (Base) | 97.72% | Novel ESN+Inception Hybrid |

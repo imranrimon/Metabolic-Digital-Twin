@@ -3,6 +3,7 @@ import json
 import numpy as np
 import pandas as pd
 from models_sota import FTTransformerModel, NeuralCDEModel
+from metabolic_twin.config import FT_TRANSFORMER_RISK_CHECKPOINT_PATH, NEURAL_CDE_CHECKPOINT_PATH, RL_POLICY_CHECKPOINT_PATH
 from metabolic_rl import DQNAgent, MetabolicEnv
 
 class MetabolicDigitalTwin:
@@ -68,9 +69,9 @@ if __name__ == "__main__":
     twin = MetabolicDigitalTwin()
     
     # Placeholder for test run (Paths assumed from training)
-    ft_p = 'f:/Diabetics Project/ft_transformer_risk.pth'
-    cde_p = 'f:/Diabetics Project/neural_cde_glucose.pth'
-    rl_p = 'f:/Diabetics Project/metabolic_policy.pth'
+    ft_p = FT_TRANSFORMER_RISK_CHECKPOINT_PATH
+    cde_p = NEURAL_CDE_CHECKPOINT_PATH
+    rl_p = RL_POLICY_CHECKPOINT_PATH
     
     try:
         twin.load_sota(ft_p, cde_p, rl_p)

@@ -2,9 +2,10 @@ import pandas as pd
 import os
 from pathlib import Path
 
+from metabolic_twin.config import INSPECTION_LOGS_DIR, SHANGHAI_INSPECTION_SAMPLE_PATH
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-INSPECTION_OUTPUT_PATH = PROJECT_ROOT / "results" / "inspection" / "logs" / "shanghai_inspection.txt"
+INSPECTION_OUTPUT_PATH = INSPECTION_LOGS_DIR / "shanghai_inspection.txt"
 
 def inspect_shanghai_file(file_path, output_log):
     # Use utf-8 encoding to avoid charmap errors
@@ -30,7 +31,7 @@ def inspect_shanghai_file(file_path, output_log):
             f.write(f"Error reading file: {e}\n")
 
 if __name__ == "__main__":
-    t1dm_file = "f:/Diabetics Project/data/shanghai_dataset/Shanghai_T1DM/1001_0_20210730.xlsx"
+    t1dm_file = SHANGHAI_INSPECTION_SAMPLE_PATH
     INSPECTION_OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     inspect_shanghai_file(t1dm_file, str(INSPECTION_OUTPUT_PATH))
     print(f"Inspection complete. Check {INSPECTION_OUTPUT_PATH}")

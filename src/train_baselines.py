@@ -6,6 +6,8 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, classification_report, f1_score
 import pandas as pd
 
+from metabolic_twin.config import BASELINES_RESULTS_TEMPLATE, RESULTS_DIR
+
 def evaluate_baselines(dataset_name='100k'):
     print(f"\n--- Evaluating Baselines for {dataset_name} dataset ---")
     X_train, X_test, y_train, y_test, cols = get_processed_data(dataset_name)
@@ -35,7 +37,7 @@ def evaluate_baselines(dataset_name='100k'):
         print(f"{name} Results: Acc={acc:.4f}, F1={f1:.4f}")
 
     results_df = pd.DataFrame(results)
-    results_df.to_csv(f'f:/Diabetics Project/baselines_{dataset_name}.csv', index=False)
+    results_df.to_csv(RESULTS_DIR / BASELINES_RESULTS_TEMPLATE.format(dataset_name=dataset_name), index=False)
     print(f"Results saved to baselines_{dataset_name}.csv")
     return results_df
 

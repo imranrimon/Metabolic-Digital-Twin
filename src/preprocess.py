@@ -4,6 +4,8 @@ import os
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.model_selection import train_test_split
 
+from metabolic_twin.config import DIABETES_100K_DATA_PATH, PIMA_DATA_PATH
+
 def load_and_preprocess_pima(filepath):
     df = pd.read_csv(filepath)
     # Handle zeros in columns where they don't make sense (Glucose, BloodPressure, etc.)
@@ -29,13 +31,11 @@ def load_and_preprocess_100k(filepath):
     return X, y
 
 def get_processed_data(dataset_name='100k'):
-    data_dir = "f:/Diabetics Project/data"
-    
     if dataset_name == 'pima':
-        path = os.path.join(data_dir, "pima-indians-diabetes-database/diabetes.csv")
+        path = PIMA_DATA_PATH
         X, y = load_and_preprocess_pima(path)
     else:
-        path = os.path.join(data_dir, "diabetes-prediction-dataset/diabetes_prediction_dataset.csv")
+        path = DIABETES_100K_DATA_PATH
         X, y = load_and_preprocess_100k(path)
         
     # Split

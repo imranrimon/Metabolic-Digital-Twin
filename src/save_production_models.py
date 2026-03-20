@@ -17,15 +17,23 @@ from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
 
+from metabolic_twin.config import (
+    BEST_HYPERPARAMS_PATH,
+    DIABETES_100K_DATA_PATH,
+    MODELS_DIR,
+    PRODUCTION_CONFORMAL_PATH,
+    PRODUCTION_FEATURES_PATH,
+    PRODUCTION_PREPROCESS_PATH,
+    PRODUCTION_XGBOOST_PATH,
+)
 from conformal import AdaptivePredictionSetConformalClassifier
 from risk_pipeline import load_risk_training_data
 
-DATA_PATH = "f:/Diabetics Project/data/diabetes-prediction-dataset/diabetes_prediction_dataset.csv"
-MODELS_DIR = "f:/Diabetics Project/models"
-MODEL_PATH = os.path.join(MODELS_DIR, "production_xgboost.json")
-FEATURES_PATH = os.path.join(MODELS_DIR, "production_features.pkl")
-PREPROCESS_PATH = os.path.join(MODELS_DIR, "production_preprocess.pkl")
-CONFORMAL_PATH = os.path.join(MODELS_DIR, "production_conformal.pkl")
+DATA_PATH = DIABETES_100K_DATA_PATH
+MODEL_PATH = PRODUCTION_XGBOOST_PATH
+FEATURES_PATH = PRODUCTION_FEATURES_PATH
+PREPROCESS_PATH = PRODUCTION_PREPROCESS_PATH
+CONFORMAL_PATH = PRODUCTION_CONFORMAL_PATH
 
 CALIBRATION_SIZE = 0.1
 CONFORMAL_ALPHA = 0.1
@@ -47,7 +55,7 @@ def main():
     )
 
     try:
-        params = joblib.load("f:/Diabetics Project/src/best_hyperparams.pkl")
+        params = joblib.load(BEST_HYPERPARAMS_PATH)
         xgb_params = params["xgboost"]
         print(f"Loaded XGBoost hyperparameters: {xgb_params}")
     except Exception:
@@ -79,7 +87,7 @@ def main():
     }
 
     os.makedirs(MODELS_DIR, exist_ok=True)
-    model.save_model(MODEL_PATH)
+    model.save_model(str(MODEL_PATH))
     joblib.dump(feature_columns, FEATURES_PATH)
     joblib.dump(
         {

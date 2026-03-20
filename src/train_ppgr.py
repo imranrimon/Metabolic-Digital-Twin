@@ -4,15 +4,16 @@ import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
 
 from cgmacros_preprocess import CGMacrosPreprocessor
+from metabolic_twin.config import CGMACROS_DATA_DIR, PPGR_CHECKPOINT_PATH
 from ppgr_model import PPGRModel
 from training_utils import ValidationCheckpoint, load_model_state, progress, split_dataset, update_progress
 
 
-CHECKPOINT_PATH = "f:/Diabetics Project/ppgr_model.pth"
+CHECKPOINT_PATH = PPGR_CHECKPOINT_PATH
 
 def train_ppgr():
     print("\n--- Training Personalized Glycemic Response (PPGR) Model ---")
-    preprocessor = CGMacrosPreprocessor("f:/Diabetics Project/data/cgmacros/data_volume/CGMacros")
+    preprocessor = CGMacrosPreprocessor(CGMACROS_DATA_DIR)
     X, y = preprocessor.load_all_ppgr(num_participants=45) # Use majority of participants
     
     if X is None or len(X) == 0:

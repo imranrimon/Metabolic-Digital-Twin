@@ -13,6 +13,7 @@ The most paper-ready part of the project is the tabular risk benchmark. The fore
 The repository now uses a cleaner split between reusable package code and runnable scripts:
 
 - `src/metabolic_twin/`: reusable package modules grouped by domain
+- `src/metabolic_twin/config/`: centralized repo-relative paths for datasets, checkpoints, and outputs
 - `src/`: experiment and entrypoint scripts, plus backward-compatible wrappers for older imports
 - `results/`: paper outputs, plots, and inspection artifacts
 - `models/`: production and benchmark model metadata/artifacts

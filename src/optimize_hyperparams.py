@@ -15,6 +15,7 @@ import warnings
 import joblib
 
 # Import Grandmaster Features
+from metabolic_twin.config import BEST_HYPERPARAMS_PATH, DIABETES_100K_DATA_PATH
 from grandmaster_features import apply_grandmaster_features
 
 # Suppress warnings
@@ -22,7 +23,7 @@ warnings.filterwarnings("ignore")
 optuna.logging.set_verbosity(optuna.logging.WARNING)
 
 def load_data():
-    df = pd.read_csv('f:/Diabetics Project/data/diabetes-prediction-dataset/diabetes_prediction_dataset.csv')
+    df = pd.read_csv(DIABETES_100K_DATA_PATH)
     
     # Apply One-Hot Encoding for Categorical columns
     # 'gender', 'smoking_history' are categorical in original dataset
@@ -129,7 +130,7 @@ def main():
         'xgboost': study_xgb.best_params,
         'lightgbm': study_lgbm.best_params
     }
-    joblib.dump(params, 'f:/Diabetics Project/src/best_hyperparams.pkl')
+    joblib.dump(params, BEST_HYPERPARAMS_PATH)
     print("\nSaved best hyperparameters to src/best_hyperparams.pkl")
 
 if __name__ == "__main__":

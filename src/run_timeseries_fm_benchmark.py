@@ -24,15 +24,21 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 from torch.utils.data import DataLoader, TensorDataset
 
+from metabolic_twin.config import (
+    CGM_FM_BENCHMARK_PATH,
+    GLUCOSE_LSTM_TEMPORAL_HOLDOUT_PATH,
+    SHANGHAI_TOTAL_DATA_PATH,
+    ST_ATTENTION_TEMPORAL_HOLDOUT_PATH,
+)
 from models import LSTMForecaster, STAttentionLSTM
 from training_utils import ValidationCheckpoint, load_model_state, progress, update_progress
 
 
-DATA_PATH = "f:/Diabetics Project/data/shanghai_total.csv"
-RESULTS_PATH = "f:/Diabetics Project/results/cgm_foundation_benchmark.csv"
+DATA_PATH = SHANGHAI_TOTAL_DATA_PATH
+RESULTS_PATH = CGM_FM_BENCHMARK_PATH
 MODEL_PATHS = {
-    "Glucose LSTM": "f:/Diabetics Project/models/glucose_lstm_temporal_holdout.pth",
-    "ST-Attention LSTM": "f:/Diabetics Project/models/st_attention_lstm_temporal_holdout.pth",
+    "Glucose LSTM": GLUCOSE_LSTM_TEMPORAL_HOLDOUT_PATH,
+    "ST-Attention LSTM": ST_ATTENTION_TEMPORAL_HOLDOUT_PATH,
 }
 
 

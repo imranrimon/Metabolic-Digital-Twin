@@ -6,6 +6,8 @@ import pandas as pd
 import os
 from imblearn.over_sampling import SMOTE
 
+from metabolic_twin.config import ENSEMBLE_RESULTS_TEMPLATE, RESULTS_DIR
+
 def train_ensembles(dataset_name='100k'):
     print(f"\n--- Training Ensembles for {dataset_name} dataset ---")
     X_train, X_test, y_train, y_test, cols = get_processed_data(dataset_name)
@@ -40,7 +42,7 @@ def train_ensembles(dataset_name='100k'):
         print(f"{name} Results: Acc={acc:.4f}, F1={f1:.4f}, AUC={auc:.4f}")
 
     results_df = pd.DataFrame(results)
-    results_df.to_csv(f'f:/Diabetics Project/ensemble_{dataset_name}.csv', index=False)
+    results_df.to_csv(RESULTS_DIR / ENSEMBLE_RESULTS_TEMPLATE.format(dataset_name=dataset_name), index=False)
     print(f"Results saved to ensemble_{dataset_name}.csv")
     return results_df
 

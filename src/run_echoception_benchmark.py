@@ -13,17 +13,25 @@ from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_sc
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
+from metabolic_twin.config import (
+    DIABETES_100K_DATA_PATH,
+    ECHOCEPTION_BCE_CHECKPOINT_PATH,
+    ECHOCEPTION_BENCHMARK_PATH,
+    ECHOCEPTION_FOCAL_CHECKPOINT_PATH,
+    ECHOCEPTION_SPHERE_CHECKPOINT_PATH,
+    GRANDMASTER_BENCHMARK_PATH,
+)
 from models_novel import EchoCeptionNet, EchoCeptionSphereNet, FocalLoss, HypersphericalPrototypeLoss
 from training_utils import ValidationCheckpoint, load_model_state, progress, update_progress
 
 
-DATA_PATH = "f:/Diabetics Project/data/diabetes-prediction-dataset/diabetes_prediction_dataset.csv"
-RESULTS_PATH = "f:/Diabetics Project/results/echoception_benchmark.csv"
-REFERENCE_RESULTS_PATH = "f:/Diabetics Project/results/grandmaster_benchmark.csv"
+DATA_PATH = DIABETES_100K_DATA_PATH
+RESULTS_PATH = ECHOCEPTION_BENCHMARK_PATH
+REFERENCE_RESULTS_PATH = GRANDMASTER_BENCHMARK_PATH
 MODEL_PATHS = {
-    "EchoCeptionNet (Focal)": "f:/Diabetics Project/models/echoception_focal_best.pth",
-    "EchoCeptionNet": "f:/Diabetics Project/models/echoception_bce_best.pth",
-    "EchoCeptionSphereNet": "f:/Diabetics Project/models/echoception_sphere_best.pth",
+    "EchoCeptionNet (Focal)": ECHOCEPTION_FOCAL_CHECKPOINT_PATH,
+    "EchoCeptionNet": ECHOCEPTION_BCE_CHECKPOINT_PATH,
+    "EchoCeptionSphereNet": ECHOCEPTION_SPHERE_CHECKPOINT_PATH,
 }
 
 

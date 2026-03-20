@@ -9,6 +9,7 @@ from sklearn.metrics import roc_auc_score, accuracy_score, f1_score
 from imblearn.over_sampling import SMOTE
 import time
 
+from metabolic_twin.config import DIABETES_100K_DATA_PATH, KAN_CHECKPOINT_PATH
 from models_novel import KANModel
 from training_utils import (
     ValidationCheckpoint,
@@ -19,11 +20,11 @@ from training_utils import (
 )
 
 
-CHECKPOINT_PATH = "f:/Diabetics Project/kan_diabetes.pth"
+CHECKPOINT_PATH = KAN_CHECKPOINT_PATH
 
 def load_data():
     """Load and preprocess 100k diabetes dataset"""
-    df = pd.read_csv('f:/Diabetics Project/data/diabetes-prediction-dataset/diabetes_prediction_dataset.csv')
+    df = pd.read_csv(DIABETES_100K_DATA_PATH)
     
     # Select numerical features
     num_cols = ['age', 'bmi', 'HbA1c_level', 'blood_glucose_level']

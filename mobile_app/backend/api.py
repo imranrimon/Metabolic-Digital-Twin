@@ -14,11 +14,19 @@ from xgboost import XGBClassifier
 BACKEND_DIR = os.path.dirname(__file__)
 PROJECT_ROOT = os.path.abspath(os.path.join(BACKEND_DIR, "../.."))
 SRC_DIR = os.path.join(PROJECT_ROOT, "src")
-MODELS_DIR = os.path.join(PROJECT_ROOT, "models")
 
 # Add parent src to path to import models
 sys.path.append(SRC_DIR)
 
+from metabolic_twin.config import (
+    FOOD_DB_PATH,
+    NEURAL_CDE_CHECKPOINT_PATH,
+    PRODUCTION_CONFORMAL_PATH,
+    PRODUCTION_FEATURES_PATH,
+    PRODUCTION_PREPROCESS_PATH,
+    PRODUCTION_XGBOOST_PATH,
+    RL_POLICY_CHECKPOINT_PATH,
+)
 from conformal import load_conformal_classifier
 from models_sota import NeuralCDEModel
 from recommender import DietRecommender
@@ -45,7 +53,7 @@ CONFORMAL_SUMMARY = {}
 CONFORMAL_METHOD = None
 
 # Initialize Recommender
-recommender = DietRecommender(os.path.join(SRC_DIR, "food_db.json"))
+recommender = DietRecommender(FOOD_DB_PATH)
 
 @app.get("/")
 def read_root():
@@ -66,21 +74,21 @@ def load_models():
     # 1. Production XGBoost risk model
     try:
         model = XGBClassifier()
-        model.load_model(os.path.join(MODELS_DIR, "production_xgboost.json"))
+        model.load_model(str(PRODUCTION_XGBOOST_PATH))
         MODELS['risk'] = model
         
         # Load feature names to ensure correct order
-        preprocess_path = os.path.join(MODELS_DIR, "production_preprocess.pkl")
+        preprocess_path = PRODUCTION_PREPROCESS_PATH
         if os.path.exists(preprocess_path):
             preprocess_artifact = joblib.load(preprocess_path)
             FEATURES = preprocess_artifact["feature_columns"]
             CATEGORY_LEVELS = preprocess_artifact.get("category_levels", {})
         else:
-            FEATURES = joblib.load(os.path.join(MODELS_DIR, "production_features.pkl"))
+            FEATURES = joblib.load(PRODUCTION_FEATURES_PATH)
             CATEGORY_LEVELS = {}
         print("Success: production XGBoost risk model loaded.")
 
-        conformal_path = os.path.join(MODELS_DIR, "production_conformal.pkl")
+        conformal_path = PRODUCTION_CONFORMAL_PATH
         if os.path.exists(conformal_path):
             conformal_artifact = joblib.load(conformal_path)
             CONFORMAL = load_conformal_classifier(conformal_artifact)
@@ -95,7 +103,7 @@ def load_models():
     # 2. Neural CDE trend model
     try:
         # Fallback to LSTM if CDE weights missing
-        weights_path = os.path.join(PROJECT_ROOT, "neural_cde_glucose.pth")
+        weights_path = NEURAL_CDE_CHECKPOINT_PATH
         if os.path.exists(weights_path):
             model = NeuralCDEModel(input_channels=2, hidden_channels=32, output_channels=1).to(DEVICE)
             model.load_state_dict(torch.load(weights_path, map_location=DEVICE))
@@ -111,8 +119,7 @@ def load_models():
     try:
         from metabolic_rl import DQNAgent
         agent = DQNAgent(state_dim=1, action_dim=5)
-        # Check specific path or generic
-        path = os.path.join(PROJECT_ROOT, "metabolic_policy.pth")
+        path = RL_POLICY_CHECKPOINT_PATH
         if os.path.exists(path):
             agent.model.load_state_dict(torch.load(path, map_location=DEVICE))
             agent.model.eval()

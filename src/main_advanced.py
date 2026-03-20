@@ -4,6 +4,12 @@ import pandas as pd
 import numpy as np
 import json
 from models import AttentionResNetRisk, STAttentionLSTM
+from metabolic_twin.config import (
+    ATTENTION_RESNET_RISK_CHECKPOINT_PATH,
+    FOOD_DB_PATH,
+    PPGR_CHECKPOINT_PATH,
+    ST_ATTENTION_LSTM_CHECKPOINT_PATH,
+)
 from ppgr_model import PPGRModel
 from recommender import DietRecommender
 from preprocess import load_and_preprocess_100k
@@ -12,7 +18,7 @@ from sklearn.preprocessing import StandardScaler
 class AdvancedDiabetesSystem:
     def __init__(self):
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-        self.recommender = DietRecommender('f:/Diabetics Project/src/food_db.json')
+        self.recommender = DietRecommender(FOOD_DB_PATH)
         
         # Initialize Models
         self.risk_model = None
@@ -93,9 +99,9 @@ if __name__ == "__main__":
     system = AdvancedDiabetesSystem()
     
     # Paths to trained models
-    risk_p = 'f:/Diabetics Project/attention_resnet_risk.pth'
-    fore_p = 'f:/Diabetics Project/st_attention_lstm.pth'
-    ppgr_p = 'f:/Diabetics Project/ppgr_model.pth'
+    risk_p = ATTENTION_RESNET_RISK_CHECKPOINT_PATH
+    fore_p = ST_ATTENTION_LSTM_CHECKPOINT_PATH
+    ppgr_p = PPGR_CHECKPOINT_PATH
     
     try:
         system.load_models(risk_p, fore_p, ppgr_p)

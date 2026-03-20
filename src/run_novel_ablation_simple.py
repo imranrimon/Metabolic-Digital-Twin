@@ -19,9 +19,11 @@ from models_sota import FTTransformerModel
 from xgboost import XGBClassifier
 from lightgbm import LGBMClassifier
 
+from metabolic_twin.config import DIABETES_100K_DATA_PATH, NOVEL_ARCHITECTURE_BENCHMARK_PATH
+
 def load_and_split_data():
     """Load and split diabetes data"""
-    df = pd.read_csv('f:/Diabetics Project/data/diabetes-prediction-dataset/diabetes_prediction_dataset.csv')
+    df = pd.read_csv(DIABETES_100K_DATA_PATH)
     
     num_cols = ['age', 'bmi', 'HbA1c_level', 'blood_glucose_level']
     X = df[num_cols].values
@@ -171,7 +173,7 @@ def main():
     print(df.to_string(index=False, float_format=lambda x: f'{x:.4f}'))
     
     # Save
-    df.to_csv('f:/Diabetics Project/results/novel_architecture_benchmark.csv', index=False)
+    df.to_csv(NOVEL_ARCHITECTURE_BENCHMARK_PATH, index=False)
     print(f"\n{'='*80}")
     print("Results saved to: results/novel_architecture_benchmark.csv")
     print("="*80 + "\n")

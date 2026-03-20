@@ -4,10 +4,11 @@ import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
 from shanghai_preprocess import get_shanghai_sequences
 
+from metabolic_twin.config import GLUCOSE_LSTM_CHECKPOINT_PATH
 from training_utils import ValidationCheckpoint, load_model_state, progress, split_dataset, update_progress
 
 
-CHECKPOINT_PATH = "f:/Diabetics Project/glucose_lstm.pth"
+CHECKPOINT_PATH = GLUCOSE_LSTM_CHECKPOINT_PATH
 
 class GlucoseLSTM(nn.Module):
     def __init__(self, input_dim=1, hidden_dim=64, num_layers=2, output_dim=1):

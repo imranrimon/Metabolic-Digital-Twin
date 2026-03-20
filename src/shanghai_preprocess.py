@@ -3,6 +3,8 @@ import numpy as np
 import os
 from sklearn.preprocessing import MinMaxScaler
 
+from metabolic_twin.config import SHANGHAI_DATASET_DIR, SHANGHAI_T1DM_DIR, SHANGHAI_T2DM_DIR, SHANGHAI_TOTAL_DATA_PATH
+
 def load_shanghai_cgm(data_dirs):
     all_data = []
     for directory in data_dirs:
@@ -42,14 +44,13 @@ def get_shanghai_sequences(seq_length=8, pred_length=1):
     seq_length: past intervals (e.g., 8 * 15m = 2 hours)
     pred_length: future intervals (e.g., 1 * 15m = 15 min)
     """
-    base_dir = "f:/Diabetics Project/data/shanghai_dataset"
     dirs = [
-        os.path.join(base_dir, "Shanghai_T1DM"),
-        os.path.join(base_dir, "Shanghai_T2DM")
+        SHANGHAI_T1DM_DIR,
+        SHANGHAI_T2DM_DIR,
     ]
     
     df = load_shanghai_cgm(dirs)
-    df.to_csv("f:/Diabetics Project/data/shanghai_total.csv", index=False)
+    df.to_csv(SHANGHAI_TOTAL_DATA_PATH, index=False)
     print("Saved shanghai_total.csv")
     
     # Sort and scale

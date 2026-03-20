@@ -3,14 +3,14 @@ import os
 import pandas as pd
 import numpy as np
 from preprocess import load_and_preprocess_100k
+from metabolic_twin.config import FOOD_DB_PATH
 from recommender import DietRecommender
 from xgboost import XGBClassifier
 from sklearn.preprocessing import StandardScaler
 
 class DiabetesPredictionSystem:
     def __init__(self):
-        self.data_dir = "f:/Diabetics Project/data"
-        self.recommender = DietRecommender('f:/Diabetics Project/src/food_db.json')
+        self.recommender = DietRecommender(FOOD_DB_PATH)
         self.model = None
         self.scaler = StandardScaler()
         

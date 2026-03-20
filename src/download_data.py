@@ -2,6 +2,8 @@ import kagglehub
 import os
 import shutil
 
+from metabolic_twin.config import DATA_DIR
+
 def download_datasets():
     # Datasets to download
     datasets = [
@@ -12,7 +14,7 @@ def download_datasets():
         "jothammasila/diabetes-food-dataset"
     ]
     
-    base_path = "f:/Diabetics Project/data"
+    base_path = DATA_DIR
     if not os.path.exists(base_path):
         os.makedirs(base_path)
         

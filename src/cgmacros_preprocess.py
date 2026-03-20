@@ -3,6 +3,8 @@ import numpy as np
 import os
 from sklearn.preprocessing import StandardScaler
 
+from metabolic_twin.config import CGMACROS_DATA_DIR
+
 class CGMacrosPreprocessor:
     def __init__(self, base_dir):
         self.base_dir = base_dir
@@ -103,6 +105,6 @@ class CGMacrosPreprocessor:
         return X_scaled, y_final
 
 if __name__ == "__main__":
-    preprocessor = CGMacrosPreprocessor("f:/Diabetics Project/data/cgmacros/data_volume/CGMacros")
+    preprocessor = CGMacrosPreprocessor(CGMACROS_DATA_DIR)
     X, y = preprocessor.load_all_ppgr(10) # Test with first 10
     print(f"Extracted {len(X)} PPGR samples. Feature shape: {X.shape}")

@@ -18,6 +18,12 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn.preprocessing import StandardScaler
 from xgboost import XGBClassifier
 
+from metabolic_twin.config import (
+    BEST_HYPERPARAMS_PATH,
+    DIABETES_100K_DATA_PATH,
+    GRANDMASTER_BENCHMARK_PATH,
+    STACKING_META_MODEL_PATH,
+)
 from models_sota import FTTransformerModel
 from training_utils import progress, update_progress
 
@@ -28,10 +34,10 @@ from grandmaster_features import apply_grandmaster_features
 warnings.filterwarnings("ignore")
 os.environ.setdefault("LOKY_MAX_CPU_COUNT", str(os.cpu_count() or 1))
 
-DATA_PATH = "f:/Diabetics Project/data/diabetes-prediction-dataset/diabetes_prediction_dataset.csv"
-RESULTS_PATH = "f:/Diabetics Project/results/grandmaster_benchmark.csv"
-META_MODEL_PATH = "f:/Diabetics Project/src/stacking_meta_model.pkl"
-HYPERPARAMS_PATH = "f:/Diabetics Project/src/best_hyperparams.pkl"
+DATA_PATH = DIABETES_100K_DATA_PATH
+RESULTS_PATH = GRANDMASTER_BENCHMARK_PATH
+META_MODEL_PATH = STACKING_META_MODEL_PATH
+HYPERPARAMS_PATH = BEST_HYPERPARAMS_PATH
 
 
 def load_data():

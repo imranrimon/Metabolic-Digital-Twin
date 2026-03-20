@@ -24,9 +24,10 @@ try:
 except ImportError:  # pragma: no cover - runtime dependency check
     TabICLClassifier = None
 
+from metabolic_twin.config import DIABETES_100K_DATA_PATH, TABULAR_FM_BENCHMARK_PATH
 
-DATA_PATH = "f:/Diabetics Project/data/diabetes-prediction-dataset/diabetes_prediction_dataset.csv"
-RESULTS_PATH = "f:/Diabetics Project/results/tabular_foundation_benchmark.csv"
+DATA_PATH = DIABETES_100K_DATA_PATH
+RESULTS_PATH = TABULAR_FM_BENCHMARK_PATH
 FEATURE_COLUMNS = [
     "gender",
     "age",

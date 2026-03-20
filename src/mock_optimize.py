@@ -2,6 +2,8 @@
 import optuna
 import joblib
 
+from metabolic_twin.config import BEST_HYPERPARAMS_PATH
+
 def load_data():
     # Placeholder for running in an environment without the actual data
     import pandas as pd
@@ -40,7 +42,7 @@ def main():
         'xgboost': study_xgb.best_params,
         'lightgbm': study_lgbm.best_params
     }
-    joblib.dump(params, 'f:/Diabetics Project/src/best_hyperparams.pkl')
+    joblib.dump(params, BEST_HYPERPARAMS_PATH)
     print("Mock optimization complete.")
 
 if __name__ == "__main__":

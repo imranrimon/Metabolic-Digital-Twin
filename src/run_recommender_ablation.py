@@ -6,16 +6,17 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
+from metabolic_twin.config import FOOD_DB_PATH as CONFIG_FOOD_DB_PATH, PLOTS_DIR as CONFIG_PLOTS_DIR, RECOMMENDER_ABLATION_PATH, RESULTS_DIR as CONFIG_RESULTS_DIR
 from metabolic_rl import CHECKPOINT_PATH, DQNAgent, MetabolicEnv, train_metabolic_rl
 from recommender import DietRecommender
 from training_utils import load_model_state, progress
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-FOOD_DB_PATH = PROJECT_ROOT / "src" / "food_db.json"
-RESULTS_DIR = PROJECT_ROOT / "results"
-PLOTS_DIR = RESULTS_DIR / "plots"
-ABLATION_PATH = RESULTS_DIR / "recommender_ablation.csv"
+FOOD_DB_PATH = CONFIG_FOOD_DB_PATH
+RESULTS_DIR = CONFIG_RESULTS_DIR
+PLOTS_DIR = CONFIG_PLOTS_DIR
+ABLATION_PATH = RECOMMENDER_ABLATION_PATH
 CASE_STUDIES_PATH = RESULTS_DIR / "recommender_case_studies.csv"
 PLOT_PATH = PLOTS_DIR / "recommender_ablation_tradeoffs.png"
 

@@ -9,6 +9,7 @@ from sklearn.metrics import roc_auc_score, accuracy_score, f1_score
 from imblearn.over_sampling import SMOTE
 import time
 
+from metabolic_twin.config import DIABETES_100K_DATA_PATH, TABNET_MODEL_PATH
 try:
     from pytorch_tabnet.tab_model import TabNetClassifier
     TABNET_AVAILABLE = True
@@ -18,7 +19,7 @@ except ImportError:
 
 def load_data():
     """Load and preprocess 100k diabetes dataset"""
-    df = pd.read_csv('f:/Diabetics Project/data/diabetes-prediction-dataset/diabetes_prediction_dataset.csv')
+    df = pd.read_csv(DIABETES_100K_DATA_PATH)
     
     # Select features
     num_cols = ['age', 'bmi', 'HbA1c_level', 'blood_glucose_level']
@@ -139,7 +140,7 @@ def train_tabnet():
     print("="*60 + "\n")
     
     # Save model
-    clf.save_model('f:/Diabetics Project/tabnet_diabetes')
+    clf.save_model(str(TABNET_MODEL_PATH))
     
     return {
         'model': 'TabNet',

@@ -7,6 +7,7 @@ import numpy as np
 from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import train_test_split
 
+from metabolic_twin.config import ATTENTION_RESNET_RISK_CHECKPOINT_PATH, ST_ATTENTION_LSTM_CHECKPOINT_PATH
 from preprocess import get_processed_data
 from shanghai_preprocess import get_shanghai_sequences
 from models import AttentionResNetRisk, STAttentionLSTM
@@ -14,8 +15,8 @@ from imblearn.over_sampling import SMOTE
 from training_utils import ValidationCheckpoint, load_model_state, progress, split_dataset, update_progress
 
 
-RISK_CHECKPOINT_PATH = 'f:/Diabetics Project/attention_resnet_risk.pth'
-FORECAST_CHECKPOINT_PATH = 'f:/Diabetics Project/st_attention_lstm.pth'
+RISK_CHECKPOINT_PATH = ATTENTION_RESNET_RISK_CHECKPOINT_PATH
+FORECAST_CHECKPOINT_PATH = ST_ATTENTION_LSTM_CHECKPOINT_PATH
 
 def train_advanced_risk():
     print("\n--- Training Advanced Attention-ResNet Risk Model ---")

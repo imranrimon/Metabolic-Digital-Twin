@@ -20,6 +20,7 @@ from imblearn.over_sampling import SMOTE
 import time
 import json
 
+from metabolic_twin.config import COMPREHENSIVE_ABLATION_RESULTS_PATH
 from models import AttentionResNetRisk, EnhancedMLP
 from models_sota import FTTransformerModel
 from preprocess import get_processed_data
@@ -253,7 +254,7 @@ def run_comprehensive_ablation():
     
     # Save results
     df_results = pd.DataFrame(results)
-    df_results.to_csv('f:/Diabetics Project/results/comprehensive_ablation_results.csv', index=False)
+    df_results.to_csv(COMPREHENSIVE_ABLATION_RESULTS_PATH, index=False)
     
     # Print summary
     print("\n" + "="*80)

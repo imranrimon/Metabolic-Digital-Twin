@@ -1,6 +1,8 @@
 import json
 import os
 
+from metabolic_twin.config import FOOD_DB_PATH
+
 class DietRecommender:
     def __init__(self, db_path):
         with open(db_path, 'r') as f:
@@ -71,7 +73,7 @@ class DietRecommender:
         }
 
 if __name__ == "__main__":
-    recommender = DietRecommender('f:/Diabetics Project/src/food_db.json')
+    recommender = DietRecommender(FOOD_DB_PATH)
     # Test for a high-risk obese male
     sample_rec = recommender.recommend_meals(age=45, bmi=30, risk_level=0.8, gender=1)
     print(json.dumps(sample_rec, indent=2))

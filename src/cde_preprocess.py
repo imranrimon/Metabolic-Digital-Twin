@@ -4,6 +4,8 @@ import pandas as pd
 import numpy as np
 import os
 
+from metabolic_twin.config import SHANGHAI_TOTAL_DATA_PATH
+
 def prepare_cde_data(filepath, window_size=60, stride=15):
     """
     Converts CGM CSV data into Neural CDE coefficients.
@@ -44,7 +46,7 @@ def prepare_cde_data(filepath, window_size=60, stride=15):
 
 if __name__ == "__main__":
     # Test on one file
-    path = "f:/Diabetics Project/data/shanghai_cgm/shanghai_total.csv" # Check path
+    path = SHANGHAI_TOTAL_DATA_PATH
     if os.path.exists(path):
         coeffs, val = prepare_cde_data(path)
         print(f"Neural CDE Coefficients generated. Shape: {coeffs.shape}")

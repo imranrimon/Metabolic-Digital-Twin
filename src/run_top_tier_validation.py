@@ -30,6 +30,19 @@ from sklearn.metrics import (
 from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
 
+from metabolic_twin.config import (
+    BEST_HYPERPARAMS_PATH,
+    BOOTSTRAP_CI_PATH,
+    CALIBRATION_BINS_PATH,
+    CALIBRATION_FIG_PATH,
+    CALIBRATION_SUMMARY_PATH,
+    DIABETES_100K_DATA_PATH,
+    PLOTS_DIR,
+    PRODUCTION_PREPROCESS_PATH,
+    PRODUCTION_XGBOOST_PATH,
+    RESULTS_DIR,
+    SUBGROUP_ANALYSIS_PATH,
+)
 from risk_pipeline import (
     build_risk_feature_frame,
     extract_category_levels,
@@ -37,19 +50,11 @@ from risk_pipeline import (
 )
 
 
-DATA_PATH = "f:/Diabetics Project/data/diabetes-prediction-dataset/diabetes_prediction_dataset.csv"
-MODELS_DIR = "f:/Diabetics Project/models"
-RESULTS_DIR = "f:/Diabetics Project/results"
-PLOTS_DIR = os.path.join(RESULTS_DIR, "plots")
-
-MODEL_PATH = os.path.join(MODELS_DIR, "production_xgboost.json")
-PREPROCESS_PATH = os.path.join(MODELS_DIR, "production_preprocess.pkl")
-
-BOOTSTRAP_PATH = os.path.join(RESULTS_DIR, "bootstrap_confidence_intervals.csv")
-SUBGROUP_PATH = os.path.join(RESULTS_DIR, "subgroup_analysis_xgboost_100k.csv")
-CALIBRATION_SUMMARY_PATH = os.path.join(RESULTS_DIR, "calibration_summary_xgboost_100k.csv")
-CALIBRATION_BINS_PATH = os.path.join(RESULTS_DIR, "calibration_bins_xgboost_100k.csv")
-CALIBRATION_FIG_PATH = os.path.join(PLOTS_DIR, "calibration_xgboost_100k.png")
+DATA_PATH = DIABETES_100K_DATA_PATH
+MODEL_PATH = PRODUCTION_XGBOOST_PATH
+PREPROCESS_PATH = PRODUCTION_PREPROCESS_PATH
+BOOTSTRAP_PATH = BOOTSTRAP_CI_PATH
+SUBGROUP_PATH = SUBGROUP_ANALYSIS_PATH
 
 TARGET_COLUMN = "diabetes"
 AGE_BINS = [0, 40, 60, np.inf]
@@ -80,7 +85,7 @@ def align_test_to_train(train_df: pd.DataFrame, test_df: pd.DataFrame) -> pd.Dat
 
 def load_xgboost_params():
     try:
-        params = joblib.load("f:/Diabetics Project/src/best_hyperparams.pkl")
+        params = joblib.load(BEST_HYPERPARAMS_PATH)
         xgb_params = dict(params.get("xgboost", {}))
     except Exception:
         xgb_params = {"n_estimators": 200, "learning_rate": 0.05}
@@ -129,7 +134,7 @@ def load_production_split():
 
 def load_production_model():
     model = XGBClassifier()
-    model.load_model(MODEL_PATH)
+    model.load_model(str(MODEL_PATH))
     return model
 
 

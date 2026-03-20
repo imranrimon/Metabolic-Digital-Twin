@@ -4,16 +4,17 @@ import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
 import os
 
+from metabolic_twin.config import NEURAL_CDE_CHECKPOINT_PATH, SHANGHAI_TOTAL_DATA_PATH
 from models_sota import NeuralCDEModel
 from cde_preprocess import prepare_cde_data
 from training_utils import ValidationCheckpoint, load_model_state, progress, split_dataset, update_progress
 
 
-CHECKPOINT_PATH = "f:/Diabetics Project/neural_cde_glucose.pth"
+CHECKPOINT_PATH = NEURAL_CDE_CHECKPOINT_PATH
 
 def train_cde():
     print("\n--- Training Neural CDE (SOTA Continuous Temporal) ---")
-    data_path = "f:/Diabetics Project/data/shanghai_total.csv"
+    data_path = SHANGHAI_TOTAL_DATA_PATH
     if not os.path.exists(data_path):
          # Try to generate it if missing
          print("Shanghai total not found. Run shanghai_preprocess.py first.")

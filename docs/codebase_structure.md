@@ -5,6 +5,7 @@ This repository now follows a safer, more maintainable split between reusable pa
 ## Core layout
 
 - `src/metabolic_twin/`
+  - `config/`: centralized dataset, artifact, and output path definitions
   - `features/`: shared feature engineering utilities
   - `risk/`: production risk pipeline and conformal utilities
   - `recommendation/`: heuristic, RL, and next-generation meal recommendation logic
@@ -24,6 +25,7 @@ This repository now follows a safer, more maintainable split between reusable pa
 
 Existing commands such as `python src/run_all_experiments.py` still work.
 The flat `src/*.py` module names remain as wrappers so older scripts do not break.
+Machine-specific absolute paths have been replaced with `metabolic_twin.config.paths` so scripts resolve artifacts relative to the repository root.
 
 ## Output policy
 

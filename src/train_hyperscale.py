@@ -18,11 +18,12 @@ from torch.utils.data import DataLoader, TensorDataset
 sys.path.append(os.path.dirname(__file__))
 
 from grandmaster_features import apply_grandmaster_features
+from metabolic_twin.config import DIABETES_100K_DATA_PATH, HYPERSCALE_CHECKPOINT_PATH
 from training_utils import ValidationCheckpoint, load_model_state, progress, update_progress
 
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-CHECKPOINT_PATH = "models/echoception_xl_5070ti.pth"
+CHECKPOINT_PATH = HYPERSCALE_CHECKPOINT_PATH
 
 if torch.cuda.is_available():
     print(f"Launching Hyper-Scale Train on: {DEVICE} ({torch.cuda.get_device_name(0)})")
@@ -101,7 +102,7 @@ class EchoCeptionXL(nn.Module):
 
 
 def load_data():
-    df = pd.read_csv("f:/Diabetics Project/data/diabetes-prediction-dataset/diabetes_prediction_dataset.csv")
+    df = pd.read_csv(DIABETES_100K_DATA_PATH)
     df = apply_grandmaster_features(df)
     df_num = df.select_dtypes(include=[np.number])
     X = df_num.drop(columns=["diabetes"], errors="ignore").values

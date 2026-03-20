@@ -15,6 +15,7 @@ from xgboost import XGBClassifier
 from lightgbm import LGBMClassifier
 from imblearn.over_sampling import SMOTE
 
+from metabolic_twin.config import RESULTS_DIR
 from preprocess import get_processed_data
 from models import AttentionResNetRisk
 from ppgr_model import PPGRModel
@@ -22,7 +23,7 @@ from ppgr_model import PPGRModel
 os.environ.setdefault("LOKY_MAX_CPU_COUNT", str(os.cpu_count() or 1))
 
 class ExperimentOrchestrator:
-    def __init__(self, results_dir='f:/Diabetics Project/results'):
+    def __init__(self, results_dir=RESULTS_DIR):
         self.results_dir = results_dir
         self.plots_dir = os.path.join(results_dir, 'plots')
         self.models_dir = os.path.join(results_dir, 'models')

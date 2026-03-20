@@ -14,6 +14,7 @@ import pandas as pd
 
 # Add src to path
 sys.path.append(os.path.dirname(__file__))
+from metabolic_twin.config import FOOD_DB_PATH
 from recommender import DietRecommender
 
 def visualize_recommender():
@@ -23,13 +24,7 @@ def visualize_recommender():
     
     # 1. Initialize Recommender
     try:
-        # Check if db exists
-        db_path = 'src/food_db.json'
-        if not os.path.exists(db_path):
-             # Fallback to absolute path or relative
-             db_path = 'f:/Diabetics Project/src/food_db.json'
-             
-        recommender = DietRecommender(db_path)
+        recommender = DietRecommender(FOOD_DB_PATH)
         print("[+] Recommender System Initialized")
     except Exception as e:
         print(f"[!] Error initializing recommender: {e}")

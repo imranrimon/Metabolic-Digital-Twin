@@ -6,10 +6,11 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
+from metabolic_twin.config import RL_POLICY_CHECKPOINT_PATH
 from metabolic_twin.utils.training import ValidationCheckpoint, load_model_state, progress, update_progress
 
 
-CHECKPOINT_PATH = "f:/Diabetics Project/metabolic_policy.pth"
+CHECKPOINT_PATH = RL_POLICY_CHECKPOINT_PATH
 
 
 class MetabolicEnv:

@@ -21,9 +21,11 @@ from xgboost import XGBClassifier
 from lightgbm import LGBMClassifier
 from pytorch_tabnet.tab_model import TabNetClassifier
 
+from metabolic_twin.config import DIABETES_100K_DATA_PATH, NOVEL_7_MODEL_BENCHMARK_PATH
+
 def load_tabular_data():
     """Load 100k diabetes dataset for tabular models"""
-    df = pd.read_csv('f:/Diabetics Project/data/diabetes-prediction-dataset/diabetes_prediction_dataset.csv')
+    df = pd.read_csv(DIABETES_100K_DATA_PATH)
     num_cols = ['age', 'bmi', 'HbA1c_level', 'blood_glucose_level']
     X = df[num_cols].values
     y = df['diabetes'].values
@@ -167,7 +169,7 @@ def main():
     df = pd.DataFrame(results).sort_values('AUC', ascending=False)
     print("\n" + "="*60)
     print(df.to_string(index=False))
-    df.to_csv('f:/Diabetics Project/results/novel_7_model_benchmark.csv', index=False)
+    df.to_csv(NOVEL_7_MODEL_BENCHMARK_PATH, index=False)
 
 if __name__ == '__main__':
     main()

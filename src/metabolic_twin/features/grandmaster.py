@@ -6,6 +6,8 @@ Implements "Grandmaster" techniques: Interaction terms, Binning, Log Transforms
 import pandas as pd
 import numpy as np
 
+from metabolic_twin.config import DIABETES_100K_DATA_PATH
+
 def apply_grandmaster_features(df):
     """
     Enrich dataframe with advanced features
@@ -68,7 +70,7 @@ if __name__ == "__main__":
     # Test
     print("Testing Grandmaster Feature Engineering...")
     try:
-        df = pd.read_csv('f:/Diabetics Project/data/diabetes-prediction-dataset/diabetes_prediction_dataset.csv')
+        df = pd.read_csv(DIABETES_100K_DATA_PATH)
         df_rich = apply_grandmaster_features(df)
         print(f"Original Cols: {df.shape[1]}")
         print(f"Enriched Cols: {df_rich.shape[1]}")

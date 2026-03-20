@@ -8,6 +8,7 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.metrics import roc_auc_score
 from imblearn.over_sampling import SMOTE
 
+from metabolic_twin.config import DIABETES_100K_DATA_PATH, FT_TRANSFORMER_RISK_CHECKPOINT_PATH
 from models_sota import FTTransformerModel
 from training_utils import (
     ValidationCheckpoint,
@@ -18,10 +19,10 @@ from training_utils import (
 )
 
 
-CHECKPOINT_PATH = "f:/Diabetics Project/ft_transformer_risk.pth"
+CHECKPOINT_PATH = FT_TRANSFORMER_RISK_CHECKPOINT_PATH
 
 def load_data_split():
-    df = pd.read_csv('f:/Diabetics Project/data/diabetes-prediction-dataset/diabetes_prediction_dataset.csv')
+    df = pd.read_csv(DIABETES_100K_DATA_PATH)
     
     # Categorical handling for FT-Transformer
     cat_cols = ['gender', 'smoking_history', 'hypertension', 'heart_disease']

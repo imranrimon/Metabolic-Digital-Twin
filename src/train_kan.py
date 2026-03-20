@@ -4,13 +4,22 @@ import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import StandardScaler, LabelEncoder
-from sklearn.model_selection import train_test_split, StratifiedKFold
+from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import roc_auc_score, accuracy_score, f1_score
 from imblearn.over_sampling import SMOTE
 import time
 
 from models_novel import KANModel
+from training_utils import (
+    ValidationCheckpoint,
+    load_model_state,
+    progress,
+    stratified_train_val_test_split,
+    update_progress,
+)
+
+
+CHECKPOINT_PATH = "f:/Diabetics Project/kan_diabetes.pth"
 
 def load_data():
     """Load and preprocess 100k diabetes dataset"""
@@ -22,22 +31,30 @@ def load_data():
     # Handle categorical if needed (for now, focusing on numerical only)
     X = df[num_cols].values
     y = df['diabetes'].values
-    
-    # Standardize
-    scaler = StandardScaler()
-    X = scaler.fit_transform(X)
-    
-    # Train/test split
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=42, stratify=y
+
+    train_arrays, y_train, val_arrays, y_val, test_arrays, y_test = stratified_train_val_test_split(
+        X,
+        labels=y,
+        val_size=0.15,
+        test_size=0.15,
+        random_state=42,
     )
-    
-    # SMOTE for class balance
+
+    X_train = train_arrays[0]
+    X_val = val_arrays[0]
+    X_test = test_arrays[0]
+
+    scaler = StandardScaler()
+    X_train = scaler.fit_transform(X_train)
+    X_val = scaler.transform(X_val)
+    X_test = scaler.transform(X_test)
+
     smote = SMOTE(random_state=42)
     X_train, y_train = smote.fit_resample(X_train, y_train)
     
     return (
         torch.FloatTensor(X_train), torch.FloatTensor(y_train),
+        torch.FloatTensor(X_val), torch.FloatTensor(y_val),
         torch.FloatTensor(X_test), torch.FloatTensor(y_test)
     )
 
@@ -49,13 +66,15 @@ def train_kan():
     print("="*60 + "\n")
     
     # Load data
-    X_train, y_train, X_test, y_test = load_data()
+    X_train, y_train, X_val, y_val, X_test, y_test = load_data()
     
     # Create datasets
     train_ds = TensorDataset(X_train, y_train)
+    val_ds = TensorDataset(X_val, y_val)
     test_ds = TensorDataset(X_test, y_test)
     
     train_loader = DataLoader(train_ds, batch_size=512, shuffle=True)
+    val_loader = DataLoader(val_ds, batch_size=512, shuffle=False)
     test_loader = DataLoader(test_ds, batch_size=512, shuffle=False)
     
     # Initialize model
@@ -78,13 +97,14 @@ def train_kan():
     optimizer = optim.AdamW(model.parameters(), lr=0.001, weight_decay=1e-5)
     criterion = nn.BCEWithLogitsLoss()
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=3)
+    checkpoint = ValidationCheckpoint(CHECKPOINT_PATH, metric_name="val_auc", mode="max")
     
     # Training loop
     epochs = 30
-    best_auc = 0.0
     start_time = time.time()
     
-    for epoch in range(epochs):
+    epoch_bar = progress(range(1, epochs + 1), desc="KAN epochs")
+    for epoch in epoch_bar:
         # Train
         model.train()
         train_loss = 0.0
@@ -102,49 +122,51 @@ def train_kan():
         
         avg_train_loss = train_loss / len(train_loader)
         
-        # Evaluate
+        # Validate
         model.eval()
-        all_preds = []
-        all_labels = []
+        val_preds = []
+        val_labels = []
         
         with torch.no_grad():
-            for batch_x, batch_y in test_loader:
+            for batch_x, batch_y in val_loader:
                 batch_x = batch_x.to(device)
                 logits = model(batch_x)
                 probs = torch.sigmoid(logits).cpu().numpy()
-                all_preds.extend(probs.flatten())
-                all_labels.extend(batch_y.numpy())
+                val_preds.extend(probs.flatten())
+                val_labels.extend(batch_y.numpy())
         
-        all_preds = np.array(all_preds)
-        all_labels = np.array(all_labels)
+        val_preds = np.array(val_preds)
+        val_labels = np.array(val_labels)
         
         # Metrics
-        auc = roc_auc_score(all_labels, all_preds)
-        binary_preds = (all_preds > 0.5).astype(int)
-        acc = accuracy_score(all_labels, binary_preds)
-        f1 = f1_score(all_labels, binary_preds)
+        val_auc = roc_auc_score(val_labels, val_preds)
+        binary_preds = (val_preds > 0.5).astype(int)
+        val_acc = accuracy_score(val_labels, binary_preds)
+        val_f1 = f1_score(val_labels, binary_preds)
         
         # Learning rate scheduling
         scheduler.step(avg_train_loss)
         
-        # Print progress
-        if (epoch + 1) % 5 == 0:
-            print(f"Epoch {epoch+1}/{epochs}")
-            print(f"  Train Loss: {avg_train_loss:.4f}")
-            print(f"  Test AUC-ROC: {auc:.4f}")
-            print(f"  Test Accuracy: {acc:.4f}")
-            print(f"  Test F1: {f1:.4f}")
-            print(f"  Learning Rate: {optimizer.param_groups[0]['lr']:.6f}")
-        
-        # Save best model
-        if auc > best_auc:
-            best_auc = auc
-            torch.save(model.state_dict(), 'f:/Diabetics Project/kan_diabetes.pth')
+        checkpoint.update(
+            model,
+            epoch,
+            val_auc,
+            extra_metadata={
+                "train_loss": avg_train_loss,
+                "learning_rate": optimizer.param_groups[0]['lr'],
+            },
+        )
+        update_progress(
+            epoch_bar,
+            train_loss=avg_train_loss,
+            val_auc=val_auc,
+            val_f1=val_f1,
+        )
     
     training_time = time.time() - start_time
     
     # Final evaluation
-    model.load_state_dict(torch.load('f:/Diabetics Project/kan_diabetes.pth'))
+    load_model_state(model, CHECKPOINT_PATH, map_location=device)
     model.eval()
     
     all_preds = []
@@ -177,13 +199,14 @@ def train_kan():
     print("\n" + "="*60)
     print("KAN Training Complete!")
     print("="*60)
+    print(f"Best Validation AUC-ROC: {checkpoint.best_metric:.4f} (epoch {checkpoint.best_epoch})")
     print(f"Best Test AUC-ROC: {final_auc:.4f}")
     print(f"Test Accuracy: {final_acc:.4f}")
     print(f"Test F1-Score: {final_f1:.4f}")
     print(f"Total Parameters: {total_params:,}")
     print(f"Training Time: {training_time:.2f}s")
     print(f"Avg Inference Time: {avg_inference:.2f}ms/batch")
-    print(f"Model saved to: kan_diabetes.pth")
+    print(f"Model saved to: {CHECKPOINT_PATH}")
     print("="*60 + "\n")
     
     return {

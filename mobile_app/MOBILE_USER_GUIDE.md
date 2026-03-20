@@ -1,34 +1,41 @@
-# 📱 Metabolic Digital Twin: User Guide
+# Metabolic Digital Twin Prototype: Mobile Guide
 
-This guide explains how to use the "Best-in-Class" mobile dashboard to manage metabolic health.
+This dashboard is a prototype companion to the research code in the repository. It is useful for demonstrations, but it should not be described as a validated clinical product.
 
-## 🚀 Quick Start
+## Running the Demo
 
-### 1. The Backend (Already Running)
-The **FastAPI Inference Server** is currently running on your system at:
-`http://localhost:8001`
+### Backend
 
-*   **To check health**: Open [http://localhost:8001/health](http://localhost:8001/health) in your browser. You should see `{"status":"online"}`.
+Start the API from the project root:
 
-### 2. The Frontend (Open Now)
-Simply open the following file in your web browser (Chrome or Edge recommended):
-**[index.html](file:///f:/Diabetics%20Project/mobile_app/frontend/index.html)**
+```bash
+python mobile_app/backend/api.py
+```
 
----      
-## 🧪 How to Verify it's Working
+Then verify the service:
 
-1.  **Open the App**: You will see a dark-mode glassmorphic dashboard.
-2.  **Input Health Data**:
-    *   Enter **Current Glucose** (e.g., `180`).
-    *   Enter **HbA1c** (e.g., `7.5`).
-3.  **Click "Sync Digital Twin"**:
-    *   The **Risk Gauge** will animate and show a percentage (e.g., `81.4%`). This is computed live by the **FT-Transformer**.
-    *   The **AI Recommendation** will update to suggest a meal strategy (e.g., `Low Carb`) based on your **RL Policy**.
-    *   The **Continuous Forecast** chart will update to show your predicted trajectory.
+`http://localhost:8001/health`
 
-## 🛠 Troubleshooting
-- **CORS Error**: If the gauge doesn't update, ensure the backend window is still open.
-- **Model Load**: If you see "Fallback Active" in the terminal, the system is using robust heuristic logic while the largest weights (CDE) are finalized.
+### Frontend
 
----
-**Technical Note**: The app communicates via standard JSON POST requests to `http://localhost:8001/predict/risk` and `http://localhost:8001/recommend/diet`.
+Open:
+
+`mobile_app/frontend/index.html`
+
+in a browser.
+
+## What the Demo Uses
+
+- Risk prediction: production XGBoost model when loaded successfully
+- Conformal uncertainty: APS-style prediction sets, per-label p-values, and ranked labels when the calibration artifact is available
+- Meal strategy selection: policy model when available
+- Meal suggestions: recommender backed by the food database
+
+Some advanced modules may use fallback behavior if their weights are missing.
+The health endpoint also reports the active conformal method when calibration is loaded.
+
+## Notes
+
+- The backend is designed for local demo use.
+- The app helps show the flow from profile input to model output.
+- The app is not a substitute for the paper benchmark; it is the interface layer of the project.

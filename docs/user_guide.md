@@ -1,35 +1,60 @@
-# 📱 Metabolic Digital Twin: User Guide
+# Metabolic Digital Twin Prototype: User Guide
 
-This guide explains how to use the "Best-in-Class" mobile dashboard to manage metabolic health.
+This guide explains how to run the dashboard as a prototype demo of the research pipeline.
 
-## 🚀 Quick Start
+## What the App Currently Demonstrates
 
-### 1. The Backend (Already Running)
-The **FastAPI Inference Server** is currently running on your system at:
-`http://localhost:8001`
+- risk prediction through the backend API,
+- diet-strategy selection when the policy model is available,
+- a frontend shell for displaying results.
 
-*   **To check health**: Open [http://localhost:8001/health](http://localhost:8001/health) in your browser. You should see `{"status":"online"}`.
+The dashboard should be treated as a prototype interface. Some backend modules are optional and may fall back if the larger model weights are not available.
 
-### 2. The Frontend (Open Now)
-Simply open the following file in your web browser (Chrome or Edge recommended):
-**[index.html](file:///f:/Diabetics%20Project/mobile_app/frontend/index.html)**
+## Quick Start
 
----
+### 1. Start the backend
 
-## 🧪 How to Verify it's Working
+From the project root:
 
-1.  **Open the App**: You will see a dark-mode glassmorphic dashboard.
-2.  **Input Health Data**:
-    *   Enter **Current Glucose** (e.g., `180`).
-    *   Enter **HbA1c** (e.g., `7.5`).
-3.  **Click "Sync Digital Twin"**:
-    *   The **Risk Gauge** will animate and show a percentage (e.g., `81.4%`). This is computed live by the **FT-Transformer**.
-    *   The **AI Recommendation** will update to suggest a meal strategy (e.g., `Low Carb`) based on your **RL Policy**.
-    *   The **Continuous Forecast** chart will update to show your predicted trajectory.
+```bash
+python mobile_app/backend/api.py
+```
 
-## 🛠 Troubleshooting
-- **CORS Error**: If the gauge doesn't update, ensure the backend window is still open.
-- **Model Load**: If you see "Fallback Active" in the terminal, the system is using robust heuristic logic while the largest weights (CDE) are finalized.
+Then open:
 
----
-**Technical Note**: The app communicates via standard JSON POST requests to `http://localhost:8001/predict/risk` and `http://localhost:8001/recommend/diet`.
+`http://localhost:8001/health`
+
+You should see a JSON response showing which models were loaded.
+If conformal calibration is active, the health response also reports the current conformal method.
+
+### 2. Open the frontend
+
+Open:
+
+`mobile_app/frontend/index.html`
+
+in a browser such as Chrome or Edge.
+
+## What to Expect
+
+When you submit a profile:
+
+- the risk endpoint uses the production XGBoost model if it is available,
+- the risk response may include an APS-style conformal prediction set, per-label p-values, and ranked labels when the conformal calibration artifact is present,
+- the diet endpoint uses the policy model if it is loaded,
+- trend or advanced components may fall back depending on which weights exist locally.
+
+## Troubleshooting
+
+- If the frontend does not update, confirm the backend is still running.
+- If the API reports only partial model availability, the app is still usable as a prototype but some outputs may be simplified.
+- If you see fallback messages in the backend logs, that means the corresponding model weights were not loaded.
+
+## Technical Note
+
+The frontend communicates with the FastAPI backend through JSON requests to endpoints such as:
+
+- `/predict/risk`
+- `/recommend/diet`
+- `/recommend/meals`
+- `/health`

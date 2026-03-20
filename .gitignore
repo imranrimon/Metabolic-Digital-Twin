@@ -33,6 +33,7 @@ data/
 
 # Logs
 *.log
+results/reports/
 
 # Environments
 .venv

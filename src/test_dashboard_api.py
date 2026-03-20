@@ -1,7 +1,6 @@
 
 import requests
 import json
-import time
 
 def test_api():
     base_url = "http://localhost:8001"
@@ -11,10 +10,21 @@ def test_api():
     try:
         risk_res = requests.post(f"{base_url}/predict/risk", json={
             "gender": "Female", "age": 55.0, "hypertension": 1, 
-            "heart_disease": 0, "smoking_history": "past", 
+            "heart_disease": 0, "smoking_history": "former", 
             "bmi": 32.0, "HbA1c_level": 7.0, "blood_glucose_level": 200
         })
-        print("Risk Response:", json.dumps(risk_res.json(), indent=2))
+        risk_payload = risk_res.json()
+        print("Risk Response:", json.dumps(risk_payload, indent=2))
+        if "conformal" in risk_payload:
+            print(
+                "Conformal Set:",
+                risk_payload["conformal"].get("prediction_set"),
+                "| Status:",
+                risk_payload["conformal"].get("status"),
+                "| Method:",
+                risk_payload["conformal"].get("method"),
+            )
+            print("Conformal Scores:", risk_payload["conformal"].get("scores"))
     except Exception as e: print(e)
 
     # 2. Test Diet Strategy (Legacy/Wrapper)

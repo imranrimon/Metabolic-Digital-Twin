@@ -1,7 +1,11 @@
 import torch
 import torch.nn as nn
 import rtdl_revisiting_models as rtdl
-import torchcde
+
+try:
+    import torchcde
+except ImportError:  # pragma: no cover - optional dependency for NeuralCDEModel only
+    torchcde = None
 
 class FTTransformerModel(nn.Module):
     def __init__(self, n_num_features, cat_cardinalities):
@@ -60,6 +64,10 @@ class NeuralCDEModel(nn.Module):
         self.readout = nn.Linear(hidden_channels, output_channels)
 
     def forward(self, coeffs):
+        if torchcde is None:
+            raise ImportError(
+                "torchcde is required for NeuralCDEModel. Install it with: python -m pip install torchcde"
+            )
         spline = torchcde.CubicSpline(coeffs)
         # Solve the CDE
         z0 = self.initial(spline.evaluate(spline.interval[0]))

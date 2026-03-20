@@ -1,5 +1,10 @@
 import pandas as pd
 import os
+from pathlib import Path
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+INSPECTION_OUTPUT_PATH = PROJECT_ROOT / "results" / "inspection" / "logs" / "shanghai_inspection.txt"
 
 def inspect_shanghai_file(file_path, output_log):
     # Use utf-8 encoding to avoid charmap errors
@@ -26,5 +31,6 @@ def inspect_shanghai_file(file_path, output_log):
 
 if __name__ == "__main__":
     t1dm_file = "f:/Diabetics Project/data/shanghai_dataset/Shanghai_T1DM/1001_0_20210730.xlsx"
-    inspect_shanghai_file(t1dm_file, "f:/Diabetics Project/shanghai_inspection.txt")
-    print("Inspection complete. Check shanghai_inspection.txt")
+    INSPECTION_OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    inspect_shanghai_file(t1dm_file, str(INSPECTION_OUTPUT_PATH))
+    print(f"Inspection complete. Check {INSPECTION_OUTPUT_PATH}")

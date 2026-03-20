@@ -1,63 +1,111 @@
 """
-Save Production Models
-Trains and serializes the best performing models for the API.
-Focus: Optimized XGBoost (Rank 2, 97.9% AUC) - Robust and Fast.
+Save Production Risk Model and Conformal Artifacts.
+
+Trains the production XGBoost model on the 100k dataset using a
+train/calibration split, then serializes:
+
+- the fitted XGBoost model,
+- the saved feature schema,
+- APS-style adaptive prediction set conformal calibration artifacts.
 """
 
-import pandas as pd
-import joblib
 import os
+
+import joblib
+import numpy as np
+from sklearn.metrics import roc_auc_score
+from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
-from sklearn.preprocessing import StandardScaler
-from imblearn.pipeline import Pipeline as ImbPipeline
-from imblearn.over_sampling import SMOTE
-from grandmaster_features import apply_grandmaster_features
+
+from conformal import AdaptivePredictionSetConformalClassifier
+from risk_pipeline import load_risk_training_data
+
+DATA_PATH = "f:/Diabetics Project/data/diabetes-prediction-dataset/diabetes_prediction_dataset.csv"
+MODELS_DIR = "f:/Diabetics Project/models"
+MODEL_PATH = os.path.join(MODELS_DIR, "production_xgboost.json")
+FEATURES_PATH = os.path.join(MODELS_DIR, "production_features.pkl")
+PREPROCESS_PATH = os.path.join(MODELS_DIR, "production_preprocess.pkl")
+CONFORMAL_PATH = os.path.join(MODELS_DIR, "production_conformal.pkl")
+
+CALIBRATION_SIZE = 0.1
+CONFORMAL_ALPHA = 0.1
+
 
 def main():
-    print("Training Production Models...")
-    
-    # 1. Load Data
-    df = pd.read_csv('f:/Diabetics Project/data/diabetes-prediction-dataset/diabetes_prediction_dataset.csv')
-    
-    # Preprocessing for API consistency
-    # The API will receive raw data, so we should emulate the pipeline
-    # However, XGBoost handles encodings? No, we need to one-hot encode.
-    # We'll build a pipeline that handles this? 
-    # Actually, simpler to just start from the processed state for training,
-    # and replicate preprocessing in API.
-    
-    df_processed = pd.get_dummies(df, drop_first=True)
-    df_rich = apply_grandmaster_features(df_processed)
-    
-    X = df_rich.drop('diabetes', axis=1)
-    y = df_rich['diabetes']
-    
-    # 2. Load Hyperparams
+    print("Training production risk model with conformal calibration...")
+
+    X, y, category_levels = load_risk_training_data(DATA_PATH)
+    feature_columns = list(X.columns)
+    print(f"Loaded engineered dataset: X={X.shape}, positive_rate={float(np.mean(y)):.4f}")
+
+    X_train, X_cal, y_train, y_cal = train_test_split(
+        X,
+        y,
+        test_size=CALIBRATION_SIZE,
+        random_state=42,
+        stratify=y,
+    )
+
     try:
-        params = joblib.load('f:/Diabetics Project/src/best_hyperparams.pkl')
-        xgb_params = params['xgboost']
-        print(f"Loaded XGB params: {xgb_params}")
-    except:
-        print("Using default XGB params")
-        xgb_params = {'n_estimators': 500, 'learning_rate': 0.05}
-        
-    # 3. Train Full Model
-    print("Fitting XGBoost on full dataset...")
-    # We include scaler in the pipeline for safety? 
-    # XGBoost is invariant to scaling largely, but interactions might not be?
-    # Let's verify: interaction = age * bmi.
-    # Providing raw features to XGBoost is fine.
-    
-    model = XGBClassifier(**xgb_params, n_jobs=-1, random_state=42, eval_metric='logloss')
-    model.fit(X, y)
-    
-    # 4. Save
-    os.makedirs('f:/Diabetics Project/models', exist_ok=True)
-    model.save_model('f:/Diabetics Project/models/production_xgboost.json')
-    joblib.dump(list(X.columns), 'f:/Diabetics Project/models/production_features.pkl')
-    
-    print("Saved: models/production_xgboost.json")
-    print("Saved: models/production_features.pkl")
+        params = joblib.load("f:/Diabetics Project/src/best_hyperparams.pkl")
+        xgb_params = params["xgboost"]
+        print(f"Loaded XGBoost hyperparameters: {xgb_params}")
+    except Exception:
+        print("Using default XGBoost hyperparameters.")
+        xgb_params = {"n_estimators": 500, "learning_rate": 0.05}
+
+    model = XGBClassifier(**xgb_params, n_jobs=-1, random_state=42, eval_metric="logloss")
+    model.fit(X_train, y_train)
+
+    cal_probs = model.predict_proba(X_cal)
+    cal_auc = roc_auc_score(y_cal, cal_probs[:, 1])
+    print(f"Calibration-split AUC: {cal_auc:.5f}")
+
+    conformal = AdaptivePredictionSetConformalClassifier(
+        alpha=CONFORMAL_ALPHA,
+        label_names={0: "Low Risk", 1: "High Risk"},
+    )
+    conformal.fit_from_probabilities(cal_probs, y_cal)
+
+    artifact = conformal.to_artifact()
+    artifact["summary"] = {
+        "method": conformal.method,
+        "target_coverage": 1 - CONFORMAL_ALPHA,
+        "empirical_coverage": conformal.empirical_coverage(cal_probs, y_cal),
+        "average_set_size": conformal.average_set_size(cal_probs),
+        "singleton_rate": conformal.singleton_rate(cal_probs),
+        "empty_rate": conformal.empty_rate(cal_probs),
+        "calibration_auc": cal_auc,
+    }
+
+    os.makedirs(MODELS_DIR, exist_ok=True)
+    model.save_model(MODEL_PATH)
+    joblib.dump(feature_columns, FEATURES_PATH)
+    joblib.dump(
+        {
+            "feature_columns": feature_columns,
+            "category_levels": category_levels,
+        },
+        PREPROCESS_PATH,
+    )
+    joblib.dump(artifact, CONFORMAL_PATH)
+
+    print(f"Saved: {MODEL_PATH}")
+    print(f"Saved: {FEATURES_PATH}")
+    print(f"Saved: {PREPROCESS_PATH}")
+    print(f"Saved: {CONFORMAL_PATH}")
+    print(
+        "Conformal summary:",
+        {
+            "method": artifact["summary"]["method"],
+            "target_coverage": round(artifact["summary"]["target_coverage"], 3),
+            "empirical_coverage": round(artifact["summary"]["empirical_coverage"], 3),
+            "average_set_size": round(artifact["summary"]["average_set_size"], 3),
+            "singleton_rate": round(artifact["summary"]["singleton_rate"], 3),
+            "empty_rate": round(artifact["summary"]["empty_rate"], 3),
+        },
+    )
+
 
 if __name__ == "__main__":
     main()

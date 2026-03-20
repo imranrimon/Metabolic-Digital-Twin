@@ -1,0 +1,225 @@
+% Coherent paper draft aligned with the validated repository evidence
+
+\documentclass[conference]{IEEEtran}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{Benchmarking Risk Models and Prototyping a Metabolic Digital Twin for Diabetes Management}
+
+\author{\IEEEauthorblockN{Firstname Lastname}
+\IEEEauthorblockA{\textit{Department of Computer Science} \\
+\textit{University Name}\\
+City, Country \\
+email@domain.com}
+}
+
+\maketitle
+
+\begin{abstract}
+This project studies diabetes risk prediction and prototype metabolic-support modules within a single research repository. The primary contribution is a coherent benchmark of classical, neural, and foundation-style models on tabular diabetes datasets, centered on the Pima Indians Diabetes dataset and a larger 100k-sample diabetes prediction dataset. In the standard 100k benchmark, LightGBM achieved the strongest result among the core comparable models with an AUC of 0.9786, followed closely by XGBoost at 0.9773, while Random Forest performed best on Pima with an AUC of 0.8155. In a dedicated modern-baseline comparison, TabICLv2 reached an AUC of 0.9804 on the 100k dataset. We further evaluate the proposed \textbf{EchoCeption} family: EchoCeptionNet reached an AUC of 0.9773 and the hyperspherical EchoCeptionSphereNet achieved the best F1 score at 0.8030. A clinically motivated feature ablation showed that removing HbA1c reduced AUC by 0.0457 to 0.0743 across the strongest models. To complement discrimination performance, we added APS-style conformal prediction to the production XGBoost risk model, achieving empirical coverage of 0.9001 at a nominal 90\% target. Beyond the core benchmark, the repository includes prototype modules for continuous glucose forecasting, dietary recommendation, and application-layer deployment. We frame these modules as system extensions rather than fully validated clinical contributions. The resulting paper story is a benchmark-plus-prototype pipeline: strong quantitative evidence for tabular diabetes risk prediction, calibrated uncertainty reporting, and a modular path toward a broader metabolic digital twin.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Diabetes risk prediction, tabular learning, ensemble methods, digital twin, glucose forecasting, dietary recommendation.
+\end{IEEEkeywords}
+
+\section{Introduction}
+Diabetes management involves both long-term risk stratification and short-term metabolic support. In practice, these two needs are often studied separately: tabular models are used for diagnosis or screening, while temporal models and recommendation systems are developed as standalone tools. This repository was built around the broader idea of a \emph{metabolic digital twin}, but the most mature and reproducible part of the work is the tabular risk-prediction benchmark.
+
+The key lesson from the project is that a coherent paper must distinguish between validated quantitative contributions and promising prototype extensions. Our strongest evidence comes from systematic experiments on diabetes risk prediction. We therefore organize the paper around that benchmark and position the forecasting, recommendation, and application modules as prototype components that motivate future multimodal work.
+
+This paper makes three contributions:
+\begin{enumerate}
+    \item A coherent benchmark of classical, neural, and foundation-style baselines for diabetes risk prediction on Pima and a 100k-sample diabetes dataset.
+    \item The EchoCeption family, including a hyperspherical prototype-head variant, as a competitive reservoir-inspired tabular architecture.
+    \item A clinically oriented reliability layer based on APS conformal prediction, together with a prototype system extension that connects risk prediction to forecasting, recommendation, and a mobile-facing application layer.
+\end{enumerate}
+
+\section{Project Scope and Methods}
+
+\subsection{Core Benchmark Datasets}
+The primary quantitative study uses two tabular datasets:
+\begin{itemize}
+    \item \textbf{Pima Indians Diabetes}: a smaller clinical benchmark used to test stability in the low-data regime.
+    \item \textbf{100k Diabetes Prediction Dataset}: a larger structured dataset with demographic and metabolic variables including age, BMI, HbA1c, and blood glucose level.
+\end{itemize}
+
+The benchmark pipeline performs train/test splitting before model fitting, applies scaling using training statistics, and uses SMOTE only on the training partition for the comparable experiments reported in the main benchmark table.
+
+\subsection{Model Families}
+We compare:
+\begin{itemize}
+    \item classical baselines: logistic regression, SVM, KNN, and decision trees;
+    \item tree ensembles: random forest, XGBoost, and LightGBM;
+    \item neural baselines: Attention-ResNet and FT-Transformer in dedicated runs;
+    \item foundation-style baselines: TabICLv2 for tabular risk prediction and TabICLForecaster for the CGM prototype branch;
+    \item a stacking configuration built from strong tree and transformer-style components;
+    \item the proposed EchoCeption family.
+\end{itemize}
+
+\subsection{Feature Engineering and Clinical Ablation}
+The repository includes engineered interaction and non-linear features such as BMI-age interaction, glucose-to-HbA1c ratio, squared metabolic markers, and discrete clinical bins. To test clinical dependence explicitly, we perform a feature ablation in which HbA1c is removed from the 100k benchmark.
+
+\subsection{EchoCeption Family}
+The EchoCeption family is the main novel modeling idea in the repository. It combines:
+\begin{itemize}
+    \item a reservoir-style projection layer for high-dimensional non-linear expansion,
+    \item parallel multi-branch transformations that act as a tabular analogue of a multi-scale head,
+    \item a compact classifier trained with standard binary classification losses or a normalized hyperspherical prototype head.
+\end{itemize}
+
+Given input $x$, the reservoir projection computes a transformed state
+\begin{equation}
+h = \tanh(W_{in}x + W_{res}\tanh(W_{in}x)),
+\end{equation}
+after which the model processes $h$ with multiple branches and a final classifier. In the hyperspherical variant, the final representation is normalized and classified against learned class prototypes on the unit sphere. The aim is to capture rich feature interactions while keeping the architecture conceptually distinct from standard tabular transformers.
+
+\subsection{Prototype Digital-Twin Extensions}
+The broader repository also includes:
+\begin{itemize}
+    \item a Neural CDE pipeline for continuous glucose modeling,
+    \item a recommendation layer built from a food database and control heuristics,
+    \item a simulated RL controller,
+    \item a FastAPI plus frontend application prototype.
+\end{itemize}
+
+These modules are included as system extensions. They are not used as the main quantitative evidence in this paper because their evaluation protocols are still less mature than the tabular benchmark.
+
+\section{Results}
+
+\subsection{Diabetes Risk Prediction}
+Boosted tree ensembles produced the strongest and most consistent results across the tabular benchmarks. On the 100k diabetes prediction dataset, LightGBM achieved the best overall performance with an AUC of 0.9786, accuracy of 0.9710, and F1 score of 0.8056, followed closely by XGBoost with an AUC of 0.9773. The stacked ensemble remained competitive but did not exceed the best single boosted tree baseline (AUC 0.9743). On the smaller Pima benchmark, performance margins narrowed substantially, with the stacked ensemble reaching AUC 0.8143 and LightGBM reaching AUC 0.8131. This reduced separation is consistent with greater sensitivity to sample size in the low-data regime. Table~\ref{tab:main_benchmark} summarizes the main benchmark results, and Fig.~\ref{fig:top_100k_auc} visualizes the leading 100k models.
+
+\begin{table*}[t]
+\caption{Main diabetes risk prediction benchmark on the 100k and Pima datasets.}
+\label{tab:main_benchmark}
+\centering
+\small
+\begin{tabular}{llccc}
+\toprule
+\textbf{Dataset} & \textbf{Model} & \textbf{AUC} & \textbf{Accuracy} & \textbf{F1} \\
+\midrule
+100k & LightGBM & 0.9786 & 0.9710 & 0.8056 \\
+100k & XGBoost & 0.9773 & 0.9692 & 0.7967 \\
+100k & Stacked Ensemble & 0.9743 & 0.9640 & 0.7770 \\
+100k & Random Forest & 0.9670 & 0.9595 & 0.7569 \\
+100k & Attention-ResNet & 0.9587 & 0.9354 & 0.6658 \\
+\midrule
+Pima & Stacked Ensemble & 0.8143 & 0.7403 & 0.6429 \\
+Pima & LightGBM & 0.8131 & 0.7468 & 0.6486 \\
+Pima & Logistic Regression & 0.8115 & 0.7143 & 0.6207 \\
+Pima & SVM & 0.8115 & 0.7403 & 0.6491 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{results/plots/top_100k_model_auc.png}
+\caption{AUC comparison for the top-performing models on the 100k diabetes prediction benchmark.}
+\label{fig:top_100k_auc}
+\end{figure}
+
+\subsection{Reliability and Clinical Interpretability}
+The production XGBoost model showed strong reliability in addition to high discrimination. On the held-out production calibration split, it achieved an AUC of 0.9793, Brier score of 0.0222, and expected calibration error of 0.0013. APS conformal prediction achieved empirical coverage of 0.9001 at a nominal 90\% target, with singleton prediction sets in 92.72\% of cases. At the default threshold of 0.5, accuracy was 0.9729, precision was 0.9849, recall was 0.6918, specificity was 0.9990, and F1 score was 0.8127. The HbA1c ablation further demonstrated strong clinical dependence: in the production-style XGBoost analysis, the full-feature model achieved mean bootstrap AUC 0.9791, the no-HbA1c model achieved 0.9362, and the resulting AUC delta was 0.0430 (95\% CI, 0.0378--0.0485). These findings indicate that the leading risk model was both well calibrated and dependent on clinically meaningful glycaemic information. Table~\ref{tab:reliability} summarizes the reliability analysis, while Figs.~\ref{fig:calibration} and~\ref{fig:hba1c_ablation} show calibration behavior and the HbA1c ablation effect.
+
+\begin{table}[t]
+\caption{Reliability, uncertainty, and subgroup summary for the production XGBoost model.}
+\label{tab:reliability}
+\centering
+\small
+\begin{tabular}{lc}
+\toprule
+\textbf{Metric} & \textbf{Value} \\
+\midrule
+Production XGBoost AUC & 0.9793 \\
+95\% bootstrap CI & 0.9756--0.9823 \\
+Brier score & 0.0222 \\
+ECE & 0.0013 \\
+APS empirical coverage & 0.9001 \\
+APS singleton-set rate & 0.9272 \\
+HbA1c delta AUC & 0.0430 \\
+HbA1c delta 95\% CI & 0.0378--0.0485 \\
+Female subgroup AUC & 0.9794 \\
+Male subgroup AUC & 0.9785 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{results/plots/calibration_xgboost_100k.png}
+\caption{Calibration performance of the production XGBoost model on the held-out calibration split.}
+\label{fig:calibration}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{results/plots/hba1c_ablation_auc_drop.png}
+\caption{AUC reduction after removing HbA1c across the strongest 100k models.}
+\label{fig:hba1c_ablation}
+\end{figure}
+
+\subsection{Novel Architecture and Modern Baselines}
+In the dedicated EchoCeption benchmark, the focal-loss EchoCeptionNet achieved the highest AUC among the proposed variants at 0.9760, while the BCE version achieved the best F1 score at 0.7989. The hyperspherical EchoCeptionSphereNet remained highly competitive (AUC 0.9756, F1 0.7968), supporting the proposed architecture as a credible and novel neural alternative, although not superior to the best boosted tree baselines. In the dedicated modern-baseline comparison, TabICLv2 achieved the strongest tabular result with an AUC of 0.9804, exceeding LightGBM (0.9784) and XGBoost (0.9754). However, in the optimized out-of-fold benchmark, tuned XGBoost remained the best conventional model at AUC 0.9789, while the stacking ensemble achieved 0.9786. Together, these results show that modern foundation-style methods and the proposed EchoCeption family enrich the benchmark, but do not overturn the central conclusion that well-tuned tree ensembles remain exceptionally strong for structured diabetes risk prediction.
+
+\subsection{Prototype Digital-Twin Extensions}
+The forecasting and recommendation modules were evaluated as prototype extensions. Under the patient-level temporal holdout protocol, the Glucose LSTM achieved the strongest current forecasting result (MSE 56.88), outperforming ST-Attention LSTM (69.14), persistence (97.49), and TabICLForecaster (119.38). For dietary recommendation, the original heuristic recommender remained the strongest plausible baseline in the first ablation, while RL-only variants performed substantially worse.
+
+To move the recommendation branch closer to current system-design practice, we implemented a next-generation planner family combining guideline-constrained targeting, nutrient-graph regularization, and metabolic-state-aware reranking. The strongest new variant was the state-aware \emph{Guideline + twin} planner. Relative to the baseline full heuristic, it reduced calorie-target error from 159.19 kcal to 117.06 kcal, improved simulated reward from -2.29 to -2.16, and lowered mean final simulated glucose from 160.62 to 152.86 while preserving full meal coverage and meal-type consistency. The full graph-twin variant produced similar but slightly weaker results, indicating that metabolic-state awareness contributed more than graph regularization under the current food database. Table~\ref{tab:nextgen_recommender} summarizes the next-generation recommendation ablation, and Fig.~\ref{fig:nextgen_recommender} visualizes the trade-offs.
+
+\begin{table}[t]
+\caption{Next-generation recommendation ablation.}
+\label{tab:nextgen_recommender}
+\centering
+\small
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Variant} & \textbf{Mean GI} & \textbf{Calorie Error} & \textbf{Reward} & \textbf{Final Glucose} \\
+\midrule
+Full heuristic & 14.84 & 159.19 & -2.29 & 160.62 \\
+Guideline planner & 22.65 & 109.61 & -2.65 & 154.32 \\
+Guideline + graph & 22.75 & 110.15 & -2.64 & 154.30 \\
+Guideline + twin & 21.58 & 117.06 & -2.16 & 152.86 \\
+Graph-Twin planner & 22.02 & 117.83 & -2.22 & 153.06 \\
+RL policy only & 42.93 & 151.80 & -18.59 & 198.94 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{results/plots/recommender_nextgen_tradeoffs.png}
+\caption{Trade-offs among heuristic, guideline-based, graph-regularized, and state-aware dietary recommendation variants.}
+\label{fig:nextgen_recommender}
+\end{figure*}
+
+\section{Discussion}
+The project is strongest when framed as a benchmark-plus-prototype pipeline. The main empirical finding is that strong tree ensembles remain highly competitive for diabetes risk prediction on tabular data. The main modeling contribution is the EchoCeption family, which comes close to the best baseline performance while offering a distinct architectural idea. The main systems contribution is the prototype integration of risk prediction with forecasting, recommendation, and deployment layers.
+
+This framing also clarifies what should \emph{not} be overclaimed. The repository contains ambitious exploratory experiments, including a hyperscale neural run and a broader digital-twin stack. However, these components currently require tighter evaluation before they can support a strong claim of state-of-the-art clinical modeling or validated closed-loop metabolic control.
+
+\section{Limitations and Future Work}
+Several next steps would substantially strengthen the project:
+\begin{itemize}
+    \item extend uncertainty reporting from the current bootstrap and subgroup analyses to repeated-seed model reruns and formal model-comparison tests;
+    \item report threshold-specific sensitivity, specificity, PPV, and NPV for one clinically motivated operating point;
+    \item study APS abstention behavior and decision support pathways for empty prediction sets;
+    \item convert the current CGM prototype into a richer multi-horizon forecasting benchmark with stronger temporal covariates;
+    \item replace the simulated RL environment with patient-grounded or clinician-guided decision data;
+    \item validate the full pipeline on an external cohort.
+\end{itemize}
+
+\section{Conclusion}
+This repository supports a coherent paper once its contributions are ordered by maturity. The strongest validated contribution is a benchmark of diabetes risk models on tabular data, where boosted trees remain strong, TabICLv2 provides a valuable modern comparator, and the EchoCeption family emerges as a competitive novel architecture. APS conformal prediction adds a clinically meaningful reliability layer, while the broader metabolic digital-twin components remain valuable as prototype system extensions. Presented this way, the project offers a clear and defensible contribution: a strong risk-prediction benchmark, a new neural design worth further study, calibrated uncertainty reporting, and a modular path toward a richer diabetes support system.
+
+\end{document}

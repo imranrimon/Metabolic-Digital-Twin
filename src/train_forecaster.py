@@ -3,7 +3,11 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
 from shanghai_preprocess import get_shanghai_sequences
-import numpy as np
+
+from training_utils import ValidationCheckpoint, load_model_state, progress, split_dataset, update_progress
+
+
+CHECKPOINT_PATH = "f:/Diabetics Project/glucose_lstm.pth"
 
 class GlucoseLSTM(nn.Module):
     def __init__(self, input_dim=1, hidden_dim=64, num_layers=2, output_dim=1):
@@ -25,11 +29,10 @@ def train_forecaster():
     y = torch.FloatTensor(y)
     
     dataset = TensorDataset(X, y)
-    train_size = int(0.8 * len(dataset))
-    test_size = len(dataset) - train_size
-    train_dataset, test_dataset = torch.utils.data.random_split(dataset, [train_size, test_size])
+    train_dataset, val_dataset, test_dataset = split_dataset(dataset, train_fraction=0.7, val_fraction=0.15)
     
     train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
+    val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False)
     test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
     
     # 2. Model
@@ -37,11 +40,13 @@ def train_forecaster():
     model = GlucoseLSTM().to(device)
     criterion = nn.MSELoss()
     optimizer = optim.Adam(model.parameters(), lr=0.001)
+    checkpoint = ValidationCheckpoint(CHECKPOINT_PATH, metric_name="val_mse", mode="min")
     
     # 3. Training Loop
     epochs = 20
     print(f"Training on {device}...")
-    for epoch in range(epochs):
+    epoch_bar = progress(range(1, epochs + 1), desc="GlucoseLSTM epochs")
+    for epoch in epoch_bar:
         model.train()
         train_loss = 0
         for batch_x, batch_y in train_loader:
@@ -52,9 +57,26 @@ def train_forecaster():
             loss.backward()
             optimizer.step()
             train_loss += loss.item()
-            
-        if (epoch+1) % 5 == 0:
-            print(f"Epoch {epoch+1}/{epochs}, Loss: {train_loss/len(train_loader):.6f}")
+
+        model.eval()
+        val_loss = 0
+        with torch.no_grad():
+            for batch_x, batch_y in val_loader:
+                batch_x, batch_y = batch_x.to(device), batch_y.to(device)
+                outputs = model(batch_x)
+                val_loss += criterion(outputs, batch_y).item()
+
+        avg_train_loss = train_loss / len(train_loader)
+        avg_val_loss = val_loss / len(val_loader)
+        checkpoint.update(
+            model,
+            epoch,
+            avg_val_loss,
+            extra_metadata={"train_loss": avg_train_loss},
+        )
+        update_progress(epoch_bar, train_loss=avg_train_loss, val_loss=avg_val_loss)
+
+    load_model_state(model, CHECKPOINT_PATH, map_location=device)
             
     # 4. Evaluation
     model.eval()
@@ -65,11 +87,10 @@ def train_forecaster():
             outputs = model(batch_x)
             test_loss += criterion(outputs, batch_y).item()
             
+    print(f"Best validation MSE: {checkpoint.best_metric:.6f} at epoch {checkpoint.best_epoch}")
     print(f"Final Test MSE: {test_loss/len(test_loader):.6f}")
     
-    # Save model
-    torch.save(model.state_dict(), 'f:/Diabetics Project/glucose_lstm.pth')
-    print("Model saved to glucose_lstm.pth")
+    print(f"Model saved to {CHECKPOINT_PATH}")
 
 if __name__ == "__main__":
     # Ensure torch is installed

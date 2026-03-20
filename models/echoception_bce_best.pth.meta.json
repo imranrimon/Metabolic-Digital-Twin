@@ -1,0 +1,8 @@
+{
+  "path": "f:\\Diabetics Project\\models\\echoception_bce_best.pth",
+  "metric_name": "val_auc",
+  "mode": "max",
+  "best_metric": 0.9781280695288461,
+  "best_epoch": 18,
+  "train_loss": 0.08577475220184116
+}

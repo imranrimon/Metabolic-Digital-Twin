@@ -393,54 +393,32 @@ if __name__ == "__main__":
     print(f"Fusion forecast: {outputs['forecast'].shape}")  # (16, 1)
     print(f"Fusion diet: {outputs['diet'].shape}")  # (16, 5)
 
-class EchoCeptionNet(nn.Module):
+class EchoCeptionBackbone(nn.Module):
     """
-    EchoCeptionNet (Novel Architecture Invention)
-    Combines:
-    1. Echo State Network (ESN): Fixed random reservoir for high-dimensional projection
-    2. Inception Module: Multi-scale feature extraction (1x1, 3x3, 5x5 kernels)
-    3. Focal Loss compatibility: Specifically targeting Class Imbalance
+    Shared EchoCeption backbone used by both standard and hyperspherical heads.
     """
-    def __init__(self, input_dim: int, reservoir_dim: int = 128, output_dim: int = 1):
+    def __init__(self, input_dim: int, reservoir_dim: int = 128):
         super().__init__()
-        
-        # --- 1. Echo State Reservoir (Fixed, Random) ---
-        # Projects input to a higher dimensional "reservoir" state
-        # In classic ESN, these weights are fixed (not trained)
+
         self.reservoir_dim = reservoir_dim
         self.input_to_reservoir = nn.Linear(input_dim, reservoir_dim, bias=False)
         self.reservoir_recurrent = nn.Linear(reservoir_dim, reservoir_dim, bias=False)
-        
-        # Initialize with spectral radius control (essential for ESN)
+
         with torch.no_grad():
             nn.init.uniform_(self.input_to_reservoir.weight, -0.1, 0.1)
             nn.init.uniform_(self.reservoir_recurrent.weight, -0.1, 0.1)
-            # Ensure spectral radius < 1 for stability
             try:
                 u, s, v = torch.svd(self.reservoir_recurrent.weight)
                 self.reservoir_recurrent.weight.data = self.reservoir_recurrent.weight.data / (s[0] + 1e-5) * 0.9
             except:
-                # Fallback if SVD fails (rare but possible w/ outliers)
                 pass
-            
-        # Freeze reservoir (Classic ESN style) - or unfreeze for "Deep ESN"
-        # Let's make it learnable for modern "Deep Reservoir" capability
-        # self.input_to_reservoir.weight.requires_grad = False
-        # self.reservoir_recurrent.weight.requires_grad = False
-        
-        # --- 2. Inception-style Multi-Scale Block ---
-        # Processes the reservoir state at multiple resolutions
-        # Branch 1: 1x1 conv (via Linear for 1D)
+
         self.branch1 = nn.Linear(reservoir_dim, reservoir_dim // 4)
-        
-        # Branch 2: 3x1 "conv" equivalent
         self.branch2 = nn.Sequential(
              nn.Linear(reservoir_dim, reservoir_dim // 4),
              nn.ReLU(),
              nn.Linear(reservoir_dim // 4, reservoir_dim // 4)
         )
-        
-        # Branch 3: 5x1 "conv" equivalent
         self.branch3 = nn.Sequential(
              nn.Linear(reservoir_dim, reservoir_dim // 4),
              nn.ReLU(),
@@ -448,48 +426,109 @@ class EchoCeptionNet(nn.Module):
              nn.ReLU(),
              nn.Linear(reservoir_dim // 4, reservoir_dim // 4)
         )
-        
-        # Branch 4: Pooling equivalent
         self.branch4 = nn.Sequential(
             nn.Linear(reservoir_dim, reservoir_dim // 4)
         )
-        
+
         self.inception_out_dim = (reservoir_dim // 4) * 4
-        
-        # --- 3. Gated Attention & Output ---
-        self.attention = nn.Sequential(
-            nn.Linear(self.inception_out_dim, self.inception_out_dim // 2),
-            nn.Tanh(),
-            nn.Linear(self.inception_out_dim // 2, 1),
-            nn.Softmax(dim=1)
-        )
-        
-        self.classifier = nn.Sequential(
-            nn.Linear(self.inception_out_dim, 64),
-            nn.SiLU(),
-            nn.Dropout(0.2),
-            nn.Linear(64, output_dim)
-        )
-        
+
     def forward(self, x):
-        # x: (batch, input_dim)
-        
-        # 1. Reservoir Projection (Non-linear expansion)
-        # Tanh activation typical for ESN
-        res_state = torch.tanh(self.input_to_reservoir(x) + self.reservoir_recurrent(torch.tanh(self.input_to_reservoir(x))))
-        
-        # 2. Inception Multi-Scale Processing
+        res_state = torch.tanh(
+            self.input_to_reservoir(x) + self.reservoir_recurrent(torch.tanh(self.input_to_reservoir(x)))
+        )
+
         b1 = self.branch1(res_state)
         b2 = self.branch2(res_state)
         b3 = self.branch3(res_state)
         b4 = self.branch4(res_state)
-        
-        inception_features = torch.cat([b1, b2, b3, b4], dim=1)
-        
-        # 3. Classification
-        out = self.classifier(inception_features)
-        
-        return out
+        return torch.cat([b1, b2, b3, b4], dim=1)
+
+
+class EchoCeptionNet(nn.Module):
+    """
+    EchoCeptionNet with a standard logistic classification head.
+    """
+    def __init__(self, input_dim: int, reservoir_dim: int = 128, output_dim: int = 1):
+        super().__init__()
+        self.backbone = EchoCeptionBackbone(input_dim=input_dim, reservoir_dim=reservoir_dim)
+        self.classifier = nn.Sequential(
+            nn.Linear(self.backbone.inception_out_dim, 64),
+            nn.SiLU(),
+            nn.Dropout(0.2),
+            nn.Linear(64, output_dim)
+        )
+
+    def forward(self, x, return_features: bool = False):
+        features = self.backbone(x)
+        logits = self.classifier(features)
+        if return_features:
+            return {"logits": logits, "features": features}
+        return logits
+
+
+class HypersphericalPrototypeLoss(nn.Module):
+    """
+    Cosine-margin cross-entropy for normalized embeddings and class prototypes.
+    """
+    def __init__(self, scale: float = 16.0, margin: float = 0.1, label_smoothing: float = 0.0):
+        super().__init__()
+        self.scale = scale
+        self.margin = margin
+        self.label_smoothing = label_smoothing
+
+    def forward(self, cosine_logits: torch.Tensor, targets: torch.Tensor) -> torch.Tensor:
+        adjusted_logits = cosine_logits.clone()
+        batch_indices = torch.arange(targets.size(0), device=targets.device)
+        adjusted_logits[batch_indices, targets] -= self.margin
+        return F.cross_entropy(
+            adjusted_logits * self.scale,
+            targets,
+            label_smoothing=self.label_smoothing,
+        )
+
+
+class EchoCeptionSphereNet(nn.Module):
+    """
+    EchoCeption variant with a hyperspherical prototype classifier.
+
+    The model maps each sample to a normalized embedding and classifies it via
+    cosine similarity to normalized class prototypes on the unit sphere.
+    """
+    def __init__(
+        self,
+        input_dim: int,
+        reservoir_dim: int = 128,
+        embedding_dim: int = 32,
+        num_classes: int = 2,
+        scale: float = 16.0,
+    ):
+        super().__init__()
+        self.backbone = EchoCeptionBackbone(input_dim=input_dim, reservoir_dim=reservoir_dim)
+        self.embedding_head = nn.Sequential(
+            nn.Linear(self.backbone.inception_out_dim, 64),
+            nn.SiLU(),
+            nn.Dropout(0.2),
+            nn.Linear(64, embedding_dim),
+        )
+        self.class_prototypes = nn.Parameter(torch.randn(num_classes, embedding_dim))
+        self.scale = scale
+
+    def forward(self, x, return_details: bool = False):
+        features = self.backbone(x)
+        embedding = F.normalize(self.embedding_head(features), dim=-1)
+        prototypes = F.normalize(self.class_prototypes, dim=-1)
+        cosine_logits = embedding @ prototypes.t()
+        logits = cosine_logits * self.scale
+
+        if return_details:
+            return {
+                "logits": logits,
+                "cosine_logits": cosine_logits,
+                "embedding": embedding,
+                "prototypes": prototypes,
+                "features": features,
+            }
+        return logits
 
 class FocalLoss(nn.Module):
     """

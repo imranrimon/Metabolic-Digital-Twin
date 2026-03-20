@@ -19,6 +19,8 @@ from preprocess import get_processed_data
 from models import AttentionResNetRisk
 from ppgr_model import PPGRModel
 
+os.environ.setdefault("LOKY_MAX_CPU_COUNT", str(os.cpu_count() or 1))
+
 class ExperimentOrchestrator:
     def __init__(self, results_dir='f:/Diabetics Project/results'):
         self.results_dir = results_dir
@@ -161,13 +163,13 @@ class ExperimentOrchestrator:
                 
                 # 2. Proposed
                 self.run_sklearn_model(RandomForestClassifier(n_estimators=100), "Random Forest", xtr, xte, ytr, yte, ds_name, cfg_name)
-                self.run_sklearn_model(XGBClassifier(use_label_encoder=False, eval_metric='logloss'), "XGBoost", xtr, xte, ytr, yte, ds_name, cfg_name)
+                self.run_sklearn_model(XGBClassifier(eval_metric='logloss'), "XGBoost", xtr, xte, ytr, yte, ds_name, cfg_name)
                 self.run_sklearn_model(LGBMClassifier(verbose=-1), "LightGBM", xtr, xte, ytr, yte, ds_name, cfg_name)
                 
                 # 3. Stacked
                 estimators = [
                     ('rf', RandomForestClassifier(n_estimators=50)),
-                    ('xgb', XGBClassifier(use_label_encoder=False, eval_metric='logloss'))
+                    ('xgb', XGBClassifier(eval_metric='logloss'))
                 ]
                 stack = StackingClassifier(estimators=estimators, final_estimator=LogisticRegression())
                 self.run_sklearn_model(stack, "Stacked Ensemble (RF+XGB)", xtr, xte, ytr, yte, ds_name, cfg_name)

@@ -1,0 +1,8 @@
+{
+  "path": "f:\\Diabetics Project\\models\\glucose_lstm_temporal_holdout.pth",
+  "metric_name": "val_mse",
+  "mode": "min",
+  "best_metric": 0.0003397636940986407,
+  "best_epoch": 10,
+  "train_loss": 0.0004277503124000366
+}
